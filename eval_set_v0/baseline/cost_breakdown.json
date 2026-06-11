@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-06-08T00:46:39",
+  "total_cost_cny": 0.1933025,
+  "budget_estimate_cny": 0.9,
+  "budget_limit_cny": 1.2,
+  "chapters": {
+    "T1": {
+      "word_count": 5004,
+      "cost_cny": 0.0607525,
+      "elapsed_seconds": 173.43606305122375,
+      "stage_latencies": {
+        "architect": 36.80121922492981,
+        "writer": 94.85853123664856,
+        "wordguard": 0.0010013580322265625,
+        "editor": 17.034303665161133
+      }
+    },
+    "T2": {
+      "word_count": 6325,
+      "cost_cny": 0.060701000000000005,
+      "elapsed_seconds": 366.5748472213745,
+      "stage_latencies": {
+        "architect": 28.05583429336548,
+        "writer": 68.54752492904663,
+        "writer_continuation": 52.06573462486267,
+        "wordguard": 0.0,
+        "editor": 180.65869760513306
+      }
+    },
+    "T3": {
+      "word_count": 7960,
+      "cost_cny": 0.071849,
+      "elapsed_seconds": 376.5253505706787,
+      "stage_latencies": {
+        "architect": 28.1948299407959,
+        "writer": 70.78185558319092,
+        "writer_continuation": 78.03058505058289,
+        "wordguard": 0.0015606880187988281,
+        "editor": 141.42543053627014
+      }
+    }
+  },
+  "boundary_events": []
+}

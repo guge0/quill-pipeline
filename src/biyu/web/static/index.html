@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>笔驭 BiYu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <aside id="sidebar">
+            <h1>笔驭 BiYu</h1>
+            <div id="book-selector">
+                <select id="book-list"></select>
+            </div>
+            <div id="chapter-list"></div>
+            <div id="sidebar-actions">
+                <button id="btn-auto" onclick="startAutoGenerate()">批量生成</button>
+                <button id="btn-refresh-all" onclick="refreshAll()">刷新列表</button>
+            </div>
+        </aside>
+        <main id="main">
+            <div id="welcome" class="panel">
+                <h2>欢迎使用笔驭</h2>
+                <p>选择一本书开始</p>
+            </div>
+            <div id="editor" class="panel" style="display:none">
+                <div id="editor-header">
+                    <h2 id="editor-title"></h2>
+                    <div id="editor-actions">
+                        <button id="btn-save-outline" onclick="saveOutline()">保存大纲</button>
+                        <button id="btn-generate" onclick="generateChapter()">生成</button>
+                        <button id="btn-check" onclick="checkChapter()">一致性检查</button>
+                        <button id="btn-refresh" onclick="refreshChapter()">刷新设定</button>
+                    </div>
+                </div>
+                <div id="editor-tabs">
+                    <button class="tab active" data-tab="outline" onclick="switchTab('outline')">大纲</button>
+                    <button class="tab" data-tab="content" onclick="switchTab('content')">正文</button>
+                    <button class="tab" data-tab="meta" onclick="switchTab('meta')">元数据</button>
+                </div>
+                <div id="tab-outline" class="tab-content active">
+                    <textarea id="outline-text" placeholder="在此编写大纲..."></textarea>
+                </div>
+                <div id="tab-content" class="tab-content">
+                    <div id="content-display"></div>
+                </div>
+                <div id="tab-meta" class="tab-content">
+                    <pre id="meta-display"></pre>
+                </div>
+            </div>
+            <div id="progress-panel" style="display:none">
+                <h3>生成进度</h3>
+                <div id="progress-log"></div>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

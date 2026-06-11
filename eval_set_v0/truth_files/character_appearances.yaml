@@ -1,0 +1,3 @@
+# character_appearances.yaml
+江叙白: { appearances: [ { chapter: T0, type: focus, summary: "接受苏蔓委托" } ] }
+苏蔓: { appearances: [ { chapter: T0, type: scene, summary: "委托并交付材料" } ] }

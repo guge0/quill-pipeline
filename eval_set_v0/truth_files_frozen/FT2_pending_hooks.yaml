@@ -1,0 +1,3 @@
+# FT2_pending_hooks 增量:
+hooks:
+  - { id: hook-005, desc: "茶餐厅外雨中黑伞人", status: open, from_chapter: T2 }

@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-06-10 22:48:31",
+  "purpose": "Targeted Phase 2 re-run for stale v1 combos",
+  "stale_combos": [
+    {
+      "chapter": 2,
+      "agent": "A",
+      "old_v1_issues": 0,
+      "corrected_v1_issues": 7
+    },
+    {
+      "chapter": 3,
+      "agent": "B",
+      "old_v1_issues": 0,
+      "corrected_v1_issues": 3
+    }
+  ],
+  "total_cost": 0.0185885,
+  "calls": [
+    {
+      "call": "targeted_call001.json",
+      "cost": 0.012544000000000001
+    },
+    {
+      "call": "targeted_call002.json",
+      "cost": 0.0060444999999999995
+    }
+  ]
+}

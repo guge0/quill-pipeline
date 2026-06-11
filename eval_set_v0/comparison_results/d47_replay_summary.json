@@ -1,0 +1,503 @@
+{
+  "single": {
+    "1": {
+      "calls_in_chapter": 3,
+      "final_call": "single_call003.json",
+      "content_chars": 2749,
+      "issues_recovered": 4,
+      "issues": [
+        {
+          "type": "视角穿帮",
+          "line": 68,
+          "severity": "high",
+          "quote_preview": "他感觉得到，聂守仁内心深处并不想让他拿走这把钥匙，只是在履行一个多年前许下的承诺。"
+        },
+        {
+          "type": "视角穿帮",
+          "line": 161,
+          "severity": "high",
+          "quote_preview": "'还有个情况，'何沛翻了一页纸，'江湾区路口监控的比对结果出来了。'"
+        },
+        {
+          "type": "逻辑漏洞",
+          "line": 196,
+          "severity": "medium",
+          "quote_preview": "握紧钥匙的那一刻，何沛电话里的话再次响起。"
+        },
+        {
+          "type": "逻辑漏洞",
+          "line": 25,
+          "severity": "low",
+          "quote_preview": "今晚有雨。"
+        }
+      ],
+      "parse_errors": []
+    },
+    "2": {
+      "calls_in_chapter": 5,
+      "final_call": "single_call008.json",
+      "content_chars": 2018,
+      "issues_recovered": 2,
+      "issues": [
+        {
+          "type": "跨章一致性",
+          "line": 63,
+          "severity": "high",
+          "quote_preview": "苏皓，二十三岁，物流公司临时工，一月十六号晚上失踪，穿灰色连帽衫，对室友说去取个东西。"
+        },
+        {
+          "type": "跨章一致性",
+          "line": 63,
+          "severity": "medium",
+          "quote_preview": "苏皓，二十三岁"
+        }
+      ],
+      "parse_errors": [
+        "幻觉过滤: type=逻辑漏洞, quote='王思睿失踪那天晚上，穿的是灰色连帽衫。她对室友说，去取个东西...' 不在原文中",
+        "幻觉过滤: type=逻辑漏洞, quote='你在查他。你查的人，我都会知道。...' 不在原文中"
+      ]
+    },
+    "3": {
+      "calls_in_chapter": 4,
+      "final_call": "single_call012.json",
+      "content_chars": 1528,
+      "issues_recovered": 3,
+      "issues": [
+        {
+          "type": "跨章一致性",
+          "line": 38,
+          "severity": "high",
+          "quote_preview": "老覃今年五十八，在档案馆待了三十二年。"
+        },
+        {
+          "type": "视角穿帮",
+          "line": 55,
+          "severity": "high",
+          "quote_preview": "但既然现在出现了四个'取件'——二十年前旧账里的那页，可能就不是废纸了。"
+        },
+        {
+          "type": "逻辑漏洞",
+          "line": 280,
+          "severity": "medium",
+          "quote_preview": "江叙白把档案袋重新放回推车上"
+        }
+      ],
+      "parse_errors": [
+        "JSON 修复成功（原文本有格式问题，已自动修复）"
+      ]
+    }
+  },
+  "multi_phase1": {
+    "1": {
+      "phase1_by_agent": {
+        "A": {
+          "call": "multi_call009.json",
+          "calls_in_phase": 2,
+          "content_chars": 810,
+          "issues_parsed": 3,
+          "issues": [
+            {
+              "id": "A-1",
+              "type": "rhythm",
+              "paragraph": 78,
+              "severity": "medium",
+              "keyword_preview": "他感觉得到"
+            },
+            {
+              "id": "A-2",
+              "type": "rhythm",
+              "paragraph": 112,
+              "severity": "low",
+              "keyword_preview": "白手套在灯光下泛着"
+            },
+            {
+              "id": "A-3",
+              "type": "hook",
+              "paragraph": 162,
+              "severity": "medium",
+              "keyword_preview": "沉箱所用"
+            }
+          ]
+        },
+        "B": {
+          "call": "multi_call004.json",
+          "calls_in_phase": 2,
+          "content_chars": 2223,
+          "issues_parsed": 4,
+          "issues": [
+            {
+              "id": "B-1",
+              "type": "persona",
+              "paragraph": 68,
+              "severity": "medium",
+              "keyword_preview": "他感觉得到，聂守仁内心深处并不想让他拿走这把钥匙，只是在履行一个多年前许下的承诺"
+            },
+            {
+              "id": "B-2",
+              "type": "personality_anchor",
+              "paragraph": 55,
+              "severity": "medium",
+              "keyword_preview": "守拙斋对话全程"
+            },
+            {
+              "id": "B-3",
+              "type": "dialogue_id",
+              "paragraph": 9,
+              "severity": "low",
+              "keyword_preview": "找人/怎么说/去了/好"
+            },
+            {
+              "id": "B-4",
+              "type": "persona",
+              "paragraph": 92,
+              "severity": "low",
+              "keyword_preview": "覆盖的录像有多少帧/一秒二十五帧，四十一分钟。一秒不少，一秒不多"
+            }
+          ]
+        },
+        "C": {
+          "call": "multi_call008.json",
+          "calls_in_phase": 5,
+          "content_chars": 1089,
+          "issues_parsed": 3,
+          "issues": [
+            {
+              "id": "C-1",
+              "type": "naming",
+              "paragraph": 47,
+              "severity": "medium",
+              "keyword_preview": "聂守仁"
+            },
+            {
+              "id": "C-2",
+              "type": "facts",
+              "paragraph": 75,
+              "severity": "medium",
+              "keyword_preview": "一件/三件"
+            },
+            {
+              "id": "C-3",
+              "type": "cross_chapter",
+              "paragraph": 82,
+              "severity": "low",
+              "keyword_preview": "勿配"
+            }
+          ]
+        }
+      },
+      "phase2_by_agent": {
+        "A": {
+          "call": "multi_call010.json",
+          "calls_in_phase": 1,
+          "content_chars": 1433,
+          "issues_parsed": 3,
+          "reasoning_mentions_empty_v1": false
+        },
+        "B": {
+          "call": "multi_call011.json",
+          "calls_in_phase": 1,
+          "content_chars": 2402,
+          "issues_parsed": 4,
+          "reasoning_mentions_empty_v1": true
+        },
+        "C": {
+          "call": "multi_call012.json",
+          "calls_in_phase": 1,
+          "content_chars": 1523,
+          "issues_parsed": 3,
+          "reasoning_mentions_empty_v1": false
+        }
+      },
+      "phase2_empty_v1_impact": []
+    },
+    "2": {
+      "phase1_by_agent": {
+        "A": {
+          "call": "multi_call021.json",
+          "calls_in_phase": 2,
+          "content_chars": 2935,
+          "issues_parsed": 7,
+          "issues": [
+            {
+              "id": "A-1",
+              "type": "rhythm",
+              "paragraph": 3,
+              "severity": "medium",
+              "keyword_preview": "失踪者档案连续堆砌"
+            },
+            {
+              "id": "A-2",
+              "type": "dialogue_ratio",
+              "paragraph": 1,
+              "severity": "medium",
+              "keyword_preview": "前半章纯叙述"
+            },
+            {
+              "id": "A-3",
+              "type": "ai_smell",
+              "paragraph": 40,
+              "severity": "medium",
+              "keyword_preview": "像一盏忘记点亮的旧路灯"
+            },
+            {
+              "id": "A-4",
+              "type": "ai_smell",
+              "paragraph": 19,
+              "severity": "low",
+              "keyword_preview": "雨声渗进来把空白填满"
+            },
+            {
+              "id": "A-5",
+              "type": "rhythm",
+              "paragraph": 42,
+              "severity": "medium",
+              "keyword_preview": "黑伞追踪段落拖沓"
+            },
+            {
+              "id": "A-6",
+              "type": "hook",
+              "paragraph": 1,
+              "severity": "low",
+              "keyword_preview": "章节开篇偏平"
+            },
+            {
+              "id": "A-7",
+              "type": "rhythm",
+              "paragraph": 53,
+              "severity": "low",
+              "keyword_preview": "章凝出场前的过渡段落"
+            }
+          ]
+        },
+        "B": {
+          "call": "multi_call022.json",
+          "calls_in_phase": 4,
+          "content_chars": 2030,
+          "issues_parsed": 4,
+          "issues": [
+            {
+              "id": "B-1",
+              "type": "symbol_overuse",
+              "paragraph": 35,
+              "severity": "medium",
+              "keyword_preview": "左肩/右肩旧伤"
+            },
+            {
+              "id": "B-2",
+              "type": "personality_anchor",
+              "paragraph": 3,
+              "severity": "low",
+              "keyword_preview": "长段数据分析"
+            },
+            {
+              "id": "B-3",
+              "type": "dialogue_id",
+              "paragraph": 70,
+              "severity": "low",
+              "keyword_preview": "章凝/苏蔓语风趋同"
+            },
+            {
+              "id": "B-4",
+              "type": "persona",
+              "paragraph": 68,
+              "severity": "low",
+              "keyword_preview": "章凝无角色卡"
+            }
+          ]
+        },
+        "C": {
+          "call": "multi_call023.json",
+          "calls_in_phase": 5,
+          "content_chars": 1097,
+          "issues_parsed": 3,
+          "issues": [
+            {
+              "id": "C-1",
+              "type": "cross_chapter",
+              "paragraph": 16,
+              "severity": "high",
+              "keyword_preview": "苏皓失踪日期"
+            },
+            {
+              "id": "C-2",
+              "type": "cross_chapter",
+              "paragraph": 16,
+              "severity": "medium",
+              "keyword_preview": "取个东西/很快回来"
+            },
+            {
+              "id": "C-3",
+              "type": "hooks_audit",
+              "paragraph": 60,
+              "severity": "low",
+              "keyword_preview": "信封里的四个名字"
+            }
+          ]
+        }
+      },
+      "phase2_by_agent": {
+        "A": {
+          "call": "multi_call024.json",
+          "calls_in_phase": 1,
+          "content_chars": 18,
+          "issues_parsed": 0,
+          "reasoning_mentions_empty_v1": true
+        },
+        "B": {
+          "call": "multi_call025.json",
+          "calls_in_phase": 1,
+          "content_chars": 2242,
+          "issues_parsed": 4,
+          "reasoning_mentions_empty_v1": true
+        },
+        "C": {
+          "call": "multi_call026.json",
+          "calls_in_phase": 1,
+          "content_chars": 1552,
+          "issues_parsed": 3,
+          "reasoning_mentions_empty_v1": true
+        }
+      },
+      "phase2_empty_v1_impact": [
+        {
+          "agent": "A",
+          "phase1_issues": 7,
+          "phase2_issues": 0,
+          "phase2_call": "multi_call024.json",
+          "diagnosis": "Phase1 had issues but Phase2 emitted 0 — Phase2 was fed empty v1 due to old parser cap"
+        }
+      ]
+    },
+    "3": {
+      "phase1_by_agent": {
+        "A": {
+          "call": "multi_call036.json",
+          "calls_in_phase": 2,
+          "content_chars": 531,
+          "issues_parsed": 2,
+          "issues": [
+            {
+              "id": "A-1",
+              "type": "rhythm",
+              "paragraph": 1,
+              "severity": "medium",
+              "keyword_preview": "雨是从凌晨三点开始下的"
+            },
+            {
+              "id": "A-2",
+              "type": "hook",
+              "paragraph": 1,
+              "severity": "medium",
+              "keyword_preview": "到下午三点约定碰头的时间"
+            }
+          ]
+        },
+        "B": {
+          "call": "multi_call033.json",
+          "calls_in_phase": 4,
+          "content_chars": 1027,
+          "issues_parsed": 3,
+          "issues": [
+            {
+              "id": "B-1",
+              "type": "persona",
+              "paragraph": 28,
+              "severity": "high",
+              "keyword_preview": "三十二年 / 二十三年"
+            },
+            {
+              "id": "B-2",
+              "type": "symbol_overuse",
+              "paragraph": 5,
+              "severity": "medium",
+              "keyword_preview": "左肩旧伤"
+            },
+            {
+              "id": "B-3",
+              "type": "symbol_overuse",
+              "paragraph": 46,
+              "severity": "low",
+              "keyword_preview": "烟 / 磕了磕"
+            }
+          ]
+        },
+        "C": {
+          "call": "multi_call037.json",
+          "calls_in_phase": 5,
+          "content_chars": 1540,
+          "issues_parsed": 5,
+          "issues": [
+            {
+              "id": "C-1",
+              "type": "cross_chapter",
+              "paragraph": 32,
+              "severity": "high",
+              "keyword_preview": "三十二年/二十三年"
+            },
+            {
+              "id": "C-2",
+              "type": "naming",
+              "paragraph": 7,
+              "severity": "high",
+              "keyword_preview": "A-131/A-113"
+            },
+            {
+              "id": "C-3",
+              "type": "forbidden",
+              "paragraph": 48,
+              "severity": "medium",
+              "keyword_preview": "聂守仁/沉箱案"
+            },
+            {
+              "id": "C-4",
+              "type": "cross_chapter",
+              "paragraph": 24,
+              "severity": "low",
+              "keyword_preview": "黄铜钥匙/编号"
+            },
+            {
+              "id": "C-5",
+              "type": "cross_chapter",
+              "paragraph": 50,
+              "severity": "low",
+              "keyword_preview": "苏蔓/茶餐厅/雨中"
+            }
+          ]
+        }
+      },
+      "phase2_by_agent": {
+        "A": {
+          "call": "multi_call038.json",
+          "calls_in_phase": 1,
+          "content_chars": 837,
+          "issues_parsed": 2,
+          "reasoning_mentions_empty_v1": true
+        },
+        "B": {
+          "call": "multi_call039.json",
+          "calls_in_phase": 1,
+          "content_chars": 18,
+          "issues_parsed": 0,
+          "reasoning_mentions_empty_v1": true
+        },
+        "C": {
+          "call": "multi_call040.json",
+          "calls_in_phase": 1,
+          "content_chars": 2293,
+          "issues_parsed": 5,
+          "reasoning_mentions_empty_v1": true
+        }
+      },
+      "phase2_empty_v1_impact": [
+        {
+          "agent": "B",
+          "phase1_issues": 3,
+          "phase2_issues": 0,
+          "phase2_call": "multi_call039.json",
+          "diagnosis": "Phase1 had issues but Phase2 emitted 0 — Phase2 was fed empty v1 due to old parser cap"
+        }
+      ]
+    }
+  },
+  "note": "Phase 2 of multi mode was fed the wrong v1 (empty) when Phase 1 extraction failed pre-fix. Replaying Phase 1 gives correct v1, but Phase 2 captures are based on wrong input. Recovering multi-mode v2 / merge results requires a paid Phase 2 re-run."
+}

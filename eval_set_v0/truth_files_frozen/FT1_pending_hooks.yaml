@@ -1,0 +1,5 @@
+# FT1_pending_hooks.yaml
+hooks:
+  - { id: hook-001, desc: "苏皓最后通话对象是谁", status: advancing, note: "T1 何沛确认卷宗异常" }
+  - { id: hook-003, desc: "钥匙柄第二行小字内容", status: open, from_chapter: T1 }
+  - { id: hook-004, desc: "聂守仁的黑色手套", status: open, from_chapter: T1 }

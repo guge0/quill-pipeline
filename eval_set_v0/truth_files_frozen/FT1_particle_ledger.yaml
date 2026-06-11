@@ -1,0 +1,4 @@
+# FT1_particle_ledger.yaml
+clues:
+  - { id: clue-003, name: "07号黄铜钥匙(柄内侧有第二行小字,未揭示)", status: "已获" }
+  - { id: clue-004, name: "守拙斋门口录像缺失四十一分钟", status: "已获" }

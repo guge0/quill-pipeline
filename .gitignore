@@ -1,0 +1,38 @@
+# === 黑名单 (02_开源镜像规范 §3) ===
+# 真实 key / token / .env
+.env
+.env.*
+*.key
+*.pem
+**/secrets.*
+
+# 现书全部产出
+data/
+outputs/
+
+# docs 与报表
+docs/
+
+# 个人信息
+*.lnk
+*.zip
+
+# 本机路径配置 (只用 .example)
+config/models.yaml
+config/*.yaml
+!config/*.yaml.example
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+

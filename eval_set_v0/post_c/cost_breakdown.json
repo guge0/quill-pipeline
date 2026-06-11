@@ -1,0 +1,107 @@
+{
+  "timestamp": "2026-06-08T02:01:48",
+  "total_cost_cny": 0.3815779999999999,
+  "budget_estimate_cny": 0.49,
+  "budget_limit_cny": 0.8,
+  "runs": [
+    {
+      "chapter": "T1",
+      "run": 1,
+      "word_count": 6286,
+      "cost_cny": 0.056353499999999994,
+      "elapsed_seconds": 232.37435865402222,
+      "stage_latencies": {
+        "architect": 19.314764976501465,
+        "writer": 97.18005013465881,
+        "wordguard": 0.0010271072387695312,
+        "editor": 83.12274956703186
+      }
+    },
+    {
+      "chapter": "T2",
+      "run": 1,
+      "word_count": 4571,
+      "cost_cny": 0.058387499999999995,
+      "elapsed_seconds": 255.18858313560486,
+      "stage_latencies": {
+        "architect": 20.086047887802124,
+        "writer": 71.62059044837952,
+        "wordguard": 0.0,
+        "editor": 81.76637935638428
+      }
+    },
+    {
+      "chapter": "T3",
+      "run": 1,
+      "word_count": 5235,
+      "cost_cny": 0.072937,
+      "elapsed_seconds": 314.9918146133423,
+      "stage_latencies": {
+        "architect": 26.85052990913391,
+        "writer": 63.9935736656189,
+        "writer_continuation": 34.469282388687134,
+        "wordguard": 0.001947164535522461,
+        "editor": 126.06859707832336
+      }
+    },
+    {
+      "chapter": "T1",
+      "run": 2,
+      "word_count": 7463,
+      "cost_cny": 0.062857,
+      "elapsed_seconds": 270.12833881378174,
+      "stage_latencies": {
+        "architect": 26.952410221099854,
+        "writer": 117.58491897583008,
+        "wordguard": 0.0014295578002929688,
+        "editor": 103.04967474937439
+      }
+    },
+    {
+      "chapter": "T2",
+      "run": 2,
+      "word_count": 6248,
+      "cost_cny": 0.065302,
+      "elapsed_seconds": 306.7917151451111,
+      "stage_latencies": {
+        "architect": 29.32573366165161,
+        "writer": 49.685153007507324,
+        "writer_continuation": 50.56043076515198,
+        "wordguard": 0.00099945068359375,
+        "editor": 143.97777009010315
+      }
+    },
+    {
+      "chapter": "T3",
+      "run": 2,
+      "word_count": 5834,
+      "cost_cny": 0.065741,
+      "elapsed_seconds": 282.9860601425171,
+      "stage_latencies": {
+        "architect": 20.547065019607544,
+        "writer": 60.755722999572754,
+        "writer_continuation": 41.662445068359375,
+        "wordguard": 0.0010683536529541016,
+        "editor": 97.13025403022766
+      }
+    }
+  ],
+  "boundary_events": [
+    {
+      "type": "WARNING",
+      "detail": "Editor 标记需审查: 逻辑漏洞, 逻辑漏洞, 逻辑漏洞"
+    },
+    {
+      "type": "WARNING",
+      "detail": "Editor 标记需审查: 逻辑漏洞, 逻辑漏洞, 逻辑漏洞"
+    },
+    {
+      "type": "WARNING",
+      "detail": "Editor 标记需审查: 视角穿帮, 视角穿帮, 跨章一致性"
+    },
+    {
+      "type": "WARNING",
+      "detail": "Editor 标记需审查: 逻辑漏洞, 跨章一致性"
+    }
+  ]
+}

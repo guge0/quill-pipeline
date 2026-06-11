@@ -1,0 +1,41 @@
+```json
+{
+  "issues": [
+    {
+      "line": 62,
+      "quote": "A-131",
+      "quoted_text": "'A-131,'他把调阅函还给何沛，转身往走廊更深处的一扇铁门走，'在恒温间最里面的架子上。你们在这等。'",
+      "type": "字面伪影",
+      "subtype": null,
+      "explanation": "全章所有其他地方卷宗编号均为A-113（第1章和第3章其他段落均确认），老覃读出的'A-131'与调阅函上的编号和上下文矛盾，应为笔误",
+      "fix_suggestion": "replace_with: 'A-113'",
+      "auto_fixable": true,
+      "severity": "high"
+    },
+    {
+      "line": 152,
+      "quote": "附件清单上列着七项，"黄铜钥匙（沉箱所用）"是第五项",
+      "quoted_text": "附件清单上列着七项，"黄铜钥匙（沉箱所用）"是第五项，后面用钢笔批注了四个字：下落不明。",
+      "type": "跨章一致性",
+      "subtype": null,
+      "explanation": "第1章中何沛明确说'A-113卷宗的附件清单里，有三件证物至今下落不明，其中编号第三项的是一把黄铜钥匙'（见第1章末），本章却说黄铜钥匙是第五项，编号矛盾",
+      "fix_suggestion": "将本章'第五项'统一改为'第三项'，与第1章何沛的陈述保持一致；或反过来修改第1章，但需统一编号并检查后续是否有其他章节引用该编号",
+      "auto_fixable": false,
+      "severity": "high"
+    },
+    {
+      "line": 58,
+      "quote": "老覃今年五十八，在档案馆待了三十二年。",
+      "quoted_text": "老覃今年五十八，在档案馆待了三十二年。他验调阅函的方式像验钞。",
+      "type": "逻辑漏洞",
+      "subtype": null,
+      "explanation": "前述叙述称老覃在档案馆待了三十二年（58岁，约26岁入职），后文老覃自述'我在这座档案馆待了二十三年'（第260行），同一章内工龄数据前后矛盾，差九年",
+      "fix_suggestion": "统一老覃的工龄数据：若取三十二年则删除自述'二十三年'；若取二十三年则修改叙述中的'三十二年'为'二十三年'并相应调整入职年龄推算。建议与老覃人物小传确认后统一",
+      "auto_fixable": false,
+      "severity": "medium"
+    }
+  ],
+  "queries_used": ["look_up_history(chapter_or_keyword='1')", "look_up_history(chapter_or_keyword='守拙斋')", "look_up_history(chapter_or_keyword='聂守仁')", "look_up_history(chapter_or_keyword='2')"],
+  "confidence": "high"
+}
+```

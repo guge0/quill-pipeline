@@ -1,0 +1,82 @@
+# 笔驭 LLM 模型配置
+# 基于 PM2-11 决策:三段式编排方案
+# GLM-4.6 和 Doubao-1.6 因质量原因从主流程移除
+
+models:
+
+  # === 阶段1:规划 & 一致性检查(推理模型) ===
+  deepseek-r1:
+    provider: deepseek
+    api_key: "在此填入 DeepSeek API Key"
+    base_url: "https://api.deepseek.com/v1"
+    model_name: "deepseek-reasoner"
+    max_tokens: 8000
+    cost_per_1k_input: 0.004
+    cost_per_1k_output: 0.016
+    # 用途:本章规划清单、一致性约束识别、爽点位置建议
+    # 优势:逻辑一致性强、推理过程透明、强约束任务稳健
+    # 温度:默认(不允许调)
+
+  # === 阶段2:骨架生成(主力产出) ===
+  deepseek-v3:
+    provider: deepseek
+    api_key: "在此填入 DeepSeek API Key"
+    base_url: "https://api.deepseek.com/v1"
+    model_name: "deepseek-chat"
+    max_tokens: 8000
+    cost_per_1k_input: 0.002
+    cost_per_1k_output: 0.008
+    # 用途:按 R1 规划生成全章正文
+    # 优势:结构意识强、字数控制最好、钩子设计成熟
+    # 推荐温度:0.8
+
+  # === 阶段3:关键段落润色(手术刀式增强) ===
+  kimi-k2.5:
+    provider: kimi
+    api_key: "在此填入 Kimi API Key"
+    base_url: "https://api.moonshot.cn/v1"
+    model_name: "kimi-k2.5"
+    max_tokens: 8000
+    cost_per_1k_input: 0.004
+    cost_per_1k_output: 0.021
+    # 用途:仅润色开篇 300 字 + 1-2 句关键台词
+    # 优势:文笔密度、记忆点台词、情感深度
+    # 风险:字数超标、指令合规差(已通过"限定润色范围"规避)
+    # 推荐温度:0.7
+    # 特例:temperature=0 时 n>1 不允许(adapter 层已处理)
+
+  # === Embedding(Phase 2 再评估是否替换) ===
+  glm-embedding-3:
+    provider: glm
+    api_key: "在此填入 GLM API Key"
+    base_url: "https://open.bigmodel.cn/api/paas/v4"
+    model_name: "embedding-3"
+    type: embedding
+    dimensions: 2048
+    # 注:GLM-4.6 主流程已移除,但 embedding 模型还保留,Phase 2 有 RAG 需求时再评估
+
+# === 路由配置 ===
+# 按照 PM2-11 三段式编排设计
+routing:
+  # 阶段1:规划
+  planning: deepseek-r1
+  consistency_check: deepseek-r1
+
+  # 阶段2:骨架生成(主力)
+  chapter_generate: deepseek-v3
+  chapter_expand: deepseek-v3
+  chapter_skeleton: deepseek-v3
+
+  # 阶段3:润色(仅关键段落)
+  key_segment_polish: kimi-k2.5
+  opening_polish: kimi-k2.5
+  dialogue_polish: kimi-k2.5
+
+  # 其他
+  embedding: glm-embedding-3
+
+# === 从主流程移除的模型(保留 API Key 账户,不在笔驭里用) ===
+# - GLM-4.6:5测试0胜率,"仿佛"依赖症、字数爆炸、开场套路化
+# - Doubao-1.6:5测试0胜率,结尾自评污染、内容密度最低
+# - MiniMax:Coding Plan 不允许非编程工具调用
+# 详见 PM2-11 决策记录

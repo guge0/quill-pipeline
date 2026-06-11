@@ -1,0 +1,31 @@
+{
+  "url": "https://api.deepseek.com/v1/chat/completions",
+  "model": "deepseek-v4-pro",
+  "messages_count": 4,
+  "temperature": 0.8,
+  "max_tokens": 16384,
+  "stream": false,
+  "has_tools": false,
+  "messages": [
+    {
+      "role": "system",
+      "content_length": 141,
+      "content_first_300": "你是中文网文作者,本作品定位见 Layer 2 中的 worldbook.narrative_anchors。\n你的工作:按照 user prompt 中的 Layer 2 信息和 Layer 1+3 约束,生成本章正文。\n只输出正文,不输出元信息(章节标题、字数统计、风格说明)。"
+    },
+    {
+      "role": "user",
+      "content_length": 1539,
+      "content_first_300": "【Layer 2 信息上下文 - 写作时参考】\n\n你拿到的不是事件清单,是创作者的本章规划(创作者细纲)。\n\n你的工作是落地这份规划:把戏核写到位,按笔墨分配把关键处展开、过渡处克制。\n\nsub-md(剧情简介)由 Architect 已转化为本细纲,你不需要再读 sub-md。\n\n# 世界观\n\n【世界观锁（worldbook） — 以下信息不可违反，优先级最高】\n\n\n── 创作锚点 ──\n- 基调: 现实向都市悬疑,冷峻克制,信息差驱动\n\n\n── 不可变硬设定（必须遵守，不得矛盾） ──\n- 故事发生在临江市,旧城区为江湾区\n- 主角姓名:江叙白,32 岁,独立调查记者\n- 江叙白五年前从市"
+    },
+    {
+      "role": "assistant",
+      "content_length": 11,
+      "content_first_300": "已加载世界观和角色卡。"
+    },
+    {
+      "role": "user",
+      "content_length": 5512,
+      "content_first_300": "【Layer 1 硬规则 - 违反这些 = 废稿】\n1. 章节号: 第 1 章\n2. 主角姓名: 主角姓名:江叙白,32 岁,独立调查记者\n3. 故事发生在临江市,旧城区为江湾区\n4. 江叙白五年前从市局刑侦支队离职,离职原因暂不揭示\n5. 近三个月江湾区共有六名失踪者,警方以'自行离家'结案四起\n6. 苏皓,22 岁,苏蔓之弟,第六名失踪者\n7. 苏皓失踪当晚最后一次通话的基站位于回声巷\n8. 回声巷位于江湾区东侧,长约三百米\n9. 回声巷 17 号是旧货当铺'守拙斋'\n10. 守拙斋只在雨夜亮灯营业\n11. 守拙斋老板聂守仁,左手常年戴黑色手套\n12. 市档案馆位于江湾区,旧案卷宗在三楼\n"
+    }
+  ]
+}

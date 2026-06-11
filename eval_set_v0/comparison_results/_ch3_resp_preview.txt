@@ -1,0 +1,18 @@
+```json
+{
+  "issues": [
+    {
+      "line": 62,
+      "quote": "A-131",
+      "quoted_text": "'A-131,'他把调阅函还给何沛，转身往走廊更深处的一扇铁门走，'在恒温间最里面的架子上。你们在这等。'",
+      "type": "字面伪影",
+      "subtype": null,
+      "explanation": "全章所有其他地方卷宗编号均为A-113（第1章和第3章其他段落均确认），老覃读出的'A-131'与调阅函上的编号和上下文矛盾，应为笔误",
+      "fix_suggestion": "replace_with: 'A-113'",
+      "auto_fixable": true,
+      "severity": "high"
+    },
+    {
+      "line": 152,
+      "quote": "附件清单上列着七项，"黄铜钥匙（沉箱所用）"是第五项",
+      "quoted_text": "附件清单上列着七项，"黄
