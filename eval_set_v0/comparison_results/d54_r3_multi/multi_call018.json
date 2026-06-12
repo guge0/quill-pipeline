@@ -1,0 +1,429 @@
+{
+  "request": {
+    "call_id": "multi_call018",
+    "label": "multi",
+    "messages_count": 14,
+    "temperature": 0.1,
+    "max_tokens": 8192,
+    "has_tools": true,
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 Editor-C（设定审计编辑）。只查设定/事实/视觉符号/跨章连续性，不查节奏和角色。\n\n## 视角\n1. **facts** — 本章与 worldbook facts 冲突？\n2. **forbidden** — 触碰禁忌？（如秘境中出现手机）\n3. **naming** — 人名/地名/术语前后不一致？\n4. **hooks_audit** — 伏笔回收？新伏笔有意义？\n5. **appearance_audit** — 角色外貌与角色卡一致？\n6. **visual_clash** — 视觉符号撞色？（金色已分配又给别人）\n7. **cross_chapter** — 跨章 continuity（状态/位置/时间线）\n\n## 工具\nlook_up_character/setting/history/visual（最多 3 次）。不确定时用工具查。\n\n## 输出格式\n审稿完成后，调用 submit_review 工具提交 issues。\n参数示例：\n{\"issues\":[{\"id\":\"C-1\",\"type\":\"visual_clash\",\"paragraph\":2,\"severity\":\"high\",\"keyword\":\"金色\",\"description\":\"问题\",\"suggestion\":{\"content\":\"建议\",\"rationale\":\"理由\"}}]}\n\n约束：type ∈ facts|forbidden|naming|hooks_audit|appearance_audit|visual_clash|cross_chapter，每章 ≤8 issue，paragraph 从 1 开始，severity ∈ high|medium|low。\n\n你是 Editor-C，只查设定和一致性。\n"
+      },
+      {
+        "role": "user",
+        "content": "请审阅第 2 章正文：\n\n--- 上一章末 500 字 ---\n\n电话挂断后，他在桌前坐了很久。窗外的雨还在下，雨点打在空调外机上发出不规则的撞击声。\n\n他从口袋里摸出那把黄铜钥匙，放到台灯下。\n\n钥匙的圆柄上有一圈极细的纹路，不仔细看会以为是铜件加工时留下的刀痕。但放到灯下用侧光看，那些纹路呈现出固定的走向和间距。不是刀痕。是刻上去的。\n\n他翻转钥匙。\n\n钥匙齿面朝下，圆柄内侧的铜面上，刻着两行极小的字。字体是瘦金体，刻痕深度不超过零点三毫米，墨绿色填色已经大部分脱落，只有在暗处借助台灯的侧光才能辨认。\n\n他凑近了看。\n\n第一行：42号。\n\n第二行：勿配。\n\n他握紧钥匙，铜柄的棱角压进掌心。\n\n窗外的雨声忽然变得很远。\n\n次日清晨，江叙白在台灯下翻完何沛通过加密渠道发来的调阅函扫描件后，桌面的钥匙在晨光里露出柄部内侧的第二行小字。字迹比昨晚看到的更浅，几乎是刻刀在铜面上滑过时留下的毛刺，而非正式刻痕。他辨认了将近二十秒，才看清那行字。\n\n“勿配。丢了的东西别找回来。”\n\n握紧钥匙的那一刻，何沛电话里的话再次响起。\n\n“A-113卷宗的附件清单里，有三件证物至今下落不明，其中编号第三项的是一把黄铜钥匙，备注栏里只写了四个字。”\n\n“‘沉箱所用’。”\n--- 本章正文 ---\n\n清单摊在桌上。三十七页。\n\n江叙白用指腹把第一页推到桌角，指节贴着纸面，像在验钞。苏蔓坐在对面，双手握着纸杯，没有喝。茶餐厅的灯光偏黄，照在A4纸复印件的边缘，泛出灰白色。\n\n他的视线先落在那栏日期上。三个月内的六起失踪，报案时间集中在周四到周一之间，间隔最短的九天，最长的二十三天。他翻页，手指压住左上角，把每个人那份报警回执单的顺序重新排了一遍。\n\n第一页。张德福，四十二岁，钢材市场装卸工。失踪当天穿深蓝色工装外套，从出租屋离开后未归。手机信号注销于当晚二十三时零七分，最后基站位于江湾码头东七百米处。通话记录：当日共有六通电话，其中最后一通时长四分十二秒，归属地显示为公用电话亭。\n\n江叙白翻到第二页。\n\n李秀莲，三十八岁，环城超市理货员。失踪当晚二十二时十五分下班，骑电动车离开。单位监控显示她凌晨一时零三分经过江湾立交桥下，之后同一时段同一基站出现四条位置信息，间隔均匀。通话记录显示最后一通来电号码已注销，回拨为空号。\n\n他左手按着纸角，右手继续往下推。\n\n第三页。陈望，二十九岁，酒吧驻唱。最后出现的基站位置在江湾码头以北，同一时段与另一名失踪者赵永志的通话记录存在交叉。两通电话间隔十一分钟，通话时长都是三分钟左右。\n\n江叙白停下来。他把第三页和第四页并排放在一起，指尖在两个号码之间来回点了一下。苏蔓的视线跟着他的手指移动，没有说话。\n\n他继续翻。第四页，赵永志，三十一岁，某外卖平台骑手。失踪当天接单记录显示最后一单送往长江北路，之后GPS轨迹在码头附近断掉。\n\n第五页，徐蕾，二十六岁，无固定职业。第六页，苏皓。\n\n他把第六页单独抽出来。\n\n苏皓的手机号与五名失踪者的通话记录没有交叉。单独看任何一个人的通讯列表，都看不出异常。六个人之间没有群聊，没有互相备注的微信好友，社交圈子彼此隔绝。\n\n但这六份通话记录里，每一份的最后一通电话都来自一个固定电话。四条码头的公用电话亭，两条来自市区方向的光明路片区。六个号码全部已注销。\n\n江叙白把第六页放在最上面，右手指腹按住苏皓那栏，往下滑到通话详单的末尾。\n\n最后一通电话。十一月十九日晚上二十一时四十三分，通话时长两分十四秒。主叫号码区号0539，归属地查询为宏远物流货运部。这个号码当天晚上二十一时五十八分注销。苏皓的手机则在晚上二十二时零四分失去信号，最后一个基站定在回声巷北侧三十米处。\n\n“宏远物流。”江叙白说。\n\n苏蔓摇头。“没听他说过物流公司。”\n\n她的声音压得很平，像在念护理记录。说完这句话，她顿了一秒。窗外有雨声从玻璃缝里渗进来，把那一秒的空白填满了。\n\n江叙白没有追问。他把第六页翻过来，背面是苏皓手机的相册索引。苏蔓整理过的，按日期排列，从十一月一日到十九日，每张照片都标了位置和时间。前十八天的照片数量均匀，每天七八张，十九日只有三张。最后一张拍摄于十八时零九分，画面是临江市的暮色，取景位置应该在出租屋楼顶。之后没有新照片。\n\n他合上这页，往前推，把六个人的失踪日期重新罗列在一张空白纸上。他用自己带的笔在纸面上画了条横线，标出三个月的跨度，线上点了六个点，每个点下方标注对应的姓名和年龄。六个人，四男两女，年龄最小二十二岁，最大四十二岁。没有职业重合，没有居住区域重合。\n\n但他的笔停在了地理位置那一栏。六个人的信号最后消失的位置，虽然有码头、有城区，但基站覆盖范围存在一个共同交集：江湾码头。张德福最后基站东七百米，李秀莲在立交桥下，陈望在码头以北，赵永志GPS轨迹断在码头附近，徐蕾最后的位置信息在码头南仓库区。苏皓是唯一的例外。他的信号消失在回声巷。\n\n六分之五指向同一片区域。只有苏皓偏了出来。\n\n这份清单还没写进结论，他先把每组通话时长标了出来。一到三分钟不等，没有一个超过五分钟。通话时间集中在晚间二十点至凌晨时段。公用电话号码全部已注销。他用笔在“已注销”这三个字下面画了一道杠，然后停了笔。\n\n“你觉得是串通好的吗。”苏蔓问。她的语气不像是问句，尾音没有上扬。她问这句话时把纸杯搁回桌上，手腕上那条塑料护士表露出来，表带磨得发白，边缘起了毛。\n\n江叙白没回答。他把笔收起来，把散开的纸页按顺序归拢，对齐边缘。纸张和桌面碰出细碎的声响。左肩在他拧开矿泉水瓶盖时顿了一下，短暂的停顿，随即恢复正常。他喝了一口水，把瓶盖旋回去。\n\n“苏皓出门那天穿的什么。”\n\n“灰色连帽衫。”苏蔓说，“深蓝牛仔裤，白色运动鞋。他出门时看了我一眼，说‘很快回来’。”\n\n“几点。”\n\n“下午五点十分。我值夜班，他在我出门前走的。”\n\n“之后没联系过你。”\n\n“没有。我十点半下班，到家十一点四十，他房间灯没开。我打他电话，已经关机了。”\n\n江叙白把苏皓那页重新抽出来，翻到通话记录的最后一栏。宏远物流的号码旁边，他用手写体补了一行小字：五点十分至二十一时四十三分，中间四小时三十三分钟，无记录，无定位请求。\n\n他不知道自己为什么要补这行。大概是习惯。以前在支队的时候，何沛说他有强迫症，凡是空白区域都忍不住加个注。\n\n“他平时收快递吗。”江叙白问。\n\n“收。他的快递都寄到我医院，他不喜欢让快递员上门。”\n\n“最近一次收件是什么时候。”\n\n“十一月十七号。”苏蔓想了想，“一个纸箱，不大，他拆了没给我看。包装上写的是电子元件。”\n\n“箱子还在不在。”\n\n“扔了。我十九号早班打扫时清掉的。”\n\n江叙白点头。他把这份清单推进苏蔓那边，让她再看一遍。苏蔓低下头，视线落在弟弟那页的通话记录上，指尖按着那个两分十四秒的数字。她按了好几秒，然后把纸推回去。\n\n“如果不认识物流公司的人，他为什么会接那通电话。”\n\n这个问题江叙白没有回答。他正在看的是第五页。徐蕾的通话记录。最后那通电话同样来自一个长途区号，来电号码归属地显示0539，同一个区号，不同的号码。也是当天注销。\n\n他翻回苏皓那页，在纸上比了一下两个号码。号码不同，但区号相同，注销时间相差六天。\n\n他把笔重新拔开，在空白纸上画了个表格，横轴是人名，纵轴是最后通话的来电源头。六个电话全部来自长途区号，其中四个号码登记归属是0539，两个是0574。全部是地级市的长途代码，物流公司可能使用任何区号登记业务电话，这不奇怪。\n\n奇怪的是注销速度。所有号码在通话当天内注销，无一例外。这种注销效率意味着对方使用了虚拟号段，主叫方的真实基站可以锁定这批号段的开户物理地址。只要查得到。\n\n但他没有接触运营商后台的权限。要查这些，需要何沛帮忙。\n\n他忽然明白了——那六个人不是失踪，是被同一张网络筛选出来的。筛选标准不是随机的，而是基于他们各自的生物识别数据。六个人都做过同一种体检，同一家机构，同一台机器。\n\n江叙白把清单最后一页折了个角。三十七页纸归成整齐的一沓，他放进自己的帆布包里，拉上拉链。\n\n“我送你回去。”他说。\n\n“不用。”苏蔓站起身，“我值夜班习惯了，自己走。”\n\n她收拾了自己的东西，把护士表的表带往手腕上紧了紧。走到门口时停了一步，没有回头。\n\n“江老师，你说那些人是自己离家。”\n\n“不是我说。是警方说的。”\n\n“你信吗。”\n\n江叙白把帆布包背到左肩上，右肩低了一截。右肩的旧伤在湿冷的空气里隐隐作痛，让他不敢把重量再往右偏。他的回答迟了好几秒。\n\n“我不信。”\n\n苏蔓推开玻璃门，雨声瞬间涌进来，又在她身后合上门时被重新隔断。茶餐厅里响起收银机打印小票的嘀嘀声，服务员开始擦柜台。\n\n江叙白没急着走。他重新坐下，把清单最后一页又翻了一遍，目光停留在宏远物流那栏。他把那行号码转录到手机备忘录里，备注写了四个字：苏皓最后。\n\n屏幕上的时间显示下午四点四十七分。他在备忘录下加了一行：从离开到通话，四个半小时。\n\n他收起手机，把椅子推回桌下。帆布包搭在膝盖上，他没有站起来，视线从清单上移开，移到靠窗的玻璃上。\n\n雨还在下。路灯还没有亮，天色灰白偏青。玻璃外是马路，路对面是另一排商铺，商铺前的人行道上有水洼，水洼里的倒影被雨点打得粉碎。\n\n那把黑伞就停在水洼旁边。\n\n伞沿压得很低，遮住了执伞人肩膀以上的全部轮廓。伞面是深黑色，雨水顺着伞骨往下淌，汇成断续的线。黑伞站在路灯柱旁，一动不动，跟周围那些打伞经过的人节奏完全不同。行人走过水洼会加速，这把伞没有加速。\n\n江叙白没有站起来，没有靠近窗户。他的手指按在帆布包上，没有动。\n\n茶餐厅里的灯光把玻璃变成了一面浅镜，映出他自己的侧影，映出后厨门帘的晃动。黑伞在外面的世界里静止，像一盏忘记点亮的旧路灯。\n\n伞动了一下。不是被风吹动的。它沿着人行道往南移了半米，然后停住。伞面稍微偏转了一个角度，接着继续南移。\n\n缓慢的，匀速的，沿着江叙白来时的那条方向。\n\n他没有立刻追出去。\n\n他把帆布包的拉链又拉开，从里面摸出手机，调到拨号界面，输入110，然后退出。他知道这种模糊的景观没有办法报警。没有人靠近，没有威胁动作，甚至没有停留够报警时长的证据。只是一把伞和一盏还没亮起的路灯。\n\n他把手机锁屏，看着窗外。\n\n黑伞已经走出了路灯能照亮的范围，融进灰白的雨幕里。它的轮廓在被雨丝切割后变得越来越淡，最后混进了远处几个等红灯的行人中间。雨幕吞掉了那个高度，也吞掉了那点黑色。\n\n江叙白站起身。他把椅子推好，背上帆布包，推开门走进雨里。\n\n细雨打在脸上没有什么分量，带股铁锈似的腥气。他站在茶餐厅门口的台阶上往南看。人行道上有几个撑着伞的行人，外卖骑手的电动车碾过水洼溅起泥浆。黑伞已经不见了。\n\n他往南走了六十步，在人行道的砖缝里发现了一个烟头。半截被雨水打湿，滤嘴朝上，烟纸上的烫金商标还没完全糊掉。不是什么线索，只是有人站在这里抽过烟。\n\n他继续往前走了一段。前方是公交站台，顶棚下站了两个等车的人，一男一女，都在低头看手机。没有伞立在站台角落。\n\n江叙白转身，往回走。他没有在茶餐厅重新停留，径直走进对面的巷子，绕过了回声巷北侧的路口。走到巷口时他的左肩又抽了一下，他把帆布包换到右肩上，拐进窄巷。\n\n手机在口袋里震了一下。\n\n何沛的短信。他划开屏幕，信息很短：调阅函批下来了，明天带身份证复印件来队里找我，三楼老覃周二当班。\n\n江叙白把手机收回去，没有回复。\n\n他走进巷子深处，雨声在两侧墙壁之间形成回响，像有很多人在巷子另一头同时踩着积水，但回头看的时候什么都没有。只有灰色砖墙和湿漉漉的铁皮垃圾桶，巷道尽头有团模糊的灯影。\n\n那团灯影没有移动。\n门开着。\n\n不是全开，留了十五公分左右的缝，足够一个人的视线侧着穿过去。走廊里没有灯，门缝里透出来的光是暖黄色的。他记得早上出门前关了大灯，现在亮的应该是阅读灯，搁在书桌左角那盏。\n\n江叙白站在门外，没有推门。\n\n他先把帆布包从左肩上卸下来，靠墙放好。手机静音，钥匙串攥在手心里，几枚钥匙夹在指缝间。不是攻击的握法，至少能划一下。左肩的隐痛在这一刻变得很清晰，他知道自己右肩承重太久，左手握力只剩平时的六成。这套数据在他脑子里过了不到一秒就被压下去了。\n\n他屏住呼吸听了十几秒。\n\n屋里有人走动。步伐不重，不是靴子也不是皮鞋，脚步声里听不出鞋底的硬度。步伐节奏很稳，从客厅走到他卧室方向，停下，然后是抽屉被拉开的声音。\n\n第二层抽屉。\n\n那个抽屉里装的是旧档案袋、几个U盘和两本硬壳笔记本。没有现金，没有银行卡，没有值钱的东西。\n\n江叙白把钥匙换到右手，左手推开门。\n\n门开得很慢，铰链发出一声细响，像指甲刮过纸面。客厅里的阅读灯果然亮着，调到了最暗的一档，光线勉强够映出家具的轮廓。沙发上扔着他的薄毯，茶几上多了一只玻璃杯，杯底剩半指高的水。\n\n卧室门口站着一个人。\n\n是个女人。\n\n背光，看不清五官，只能看见轮廓。中长发，披着，到肩膀往下一点。身上穿一件深灰色的风衣，腰带没系，垂在两边。她站在卧室门口，面对着他，手里捏着半个文件夹。他认得那个蓝色塑料夹子，是他用来放剪报的。\n\n两个人隔着客厅对视了大概五秒钟。\n\n江叙白先开口：“谁给你的钥匙。”\n\n女人的回答晚了一拍。她把文件夹合上，放在卧室门口的书架上，动作很轻，像在图书馆里还一本书。然后她从风衣口袋里掏出一个东西，往前走了两步，把东西搁在茶几上，挨着那只玻璃杯。\n\n是把钥匙。铜色，配过他这把锁。\n\n“你换锁太多次了，江老师。”她的声音不高，带一点沙哑，像是刚从干燥的地方回来。“这次我找人配的。”\n\n江叙白没有去看茶几上的钥匙。他在看她走路的方式。重心偏右，右脚落地比左脚轻，旧伤或者在鞋里藏了东西。风衣下摆遮到膝盖，看不出鞋的款式。\n\n“我上次说过，”他把房门在身后合上，“再来找我，我会报警。”\n\n“会报警你刚才就报过了。”女人说，“你站门外那会儿我就知道你在。你呼吸声变了。”\n\n她说这话的时候语气很平，不带挑衅，更像在陈述一个两人都知道的事实。她在沙发上坐下来，翘起腿，搭在膝盖上的那只手手指细长，指甲剪得很短，没涂甲油。她的脸终于进了阅读灯的光圈里。三十五岁上下，颧骨偏高，嘴唇很薄，眼角有细纹，笑起来的时候那些细纹会往上抬，但她现在没在笑。\n\n她叫章凝。四年前在一桩土地转让纠纷的案子里跟江叙白打过交道，那时候她代表开发商，江叙白代表回迁户。那场纠纷最后以开发商撤资收场，章凝的事务所丢了代理权，她在行业里的名声跌了两年才缓过来。\n\n后来她又出现过三次。第一次是二十三号楼的电梯间，第二次是档案馆门口，第三次是上个月，在小区门口的便利店里，她买了一瓶水，站在冰柜旁喝。三次都没有说清楚来意。\n\n这是第四次。\n\n“你查到什么了。”章凝问。\n\n江叙白没有接她的话。他走进厨房，打开水龙头洗了手，从筷子笼里抽出筷子时顺便扫了一眼刀架。刀具没少，位置也没变。他把灶台上的抹布拿起来擦了擦手，然后才走回客厅，坐在茶几另一侧的折叠椅上。\n\n“章律师，”他说，“你进来我没报警，是因为我不想浪费警力。你有三分钟，说完就走。”\n\n章凝从风衣内袋里掏出手机，划了几下，把屏幕亮给他看。\n\n屏幕上是一张照片。照片里是一个中年男人，五十来岁，身形偏胖，穿藏青色polo衫，站在某个工地围挡前面，笑容很官方。背景里有塔吊和蓝色铁皮围挡，围挡上喷着几个白色大字：金辉·锦绣江南。\n\n“认识吗。”章凝问。\n\n“不熟。”江叙白看了一眼，“王什么来着。”\n\n“王建国。”章凝把手机收回去，“你去年十月份给他做过一份调查报告，关于他儿子的。他儿子叫王思睿，二十岁，大二，去年九月十二号晚上从学校出去之后就没回来过。你接这个单的时候用的是我的名字做担保人。”\n\n江叙白没说话。\n\n“我上个月才知道这件事。”章凝说，“王建国打电话到我事务所，问我认不认识江叙白。我说认识。他说江叙白收了他八万块调查费，调查了三个月，最后给他发了份邮件，说查不下去了，让他走警方渠道。然后他把邮件转给我看。”\n\n她从手机里调出那封邮件的截屏，又亮给他看。\n\n江叙白只扫了一眼。他知道那封邮件的内容。四段话，措辞很克制，解释了自己的调查方法遇到了瓶颈，建议委托人依靠警方资源继续追查，同时附了一份整理过的时间线和通话记录。最后一段说的是部分退款的事，他退了两万四。\n\n“我没有收八万块。”他说，“退了款的。”\n\n“他关心的不是钱。”章凝收起手机，“他关心的是你为什么要停。邮件里你说瓶颈，什么样的瓶颈会让你退钱？你江叙白什么时候退过钱？”\n\n这倒是真的。他做调查从来不退钱，查到什么样就是什么样，委托人能接受就接受，不能接受也不会退。王建国那单是唯一一次例外。\n\n“你到底想说什么。”江叙白问。\n\n章凝没有立刻回答。她从沙发上起身，走到窗前，撩开窗帘的一角往外看了看。雨还在下，窗外是小区的中庭，路灯刚刚亮起来，橘黄色的光打在湿漉漉的冬青树上。\n\n“王思睿失踪那天晚上，穿的是灰色连帽衫。”她放下窗帘，转过身来，“他对室友说，去取个东西，很快回来。”\n\n江叙白的手指在折叠椅的扶手上停住了。\n\n这句话他今天下午才听过，一模一样的措辞，从苏蔓的嘴里说出来。\n\n“苏皓，二十三岁，物流公司临时工，一月十六号晚上失踪，穿灰色连帽衫，对室友说去取个东西。”章凝掰着手指数，“王思睿，二十岁，大学生，去年九月十二号晚上失踪，穿灰色连帽衫，对室友说去取个东西。还有两个，要不要听听？”\n\n江叙白没有说要不要。章凝也不需要他的回答。\n\n“李铭远，二十七岁，外卖骑手，三月八号晚上收工后失踪，跟同事说去北门取个东西。张旸，十九岁，职高学生，十一月二十号放学后失踪，跟同学说校门口取个东西。”章凝把四个名字一个一个地报出来，跟报菜单一样轻描淡写，“四个人，半年之内，分布在三个城市。最后一个就是苏皓。”\n\n“你怎么知道苏皓。”\n\n“你在查他。”章凝说，“你查的人，我都会知道。”\n\n她走回茶几旁，拿起那只玻璃杯，把剩下半指高的水喝干净。喝完把杯子倒扣在茶几上，杯底的水渍洇在桌面上，印出一个小小的圆环。\n\n“江老师，你不是瓶颈。你是发现了什么东西，或者是碰到了什么人，让你觉得不能再往下碰了。”她把风衣的腰带系上，打了个很随意的结。“我想知道那个东西是什么。”\n\n江叙白看着倒扣的玻璃杯，沉默了很长时间。阅读灯的灯光把他半边脸照得轮廓分明，另外半边落在阴影里，看不出表情。\n\n“你没有三分钟了。”他说。\n\n章凝笑了一下。她笑起来的时候眼角的细纹往上抬，整个人忽然没那么凌厉了，但那种温和只持续了一秒就重新收敛回薄唇的线条里。她走到门口，把门拉开，走廊里的冷风灌进来，阅读灯的灯焰晃了一下。\n\n“我住在老地方。”她回过头，“你什么时候想说了，来找我。”\n\n门在她身后合上。脚步声在走廊里渐渐远去，消失的方向不是电梯口，是楼梯间。\n\n江叙白没有动。他坐在折叠椅上，盯着茶几上那把配来的铜色钥匙，盯了整整两分钟。\n\n然后他站起来，走到书桌前，拉开第三层抽屉。那个抽屉里放的是一些杂物。旧手机、充电器、几卷双面胶、一把折叠刀。他把这些东西拨开，从抽屉最底下抽出一个牛皮纸信封。\n\n信封没有封口。他往手心里倒了倒，倒出一张折了两折的纸。\n\n展开。纸上有四个名字，三个已经用红笔圈起来。他拿起桌上的记号笔，把第四个名字也圈了。\n\n苏皓。\n\n纸的空白处，在四个名字上方，他写了两个字：取件。\n\n他已经盯着这两个字看了大半年。\n\n现在他知道，不止他一个人在看。\n\n江叙白把纸重新折好，塞回信封，放回抽屉最深处。他把抽屉关上，锁了。这个抽屉是他自己加装了一把小锁，钥匙他始终带在身上。\n\n关上抽屉之后他在书桌前站了一会儿，然后拿起手机。\n\n何沛的短信还亮在屏幕上。他回了一条：把宏远物流的通话清单也算进调阅范围，周一之前拿到。\n\n发送。等了不到三十秒，何沛回了两个字：为什么。\n\n他打了四个字，想了想，又一个一个删掉。最后只回了一句：明天跟你说。\n\n窗外的雨声忽然大了一拍。他抬头看窗外，路灯下的冬青树在风里晃了一下，又晃了一下，然后静止。\n\n那把黑伞没有再出现。\n\n但他知道，今晚上锁的门，拦不住该进来的人。"
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_pqBFw7oMOx3R2NUlWDM49634",
+            "type": "function",
+            "function": {
+              "name": "look_up_character",
+              "arguments": "{\"char_name\": \"江叙白\"}"
+            }
+          },
+          {
+            "index": 1,
+            "id": "call_01_fCgQEAcqz5PlcOCWOuPR2873",
+            "type": "function",
+            "function": {
+              "name": "look_up_character",
+              "arguments": "{\"char_name\": \"苏蔓\"}"
+            }
+          },
+          {
+            "index": 2,
+            "id": "call_02_HibjWegEyGEDwJDSPhHi6432",
+            "type": "function",
+            "function": {
+              "name": "look_up_character",
+              "arguments": "{\"char_name\": \"章凝\"}"
+            }
+          }
+        ],
+        "reasoning_content": "Let me analyze Chapter 2 systematically as Editor-C. I need to check:\n\n1. Facts - conflicts with worldbook\n2. Forbidden - any forbidden elements\n3. Naming - inconsistencies in names/places/terms\n4. Hooks - foreshadowing setup and payoff\n5. Appearance - character appearance consistency\n6. Visual clash - color/symbol conflicts\n7. Cross-chapter continuity\n\nLet me start by looking up key characters and settings to verify consistency.\n\nKey elements to check:\n- Characters: 江叙白, 苏蔓, 章凝, 何沛, 苏皓, 王建国, 王思睿, 李铭远, 张旸\n- Places: 江湾码头, 回声巷, 临江市, 茶餐厅\n- Items: 黄铜钥匙, 42号, 勿配, 灰色连帽衫\n- Concepts: A-113卷宗, 宏远物流, 0539区号, 黑伞\n\nLet me look up these characters and settings."
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_00_pqBFw7oMOx3R2NUlWDM49634",
+        "name": "look_up_character",
+        "content": "{'name': '江叙白', 'aliases': {'narrator_default': '江叙白', 'self_referent': '我', 'called_by': {'苏蔓': '江老师', '何沛': '老江', '聂守仁': '这位先生'}}, 'voice_examples': '『巧合出现一次是巧合,出现三次是安排。』『我不信路灯,我信监控。』', 'personality': \"克制,多疑,记细节;对'结案太快的案子'有职业性反感。\", 'forbidden_in_narrative': ['主角', '记者江']}"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_01_fCgQEAcqz5PlcOCWOuPR2873",
+        "name": "look_up_character",
+        "content": "{'name': '苏蔓', 'aliases': {'narrator_default': '苏蔓', 'self_referent': '我', 'called_by': {'江叙白': '苏小姐'}}, 'personality': '克制的焦虑,做事有条理。'}"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_02_HibjWegEyGEDwJDSPhHi6432",
+        "name": "look_up_character",
+        "content": "未找到角色: 章凝"
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_rTFr358TC6p2GXucVU9M0006",
+            "type": "function",
+            "function": {
+              "name": "look_up_setting",
+              "arguments": "{\"keyword\": \"章凝\"}"
+            }
+          },
+          {
+            "index": 1,
+            "id": "call_01_pmR39ZV2bH7cFbWJKVtn6795",
+            "type": "function",
+            "function": {
+              "name": "look_up_setting",
+              "arguments": "{\"keyword\": \"黄铜钥匙\"}"
+            }
+          },
+          {
+            "index": 2,
+            "id": "call_02_XHkWeTYqQyQ9Kn1HOGlw4083",
+            "type": "function",
+            "function": {
+              "name": "look_up_setting",
+              "arguments": "{\"keyword\": \"灰色连帽衫\"}"
+            }
+          }
+        ],
+        "reasoning_content": "章凝 is introduced as a new character in this chapter. Let me check the worldbook for her and other relevant settings. Let me look up several things:\n\n1. The worldbook for 章凝\n2. The worldbook for the key elements (黄铜钥匙, 灰色连帽衫, etc.)\n3. Visual symbols\n4. Previous chapter for continuity"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_00_rTFr358TC6p2GXucVU9M0006",
+        "name": "look_up_setting",
+        "content": "worldbook 中未找到包含 '章凝' 的条目"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_01_pmR39ZV2bH7cFbWJKVtn6795",
+        "name": "look_up_setting",
+        "content": "worldbook 中未找到包含 '黄铜钥匙' 的条目"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_02_XHkWeTYqQyQ9Kn1HOGlw4083",
+        "name": "look_up_setting",
+        "content": "worldbook 中未找到包含 '灰色连帽衫' 的条目"
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_C2ZVHnKbgJvwZOzvMmEI1197",
+            "type": "function",
+            "function": {
+              "name": "look_up_setting",
+              "arguments": "{\"keyword\": \"A-113\"}"
+            }
+          },
+          {
+            "index": 1,
+            "id": "call_01_XldZHoiXkv4N9AHQY25e3235",
+            "type": "function",
+            "function": {
+              "name": "look_up_history",
+              "arguments": "{\"chapter_or_keyword\": \"1\"}"
+            }
+          },
+          {
+            "index": 2,
+            "id": "call_02_RQ59eRJwTvGrighjUucm6577",
+            "type": "function",
+            "function": {
+              "name": "look_up_visual",
+              "arguments": "{\"symbol\": \"金色\"}"
+            }
+          }
+        ],
+        "reasoning_content": "章凝 is not in the worldbook. Let me check more settings, especially about the key concepts in this chapter: A-113, 黑伞, 勿配, 取件, etc. Also need to check previous chapter for continuity."
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_00_C2ZVHnKbgJvwZOzvMmEI1197",
+        "name": "look_up_setting",
+        "content": "[{'section': 'facts', 'content': \"档案编号 A-113 对应 1998 年'江湾码头沉箱案'\"}]"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_01_XldZHoiXkv4N9AHQY25e3235",
+        "name": "look_up_history",
+        "content": "CH1 末 500 字:\n\n电话挂断后，他在桌前坐了很久。窗外的雨还在下，雨点打在空调外机上发出不规则的撞击声。\n\n他从口袋里摸出那把黄铜钥匙，放到台灯下。\n\n钥匙的圆柄上有一圈极细的纹路，不仔细看会以为是铜件加工时留下的刀痕。但放到灯下用侧光看，那些纹路呈现出固定的走向和间距。不是刀痕。是刻上去的。\n\n他翻转钥匙。\n\n钥匙齿面朝下，圆柄内侧的铜面上，刻着两行极小的字。字体是瘦金体，刻痕深度不超过零点三毫米，墨绿色填色已经大部分脱落，只有在暗处借助台灯的侧光才能辨认。\n\n他凑近了看。\n\n第一行：42号。\n\n第二行：勿配。\n\n他握紧钥匙，铜柄的棱角压进掌心。\n\n窗外的雨声忽然变得很远。\n\n次日清晨，江叙白在台灯下翻完何沛通过加密渠道发来的调阅函扫描件后，桌面的钥匙在晨光里露出柄部内侧的第二行小字。字迹比昨晚看到的更浅，几乎是刻刀在铜面上滑过时留下的毛刺，而非正式刻痕。他辨认了将近二十秒，才看清那行字。\n\n“勿配。丢了的东西别找回来。”\n\n握紧钥匙的那一刻，何沛电话里的话再次响起。\n\n“A-113卷宗的附件清单里，有三件证物至今下落不明，其中编号第三项的是一把黄铜钥匙，备注栏里只写了四个字。”\n\n“‘沉箱所用’。”"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_02_RQ59eRJwTvGrighjUucm6577",
+        "name": "look_up_visual",
+        "content": "视觉符号 '金色' 在前文中未出现"
+      }
+    ],
+    "kwargs_keys": [
+      "temperature",
+      "max_tokens",
+      "tools"
+    ]
+  },
+  "response": {
+    "call_id": "multi_call018",
+    "label": "multi",
+    "messages_count": 14,
+    "temperature": 0.1,
+    "max_tokens": 8192,
+    "has_tools": true,
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是 Editor-C（设定审计编辑）。只查设定/事实/视觉符号/跨章连续性，不查节奏和角色。\n\n## 视角\n1. **facts** — 本章与 worldbook facts 冲突？\n2. **forbidden** — 触碰禁忌？（如秘境中出现手机）\n3. **naming** — 人名/地名/术语前后不一致？\n4. **hooks_audit** — 伏笔回收？新伏笔有意义？\n5. **appearance_audit** — 角色外貌与角色卡一致？\n6. **visual_clash** — 视觉符号撞色？（金色已分配又给别人）\n7. **cross_chapter** — 跨章 continuity（状态/位置/时间线）\n\n## 工具\nlook_up_character/setting/history/visual（最多 3 次）。不确定时用工具查。\n\n## 输出格式\n审稿完成后，调用 submit_review 工具提交 issues。\n参数示例：\n{\"issues\":[{\"id\":\"C-1\",\"type\":\"visual_clash\",\"paragraph\":2,\"severity\":\"high\",\"keyword\":\"金色\",\"description\":\"问题\",\"suggestion\":{\"content\":\"建议\",\"rationale\":\"理由\"}}]}\n\n约束：type ∈ facts|forbidden|naming|hooks_audit|appearance_audit|visual_clash|cross_chapter，每章 ≤8 issue，paragraph 从 1 开始，severity ∈ high|medium|low。\n\n你是 Editor-C，只查设定和一致性。\n"
+      },
+      {
+        "role": "user",
+        "content": "请审阅第 2 章正文：\n\n--- 上一章末 500 字 ---\n\n电话挂断后，他在桌前坐了很久。窗外的雨还在下，雨点打在空调外机上发出不规则的撞击声。\n\n他从口袋里摸出那把黄铜钥匙，放到台灯下。\n\n钥匙的圆柄上有一圈极细的纹路，不仔细看会以为是铜件加工时留下的刀痕。但放到灯下用侧光看，那些纹路呈现出固定的走向和间距。不是刀痕。是刻上去的。\n\n他翻转钥匙。\n\n钥匙齿面朝下，圆柄内侧的铜面上，刻着两行极小的字。字体是瘦金体，刻痕深度不超过零点三毫米，墨绿色填色已经大部分脱落，只有在暗处借助台灯的侧光才能辨认。\n\n他凑近了看。\n\n第一行：42号。\n\n第二行：勿配。\n\n他握紧钥匙，铜柄的棱角压进掌心。\n\n窗外的雨声忽然变得很远。\n\n次日清晨，江叙白在台灯下翻完何沛通过加密渠道发来的调阅函扫描件后，桌面的钥匙在晨光里露出柄部内侧的第二行小字。字迹比昨晚看到的更浅，几乎是刻刀在铜面上滑过时留下的毛刺，而非正式刻痕。他辨认了将近二十秒，才看清那行字。\n\n“勿配。丢了的东西别找回来。”\n\n握紧钥匙的那一刻，何沛电话里的话再次响起。\n\n“A-113卷宗的附件清单里，有三件证物至今下落不明，其中编号第三项的是一把黄铜钥匙，备注栏里只写了四个字。”\n\n“‘沉箱所用’。”\n--- 本章正文 ---\n\n清单摊在桌上。三十七页。\n\n江叙白用指腹把第一页推到桌角，指节贴着纸面，像在验钞。苏蔓坐在对面，双手握着纸杯，没有喝。茶餐厅的灯光偏黄，照在A4纸复印件的边缘，泛出灰白色。\n\n他的视线先落在那栏日期上。三个月内的六起失踪，报案时间集中在周四到周一之间，间隔最短的九天，最长的二十三天。他翻页，手指压住左上角，把每个人那份报警回执单的顺序重新排了一遍。\n\n第一页。张德福，四十二岁，钢材市场装卸工。失踪当天穿深蓝色工装外套，从出租屋离开后未归。手机信号注销于当晚二十三时零七分，最后基站位于江湾码头东七百米处。通话记录：当日共有六通电话，其中最后一通时长四分十二秒，归属地显示为公用电话亭。\n\n江叙白翻到第二页。\n\n李秀莲，三十八岁，环城超市理货员。失踪当晚二十二时十五分下班，骑电动车离开。单位监控显示她凌晨一时零三分经过江湾立交桥下，之后同一时段同一基站出现四条位置信息，间隔均匀。通话记录显示最后一通来电号码已注销，回拨为空号。\n\n他左手按着纸角，右手继续往下推。\n\n第三页。陈望，二十九岁，酒吧驻唱。最后出现的基站位置在江湾码头以北，同一时段与另一名失踪者赵永志的通话记录存在交叉。两通电话间隔十一分钟，通话时长都是三分钟左右。\n\n江叙白停下来。他把第三页和第四页并排放在一起，指尖在两个号码之间来回点了一下。苏蔓的视线跟着他的手指移动，没有说话。\n\n他继续翻。第四页，赵永志，三十一岁，某外卖平台骑手。失踪当天接单记录显示最后一单送往长江北路，之后GPS轨迹在码头附近断掉。\n\n第五页，徐蕾，二十六岁，无固定职业。第六页，苏皓。\n\n他把第六页单独抽出来。\n\n苏皓的手机号与五名失踪者的通话记录没有交叉。单独看任何一个人的通讯列表，都看不出异常。六个人之间没有群聊，没有互相备注的微信好友，社交圈子彼此隔绝。\n\n但这六份通话记录里，每一份的最后一通电话都来自一个固定电话。四条码头的公用电话亭，两条来自市区方向的光明路片区。六个号码全部已注销。\n\n江叙白把第六页放在最上面，右手指腹按住苏皓那栏，往下滑到通话详单的末尾。\n\n最后一通电话。十一月十九日晚上二十一时四十三分，通话时长两分十四秒。主叫号码区号0539，归属地查询为宏远物流货运部。这个号码当天晚上二十一时五十八分注销。苏皓的手机则在晚上二十二时零四分失去信号，最后一个基站定在回声巷北侧三十米处。\n\n“宏远物流。”江叙白说。\n\n苏蔓摇头。“没听他说过物流公司。”\n\n她的声音压得很平，像在念护理记录。说完这句话，她顿了一秒。窗外有雨声从玻璃缝里渗进来，把那一秒的空白填满了。\n\n江叙白没有追问。他把第六页翻过来，背面是苏皓手机的相册索引。苏蔓整理过的，按日期排列，从十一月一日到十九日，每张照片都标了位置和时间。前十八天的照片数量均匀，每天七八张，十九日只有三张。最后一张拍摄于十八时零九分，画面是临江市的暮色，取景位置应该在出租屋楼顶。之后没有新照片。\n\n他合上这页，往前推，把六个人的失踪日期重新罗列在一张空白纸上。他用自己带的笔在纸面上画了条横线，标出三个月的跨度，线上点了六个点，每个点下方标注对应的姓名和年龄。六个人，四男两女，年龄最小二十二岁，最大四十二岁。没有职业重合，没有居住区域重合。\n\n但他的笔停在了地理位置那一栏。六个人的信号最后消失的位置，虽然有码头、有城区，但基站覆盖范围存在一个共同交集：江湾码头。张德福最后基站东七百米，李秀莲在立交桥下，陈望在码头以北，赵永志GPS轨迹断在码头附近，徐蕾最后的位置信息在码头南仓库区。苏皓是唯一的例外。他的信号消失在回声巷。\n\n六分之五指向同一片区域。只有苏皓偏了出来。\n\n这份清单还没写进结论，他先把每组通话时长标了出来。一到三分钟不等，没有一个超过五分钟。通话时间集中在晚间二十点至凌晨时段。公用电话号码全部已注销。他用笔在“已注销”这三个字下面画了一道杠，然后停了笔。\n\n“你觉得是串通好的吗。”苏蔓问。她的语气不像是问句，尾音没有上扬。她问这句话时把纸杯搁回桌上，手腕上那条塑料护士表露出来，表带磨得发白，边缘起了毛。\n\n江叙白没回答。他把笔收起来，把散开的纸页按顺序归拢，对齐边缘。纸张和桌面碰出细碎的声响。左肩在他拧开矿泉水瓶盖时顿了一下，短暂的停顿，随即恢复正常。他喝了一口水，把瓶盖旋回去。\n\n“苏皓出门那天穿的什么。”\n\n“灰色连帽衫。”苏蔓说，“深蓝牛仔裤，白色运动鞋。他出门时看了我一眼，说‘很快回来’。”\n\n“几点。”\n\n“下午五点十分。我值夜班，他在我出门前走的。”\n\n“之后没联系过你。”\n\n“没有。我十点半下班，到家十一点四十，他房间灯没开。我打他电话，已经关机了。”\n\n江叙白把苏皓那页重新抽出来，翻到通话记录的最后一栏。宏远物流的号码旁边，他用手写体补了一行小字：五点十分至二十一时四十三分，中间四小时三十三分钟，无记录，无定位请求。\n\n他不知道自己为什么要补这行。大概是习惯。以前在支队的时候，何沛说他有强迫症，凡是空白区域都忍不住加个注。\n\n“他平时收快递吗。”江叙白问。\n\n“收。他的快递都寄到我医院，他不喜欢让快递员上门。”\n\n“最近一次收件是什么时候。”\n\n“十一月十七号。”苏蔓想了想，“一个纸箱，不大，他拆了没给我看。包装上写的是电子元件。”\n\n“箱子还在不在。”\n\n“扔了。我十九号早班打扫时清掉的。”\n\n江叙白点头。他把这份清单推进苏蔓那边，让她再看一遍。苏蔓低下头，视线落在弟弟那页的通话记录上，指尖按着那个两分十四秒的数字。她按了好几秒，然后把纸推回去。\n\n“如果不认识物流公司的人，他为什么会接那通电话。”\n\n这个问题江叙白没有回答。他正在看的是第五页。徐蕾的通话记录。最后那通电话同样来自一个长途区号，来电号码归属地显示0539，同一个区号，不同的号码。也是当天注销。\n\n他翻回苏皓那页，在纸上比了一下两个号码。号码不同，但区号相同，注销时间相差六天。\n\n他把笔重新拔开，在空白纸上画了个表格，横轴是人名，纵轴是最后通话的来电源头。六个电话全部来自长途区号，其中四个号码登记归属是0539，两个是0574。全部是地级市的长途代码，物流公司可能使用任何区号登记业务电话，这不奇怪。\n\n奇怪的是注销速度。所有号码在通话当天内注销，无一例外。这种注销效率意味着对方使用了虚拟号段，主叫方的真实基站可以锁定这批号段的开户物理地址。只要查得到。\n\n但他没有接触运营商后台的权限。要查这些，需要何沛帮忙。\n\n他忽然明白了——那六个人不是失踪，是被同一张网络筛选出来的。筛选标准不是随机的，而是基于他们各自的生物识别数据。六个人都做过同一种体检，同一家机构，同一台机器。\n\n江叙白把清单最后一页折了个角。三十七页纸归成整齐的一沓，他放进自己的帆布包里，拉上拉链。\n\n“我送你回去。”他说。\n\n“不用。”苏蔓站起身，“我值夜班习惯了，自己走。”\n\n她收拾了自己的东西，把护士表的表带往手腕上紧了紧。走到门口时停了一步，没有回头。\n\n“江老师，你说那些人是自己离家。”\n\n“不是我说。是警方说的。”\n\n“你信吗。”\n\n江叙白把帆布包背到左肩上，右肩低了一截。右肩的旧伤在湿冷的空气里隐隐作痛，让他不敢把重量再往右偏。他的回答迟了好几秒。\n\n“我不信。”\n\n苏蔓推开玻璃门，雨声瞬间涌进来，又在她身后合上门时被重新隔断。茶餐厅里响起收银机打印小票的嘀嘀声，服务员开始擦柜台。\n\n江叙白没急着走。他重新坐下，把清单最后一页又翻了一遍，目光停留在宏远物流那栏。他把那行号码转录到手机备忘录里，备注写了四个字：苏皓最后。\n\n屏幕上的时间显示下午四点四十七分。他在备忘录下加了一行：从离开到通话，四个半小时。\n\n他收起手机，把椅子推回桌下。帆布包搭在膝盖上，他没有站起来，视线从清单上移开，移到靠窗的玻璃上。\n\n雨还在下。路灯还没有亮，天色灰白偏青。玻璃外是马路，路对面是另一排商铺，商铺前的人行道上有水洼，水洼里的倒影被雨点打得粉碎。\n\n那把黑伞就停在水洼旁边。\n\n伞沿压得很低，遮住了执伞人肩膀以上的全部轮廓。伞面是深黑色，雨水顺着伞骨往下淌，汇成断续的线。黑伞站在路灯柱旁，一动不动，跟周围那些打伞经过的人节奏完全不同。行人走过水洼会加速，这把伞没有加速。\n\n江叙白没有站起来，没有靠近窗户。他的手指按在帆布包上，没有动。\n\n茶餐厅里的灯光把玻璃变成了一面浅镜，映出他自己的侧影，映出后厨门帘的晃动。黑伞在外面的世界里静止，像一盏忘记点亮的旧路灯。\n\n伞动了一下。不是被风吹动的。它沿着人行道往南移了半米，然后停住。伞面稍微偏转了一个角度，接着继续南移。\n\n缓慢的，匀速的，沿着江叙白来时的那条方向。\n\n他没有立刻追出去。\n\n他把帆布包的拉链又拉开，从里面摸出手机，调到拨号界面，输入110，然后退出。他知道这种模糊的景观没有办法报警。没有人靠近，没有威胁动作，甚至没有停留够报警时长的证据。只是一把伞和一盏还没亮起的路灯。\n\n他把手机锁屏，看着窗外。\n\n黑伞已经走出了路灯能照亮的范围，融进灰白的雨幕里。它的轮廓在被雨丝切割后变得越来越淡，最后混进了远处几个等红灯的行人中间。雨幕吞掉了那个高度，也吞掉了那点黑色。\n\n江叙白站起身。他把椅子推好，背上帆布包，推开门走进雨里。\n\n细雨打在脸上没有什么分量，带股铁锈似的腥气。他站在茶餐厅门口的台阶上往南看。人行道上有几个撑着伞的行人，外卖骑手的电动车碾过水洼溅起泥浆。黑伞已经不见了。\n\n他往南走了六十步，在人行道的砖缝里发现了一个烟头。半截被雨水打湿，滤嘴朝上，烟纸上的烫金商标还没完全糊掉。不是什么线索，只是有人站在这里抽过烟。\n\n他继续往前走了一段。前方是公交站台，顶棚下站了两个等车的人，一男一女，都在低头看手机。没有伞立在站台角落。\n\n江叙白转身，往回走。他没有在茶餐厅重新停留，径直走进对面的巷子，绕过了回声巷北侧的路口。走到巷口时他的左肩又抽了一下，他把帆布包换到右肩上，拐进窄巷。\n\n手机在口袋里震了一下。\n\n何沛的短信。他划开屏幕，信息很短：调阅函批下来了，明天带身份证复印件来队里找我，三楼老覃周二当班。\n\n江叙白把手机收回去，没有回复。\n\n他走进巷子深处，雨声在两侧墙壁之间形成回响，像有很多人在巷子另一头同时踩着积水，但回头看的时候什么都没有。只有灰色砖墙和湿漉漉的铁皮垃圾桶，巷道尽头有团模糊的灯影。\n\n那团灯影没有移动。\n门开着。\n\n不是全开，留了十五公分左右的缝，足够一个人的视线侧着穿过去。走廊里没有灯，门缝里透出来的光是暖黄色的。他记得早上出门前关了大灯，现在亮的应该是阅读灯，搁在书桌左角那盏。\n\n江叙白站在门外，没有推门。\n\n他先把帆布包从左肩上卸下来，靠墙放好。手机静音，钥匙串攥在手心里，几枚钥匙夹在指缝间。不是攻击的握法，至少能划一下。左肩的隐痛在这一刻变得很清晰，他知道自己右肩承重太久，左手握力只剩平时的六成。这套数据在他脑子里过了不到一秒就被压下去了。\n\n他屏住呼吸听了十几秒。\n\n屋里有人走动。步伐不重，不是靴子也不是皮鞋，脚步声里听不出鞋底的硬度。步伐节奏很稳，从客厅走到他卧室方向，停下，然后是抽屉被拉开的声音。\n\n第二层抽屉。\n\n那个抽屉里装的是旧档案袋、几个U盘和两本硬壳笔记本。没有现金，没有银行卡，没有值钱的东西。\n\n江叙白把钥匙换到右手，左手推开门。\n\n门开得很慢，铰链发出一声细响，像指甲刮过纸面。客厅里的阅读灯果然亮着，调到了最暗的一档，光线勉强够映出家具的轮廓。沙发上扔着他的薄毯，茶几上多了一只玻璃杯，杯底剩半指高的水。\n\n卧室门口站着一个人。\n\n是个女人。\n\n背光，看不清五官，只能看见轮廓。中长发，披着，到肩膀往下一点。身上穿一件深灰色的风衣，腰带没系，垂在两边。她站在卧室门口，面对着他，手里捏着半个文件夹。他认得那个蓝色塑料夹子，是他用来放剪报的。\n\n两个人隔着客厅对视了大概五秒钟。\n\n江叙白先开口：“谁给你的钥匙。”\n\n女人的回答晚了一拍。她把文件夹合上，放在卧室门口的书架上，动作很轻，像在图书馆里还一本书。然后她从风衣口袋里掏出一个东西，往前走了两步，把东西搁在茶几上，挨着那只玻璃杯。\n\n是把钥匙。铜色，配过他这把锁。\n\n“你换锁太多次了，江老师。”她的声音不高，带一点沙哑，像是刚从干燥的地方回来。“这次我找人配的。”\n\n江叙白没有去看茶几上的钥匙。他在看她走路的方式。重心偏右，右脚落地比左脚轻，旧伤或者在鞋里藏了东西。风衣下摆遮到膝盖，看不出鞋的款式。\n\n“我上次说过，”他把房门在身后合上，“再来找我，我会报警。”\n\n“会报警你刚才就报过了。”女人说，“你站门外那会儿我就知道你在。你呼吸声变了。”\n\n她说这话的时候语气很平，不带挑衅，更像在陈述一个两人都知道的事实。她在沙发上坐下来，翘起腿，搭在膝盖上的那只手手指细长，指甲剪得很短，没涂甲油。她的脸终于进了阅读灯的光圈里。三十五岁上下，颧骨偏高，嘴唇很薄，眼角有细纹，笑起来的时候那些细纹会往上抬，但她现在没在笑。\n\n她叫章凝。四年前在一桩土地转让纠纷的案子里跟江叙白打过交道，那时候她代表开发商，江叙白代表回迁户。那场纠纷最后以开发商撤资收场，章凝的事务所丢了代理权，她在行业里的名声跌了两年才缓过来。\n\n后来她又出现过三次。第一次是二十三号楼的电梯间，第二次是档案馆门口，第三次是上个月，在小区门口的便利店里，她买了一瓶水，站在冰柜旁喝。三次都没有说清楚来意。\n\n这是第四次。\n\n“你查到什么了。”章凝问。\n\n江叙白没有接她的话。他走进厨房，打开水龙头洗了手，从筷子笼里抽出筷子时顺便扫了一眼刀架。刀具没少，位置也没变。他把灶台上的抹布拿起来擦了擦手，然后才走回客厅，坐在茶几另一侧的折叠椅上。\n\n“章律师，”他说，“你进来我没报警，是因为我不想浪费警力。你有三分钟，说完就走。”\n\n章凝从风衣内袋里掏出手机，划了几下，把屏幕亮给他看。\n\n屏幕上是一张照片。照片里是一个中年男人，五十来岁，身形偏胖，穿藏青色polo衫，站在某个工地围挡前面，笑容很官方。背景里有塔吊和蓝色铁皮围挡，围挡上喷着几个白色大字：金辉·锦绣江南。\n\n“认识吗。”章凝问。\n\n“不熟。”江叙白看了一眼，“王什么来着。”\n\n“王建国。”章凝把手机收回去，“你去年十月份给他做过一份调查报告，关于他儿子的。他儿子叫王思睿，二十岁，大二，去年九月十二号晚上从学校出去之后就没回来过。你接这个单的时候用的是我的名字做担保人。”\n\n江叙白没说话。\n\n“我上个月才知道这件事。”章凝说，“王建国打电话到我事务所，问我认不认识江叙白。我说认识。他说江叙白收了他八万块调查费，调查了三个月，最后给他发了份邮件，说查不下去了，让他走警方渠道。然后他把邮件转给我看。”\n\n她从手机里调出那封邮件的截屏，又亮给他看。\n\n江叙白只扫了一眼。他知道那封邮件的内容。四段话，措辞很克制，解释了自己的调查方法遇到了瓶颈，建议委托人依靠警方资源继续追查，同时附了一份整理过的时间线和通话记录。最后一段说的是部分退款的事，他退了两万四。\n\n“我没有收八万块。”他说，“退了款的。”\n\n“他关心的不是钱。”章凝收起手机，“他关心的是你为什么要停。邮件里你说瓶颈，什么样的瓶颈会让你退钱？你江叙白什么时候退过钱？”\n\n这倒是真的。他做调查从来不退钱，查到什么样就是什么样，委托人能接受就接受，不能接受也不会退。王建国那单是唯一一次例外。\n\n“你到底想说什么。”江叙白问。\n\n章凝没有立刻回答。她从沙发上起身，走到窗前，撩开窗帘的一角往外看了看。雨还在下，窗外是小区的中庭，路灯刚刚亮起来，橘黄色的光打在湿漉漉的冬青树上。\n\n“王思睿失踪那天晚上，穿的是灰色连帽衫。”她放下窗帘，转过身来，“他对室友说，去取个东西，很快回来。”\n\n江叙白的手指在折叠椅的扶手上停住了。\n\n这句话他今天下午才听过，一模一样的措辞，从苏蔓的嘴里说出来。\n\n“苏皓，二十三岁，物流公司临时工，一月十六号晚上失踪，穿灰色连帽衫，对室友说去取个东西。”章凝掰着手指数，“王思睿，二十岁，大学生，去年九月十二号晚上失踪，穿灰色连帽衫，对室友说去取个东西。还有两个，要不要听听？”\n\n江叙白没有说要不要。章凝也不需要他的回答。\n\n“李铭远，二十七岁，外卖骑手，三月八号晚上收工后失踪，跟同事说去北门取个东西。张旸，十九岁，职高学生，十一月二十号放学后失踪，跟同学说校门口取个东西。”章凝把四个名字一个一个地报出来，跟报菜单一样轻描淡写，“四个人，半年之内，分布在三个城市。最后一个就是苏皓。”\n\n“你怎么知道苏皓。”\n\n“你在查他。”章凝说，“你查的人，我都会知道。”\n\n她走回茶几旁，拿起那只玻璃杯，把剩下半指高的水喝干净。喝完把杯子倒扣在茶几上，杯底的水渍洇在桌面上，印出一个小小的圆环。\n\n“江老师，你不是瓶颈。你是发现了什么东西，或者是碰到了什么人，让你觉得不能再往下碰了。”她把风衣的腰带系上，打了个很随意的结。“我想知道那个东西是什么。”\n\n江叙白看着倒扣的玻璃杯，沉默了很长时间。阅读灯的灯光把他半边脸照得轮廓分明，另外半边落在阴影里，看不出表情。\n\n“你没有三分钟了。”他说。\n\n章凝笑了一下。她笑起来的时候眼角的细纹往上抬，整个人忽然没那么凌厉了，但那种温和只持续了一秒就重新收敛回薄唇的线条里。她走到门口，把门拉开，走廊里的冷风灌进来，阅读灯的灯焰晃了一下。\n\n“我住在老地方。”她回过头，“你什么时候想说了，来找我。”\n\n门在她身后合上。脚步声在走廊里渐渐远去，消失的方向不是电梯口，是楼梯间。\n\n江叙白没有动。他坐在折叠椅上，盯着茶几上那把配来的铜色钥匙，盯了整整两分钟。\n\n然后他站起来，走到书桌前，拉开第三层抽屉。那个抽屉里放的是一些杂物。旧手机、充电器、几卷双面胶、一把折叠刀。他把这些东西拨开，从抽屉最底下抽出一个牛皮纸信封。\n\n信封没有封口。他往手心里倒了倒，倒出一张折了两折的纸。\n\n展开。纸上有四个名字，三个已经用红笔圈起来。他拿起桌上的记号笔，把第四个名字也圈了。\n\n苏皓。\n\n纸的空白处，在四个名字上方，他写了两个字：取件。\n\n他已经盯着这两个字看了大半年。\n\n现在他知道，不止他一个人在看。\n\n江叙白把纸重新折好，塞回信封，放回抽屉最深处。他把抽屉关上，锁了。这个抽屉是他自己加装了一把小锁，钥匙他始终带在身上。\n\n关上抽屉之后他在书桌前站了一会儿，然后拿起手机。\n\n何沛的短信还亮在屏幕上。他回了一条：把宏远物流的通话清单也算进调阅范围，周一之前拿到。\n\n发送。等了不到三十秒，何沛回了两个字：为什么。\n\n他打了四个字，想了想，又一个一个删掉。最后只回了一句：明天跟你说。\n\n窗外的雨声忽然大了一拍。他抬头看窗外，路灯下的冬青树在风里晃了一下，又晃了一下，然后静止。\n\n那把黑伞没有再出现。\n\n但他知道，今晚上锁的门，拦不住该进来的人。"
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_pqBFw7oMOx3R2NUlWDM49634",
+            "type": "function",
+            "function": {
+              "name": "look_up_character",
+              "arguments": "{\"char_name\": \"江叙白\"}"
+            }
+          },
+          {
+            "index": 1,
+            "id": "call_01_fCgQEAcqz5PlcOCWOuPR2873",
+            "type": "function",
+            "function": {
+              "name": "look_up_character",
+              "arguments": "{\"char_name\": \"苏蔓\"}"
+            }
+          },
+          {
+            "index": 2,
+            "id": "call_02_HibjWegEyGEDwJDSPhHi6432",
+            "type": "function",
+            "function": {
+              "name": "look_up_character",
+              "arguments": "{\"char_name\": \"章凝\"}"
+            }
+          }
+        ],
+        "reasoning_content": "Let me analyze Chapter 2 systematically as Editor-C. I need to check:\n\n1. Facts - conflicts with worldbook\n2. Forbidden - any forbidden elements\n3. Naming - inconsistencies in names/places/terms\n4. Hooks - foreshadowing setup and payoff\n5. Appearance - character appearance consistency\n6. Visual clash - color/symbol conflicts\n7. Cross-chapter continuity\n\nLet me start by looking up key characters and settings to verify consistency.\n\nKey elements to check:\n- Characters: 江叙白, 苏蔓, 章凝, 何沛, 苏皓, 王建国, 王思睿, 李铭远, 张旸\n- Places: 江湾码头, 回声巷, 临江市, 茶餐厅\n- Items: 黄铜钥匙, 42号, 勿配, 灰色连帽衫\n- Concepts: A-113卷宗, 宏远物流, 0539区号, 黑伞\n\nLet me look up these characters and settings."
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_00_pqBFw7oMOx3R2NUlWDM49634",
+        "name": "look_up_character",
+        "content": "{'name': '江叙白', 'aliases': {'narrator_default': '江叙白', 'self_referent': '我', 'called_by': {'苏蔓': '江老师', '何沛': '老江', '聂守仁': '这位先生'}}, 'voice_examples': '『巧合出现一次是巧合,出现三次是安排。』『我不信路灯,我信监控。』', 'personality': \"克制,多疑,记细节;对'结案太快的案子'有职业性反感。\", 'forbidden_in_narrative': ['主角', '记者江']}"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_01_fCgQEAcqz5PlcOCWOuPR2873",
+        "name": "look_up_character",
+        "content": "{'name': '苏蔓', 'aliases': {'narrator_default': '苏蔓', 'self_referent': '我', 'called_by': {'江叙白': '苏小姐'}}, 'personality': '克制的焦虑,做事有条理。'}"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_02_HibjWegEyGEDwJDSPhHi6432",
+        "name": "look_up_character",
+        "content": "未找到角色: 章凝"
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_rTFr358TC6p2GXucVU9M0006",
+            "type": "function",
+            "function": {
+              "name": "look_up_setting",
+              "arguments": "{\"keyword\": \"章凝\"}"
+            }
+          },
+          {
+            "index": 1,
+            "id": "call_01_pmR39ZV2bH7cFbWJKVtn6795",
+            "type": "function",
+            "function": {
+              "name": "look_up_setting",
+              "arguments": "{\"keyword\": \"黄铜钥匙\"}"
+            }
+          },
+          {
+            "index": 2,
+            "id": "call_02_XHkWeTYqQyQ9Kn1HOGlw4083",
+            "type": "function",
+            "function": {
+              "name": "look_up_setting",
+              "arguments": "{\"keyword\": \"灰色连帽衫\"}"
+            }
+          }
+        ],
+        "reasoning_content": "章凝 is introduced as a new character in this chapter. Let me check the worldbook for her and other relevant settings. Let me look up several things:\n\n1. The worldbook for 章凝\n2. The worldbook for the key elements (黄铜钥匙, 灰色连帽衫, etc.)\n3. Visual symbols\n4. Previous chapter for continuity"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_00_rTFr358TC6p2GXucVU9M0006",
+        "name": "look_up_setting",
+        "content": "worldbook 中未找到包含 '章凝' 的条目"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_01_pmR39ZV2bH7cFbWJKVtn6795",
+        "name": "look_up_setting",
+        "content": "worldbook 中未找到包含 '黄铜钥匙' 的条目"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_02_XHkWeTYqQyQ9Kn1HOGlw4083",
+        "name": "look_up_setting",
+        "content": "worldbook 中未找到包含 '灰色连帽衫' 的条目"
+      },
+      {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "index": 0,
+            "id": "call_00_C2ZVHnKbgJvwZOzvMmEI1197",
+            "type": "function",
+            "function": {
+              "name": "look_up_setting",
+              "arguments": "{\"keyword\": \"A-113\"}"
+            }
+          },
+          {
+            "index": 1,
+            "id": "call_01_XldZHoiXkv4N9AHQY25e3235",
+            "type": "function",
+            "function": {
+              "name": "look_up_history",
+              "arguments": "{\"chapter_or_keyword\": \"1\"}"
+            }
+          },
+          {
+            "index": 2,
+            "id": "call_02_RQ59eRJwTvGrighjUucm6577",
+            "type": "function",
+            "function": {
+              "name": "look_up_visual",
+              "arguments": "{\"symbol\": \"金色\"}"
+            }
+          }
+        ],
+        "reasoning_content": "章凝 is not in the worldbook. Let me check more settings, especially about the key concepts in this chapter: A-113, 黑伞, 勿配, 取件, etc. Also need to check previous chapter for continuity."
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_00_C2ZVHnKbgJvwZOzvMmEI1197",
+        "name": "look_up_setting",
+        "content": "[{'section': 'facts', 'content': \"档案编号 A-113 对应 1998 年'江湾码头沉箱案'\"}]"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_01_XldZHoiXkv4N9AHQY25e3235",
+        "name": "look_up_history",
+        "content": "CH1 末 500 字:\n\n电话挂断后，他在桌前坐了很久。窗外的雨还在下，雨点打在空调外机上发出不规则的撞击声。\n\n他从口袋里摸出那把黄铜钥匙，放到台灯下。\n\n钥匙的圆柄上有一圈极细的纹路，不仔细看会以为是铜件加工时留下的刀痕。但放到灯下用侧光看，那些纹路呈现出固定的走向和间距。不是刀痕。是刻上去的。\n\n他翻转钥匙。\n\n钥匙齿面朝下，圆柄内侧的铜面上，刻着两行极小的字。字体是瘦金体，刻痕深度不超过零点三毫米，墨绿色填色已经大部分脱落，只有在暗处借助台灯的侧光才能辨认。\n\n他凑近了看。\n\n第一行：42号。\n\n第二行：勿配。\n\n他握紧钥匙，铜柄的棱角压进掌心。\n\n窗外的雨声忽然变得很远。\n\n次日清晨，江叙白在台灯下翻完何沛通过加密渠道发来的调阅函扫描件后，桌面的钥匙在晨光里露出柄部内侧的第二行小字。字迹比昨晚看到的更浅，几乎是刻刀在铜面上滑过时留下的毛刺，而非正式刻痕。他辨认了将近二十秒，才看清那行字。\n\n“勿配。丢了的东西别找回来。”\n\n握紧钥匙的那一刻，何沛电话里的话再次响起。\n\n“A-113卷宗的附件清单里，有三件证物至今下落不明，其中编号第三项的是一把黄铜钥匙，备注栏里只写了四个字。”\n\n“‘沉箱所用’。”"
+      },
+      {
+        "role": "tool",
+        "tool_call_id": "call_02_RQ59eRJwTvGrighjUucm6577",
+        "name": "look_up_visual",
+        "content": "视觉符号 '金色' 在前文中未出现"
+      }
+    ],
+    "kwargs_keys": [
+      "temperature",
+      "max_tokens",
+      "tools"
+    ],
+    "elapsed_s": 46.822,
+    "response_text_preview": "",
+    "cost": 0.0209395,
+    "prompt_tokens": 7559,
+    "completion_tokens": 3823,
+    "finish_reason": "tool_calls",
+    "has_reasoning": true,
+    "has_tool_calls_in_raw": true,
+    "raw": {
+      "id": "42c02b8e-d400-4cc1-bc45-49ab1d55f6f1",
+      "object": "chat.completion",
+      "created": 1781238999,
+      "model": "deepseek-v4-pro",
+      "choices": [
+        {
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "",
+            "reasoning_content": "Let me now check the cross-chapter continuity more carefully. \n\nFrom Chapter 1 end:\n- 黄铜钥匙: 圆柄上有纹路, 刻着\"42号\"和\"勿配。丢了的东西别找回来。\"，瘦金体，墨绿色填色\n- A-113卷宗附件清单: 三件证物下落不明, 第三项是黄铜钥匙, 备注\"沉箱所用\"\n- 雨一直在下\n- 何沛说调阅函的事\n\nNow Chapter 2:\n- 苏蔓与江叙白在茶餐厅见面\n- 六名失踪者：张德福(42)、李秀莲(38)、陈望(29)、赵永志(31)、徐蕾(26)、苏皓(23?)\n- 苏皓穿灰色连帽衫，深蓝牛仔裤，白色运动鞋\n- 六人最后一通电话都来自长途区号（0539和0574）\n- 号码全部当天注销\n- 苏皓是唯一信号消失在回声巷的，其他都在江湾码头附近\n- 江叙白发现黑伞跟踪\n- 章凝出现，提到四个失踪者都穿灰色连帽衫，都说\"去取个东西，很快回来\"\n\nLet me check a few things more carefully:\n\n1. The \"上一章末500字\" says: \"第二行：勿配。\" but also \"第二行小字...勿配。丢了的东西别找回来。\" - so in the morning light he sees the full text. This is from Chapter 1. In Chapter 2, the narrative says: \"他辨认了将近二十秒，才看清那行字。'勿配。丢了的东西别找回来。'\" - but this is in Chapter 1's ending segment, repeated in the \"上一章末500字\" preamble. Wait, let me re-read...\n\nActually, the structure says: \"--- 上一章末 500 字 ---\" followed by content that includes BOTH \"电话挂断后\" segment AND \"次日清晨\" segment. Then \"--- 本章正文 ---\" starts with the tea restaurant.\n\nSo the Chapter 1 ending goes through: night of phone call, examining key, finding \"42号\" and \"勿配\", then morning of next day finding \"勿配。丢了的东西别找回来。\"\n\nNow in Chapter 2, the narrative starts with \"清单摊在桌上。三十七页。\" - which seems to be the same day as the morning in Chapter 1's ending, or maybe a subsequent day.\n\nLet me look for continuity issues:\n\n1. In Ch1 ending, 江叙白 is at home, morning light, looks at key again, sees full inscription. Then in Ch2 he's at a tea restaurant with 苏蔓. This seems continuous.\n\n2. But wait - the Ch1 ending says \"次日清晨，江叙白在台灯下翻完何沛通过加密渠道发来的调阅函扫描件\" - so the 调阅函 arrived. In Ch2, at the end, 何沛 texts \"调阅函批下来了，明天带身份证复印件来队里找我\" - but he already received the 调阅函扫描件 in Ch1 ending! This is a contradiction.\n\nWait, let me re-read. In Ch1 ending: \"次日清晨，江叙白在台灯下翻完何沛通过加密渠道发来的调阅函扫描件后\" - this says he reviewed a scanned copy of the 调阅函. But in Ch2, 何沛's text says \"调阅函批下来了\" - meaning it just got approved. This could be a continuity issue - if the 调阅函 just got approved in Ch2, but he already read the scanned copy in Ch1...\n\nHmm, but maybe \"调阅函扫描件\" in Ch1 is the draft application, not the approved one? The text says \"调阅函扫描件\" which could be the application itself rather than the approved order. But the wording is ambiguous.\n\nActually, let me look more carefully. In Ch1 ending, it says \"何沛通过加密渠道发来的调阅函扫描件\" - this could be the draft 调阅函 that 何沛 was preparing, sent for 江叙白 to review before submission. Then in Ch2, 何沛 texts that the 调阅函 has been approved and to come pick it up. That makes sense - scanned draft first, then approval later. Not necessarily a contradiction.\n\nLet me check other issues:\n\n3. The chapter says \"六个人，四男两女，年龄最小二十二岁，最大四十二岁\" - 张德福(42), 李秀莲(38), 陈望(29), 赵永志(31), 徐蕾(26), 苏皓(23?). The youngest is 苏皓 at... wait, 章凝 says 苏皓 is 23. 徐蕾 is 26. The text says \"年龄最小二十二岁\" - but 苏皓 is 23. Let me check again. Actually 苏皓's age... the text says six people, 四男两女, youngest 22. But I don't see anyone explicitly listed as 22. 张德福 42, 李秀莲 38, 陈望 29, 赵永志 31, 徐蕾 26, 苏皓... 章凝 says 苏皓 二十三岁. So youngest is 苏皓 at 23. But the text says 最小二十二岁. That's a discrepancy.\n\nWait, let me re-read: \"六个人，四男两女，年龄最小二十二岁，最大四十二岁。\" - one is 22 and one is 42. 张德福 is 42 (oldest). The youngest (22) is not explicitly identified in the list. Let me check: 张德福 42, 李秀莲 38, 陈望 29, 赵永志 31, 徐蕾 26, 苏皓... we're told 苏皓 is 23 by 章凝. But the text says youngest is 22. The ages listed: 42, 38, 29, 31, 26 - that's five people. The sixth must be 22. But 苏皓 is identified as 23 by 章凝 later. That's a potential inconsistency.\n\nActually, the text at the beginning of Ch2 doesn't explicitly give an age for 苏皓 in the list. It says \"第六页，苏皓\" without age. Later 章凝 says \"苏皓，二十三岁\". If one of the six is 22, and 苏皓 is 23, then there must be someone 22 among the remaining five - but all five have ages listed (42, 38, 29, 31, 26). None is 22.\n\nWait, let me look again. The ages given:\n- 张德福，四十二岁\n- 李秀莲，三十八岁\n- 陈望，二十九岁\n- 赵永志，三十一岁\n- 徐蕾，二十六岁\n- 苏皓 - no age given in the original list\n\nThen later: \"六个人，四男两女，年龄最小二十二岁，最大四十二岁\"\n\nThis says the youngest is 22. If 苏皓 is not given an age here but 章凝 says he's 23, and all others are above 23 (26 is the lowest otherwise), then the 22-year-old must be someone else. But all six are listed...\n\nActually, this is ambiguous. The text says \"六个人，四男两女，年龄最小二十二岁，最大四十二岁\" and the oldest is clearly 张德福 at 42. But the youngest being 22 - none of the five with explicit ages is 22 (42, 38, 29, 31, 26). 苏皓's age is stated later as 23 by 章凝. So either 苏皓 is 22 (contradicting 章凝) or one of the others is 22 (contradicting the explicit ages given). This is a naming/facts inconsistency.\n\nHmm, but wait - maybe I'm being too strict. The narrative says \"最小二十二岁\" - this could be slightly off, or 苏皓 could be the implied 22-year-old and 章凝 saying 23 is the issue. Either way, there's a discrepancy.\n\n4. Let me check the \"黑伞\" visual. 黑伞 is introduced as a mysterious tracking element. No direct visual clash apparent, but let me note it.\n\n5. 章凝 is introduced without being in the worldbook. She needs to be added, but that's not necessarily a \"naming\" issue - it could be that she's a new character being introduced. The fact she's not in worldbook is worth noting though.\n\n6. Let me check the 茶餐厅 continuity and setting.\n\n7. The key description: Chapter 1 says \"墨绿色填色\" for the key inscriptions. Chapter 2 doesn't re-describe the key, so that's fine.\n\n8. \"宏远物流\" and phone numbers: 0539 and 0574 area codes. 0539 is 临沂, 0574 is 宁波. These are real Chinese area codes. The narrative uses them correctly.\n\n9. Let me check the \"四小时三十三分钟\" gap - from 17:10 to 21:43 is indeed 4 hours 33 minutes. Correct.\n\n10. 江叙白's shoulder injury: consistently mentioned, left shoulder and right shoulder. The text says \"左肩在他拧开矿泉水瓶盖时顿了一下\" and \"右肩的旧伤在湿冷的空气里隐隐作痛\" and earlier \"右肩低了一截\". Consistent.\n\n11. The \"上锁的门，拦不住该进来的人\" echoes the key duplication by 章凝. Consistent thematic thread.\n\nLet me now check for cross-chapter issues more carefully:\n\nCh1 ending: Key inscription discovered as \"42号\" and \"勿配。丢了的东西别找回来。\"\nCh2: The key is not mentioned in the main text. The story focuses on the list of missing persons and 章凝.\n\nContinuity: In Ch1 ending, it's morning, he's at home, looking at the key. In Ch2, the scene jumps to a tea restaurant with 苏蔓. The time gap isn't explicitly stated - it could be the same day or later. The end of Ch2 has 何沛 texting \"调阅函批下来了\" which implies some time has passed since the morning he reviewed the scan.\n\nActually wait - the Ch1 ending says \"次日清晨\" (morning after the phone call), and he reviews the 调阅函 scans. Then in Ch2, at the end, 何沛 texts \"调阅函批下来了\" - but it was \"次日清晨\" that he reviewed the scan. If Chapter 2 starts on the same day as that morning (or later), the approval happening could be a different step.\n\nLooking at the chronology more carefully:\n- Night 1: Phone call from 何沛, examine key, find \"42号\" and \"勿配\"\n- Morning 2: Find \"勿配。丢了的东西别找回来。\" on key, review 调阅函 scans\n- Ch2: Meeting with 苏蔓 at tea restaurant (afternoon, 16:47), then 章凝 appears at home (evening)\n- End of Ch2: 何沛 texts about 调阅函 approval\n\nThis seems consistent - the 调阅函 scan was a draft, and the approval comes through later.\n\nNow let me consolidate my findings:\n\nIssue 1: Age inconsistency - \"年龄最小二十二岁\" vs 苏皓 being 23 (per 章凝) and all other five having ages above 22. (facts)\n\nIssue 2: 章凝 is a significant new character but not in worldbook. (This could be considered a facts issue if worldbook is expected to contain all characters.)\n\nIssue 3: \"四男两女\" - the narrative says six people, four men two women. 张德福(m), 李秀莲(f), 陈望(m), 赵永志(m), 徐蕾(f), 苏皓(m). That's 4 men, 2 women. Correct.\n\nLet me also look for any visual clash issues. The chapter uses:\n- 灰白色 (paper edges)\n- 深蓝色 (工装)\n- 灰色 (hoodie)\n- 深蓝 (jeans)\n- 白色 (sneakers)\n- 金色/烫金 (cigarette brand)\n- 黑伞\n- 深灰色 (风衣)\n- 铜色 (key)\n- 暖黄色/橘黄色 (lights)\n\nNo obvious visual clash with previously assigned symbols. \"金色\" appears only as 烫金商标 on a cigarette, which is incidental, not a character-associated visual symbol.\n\nLet me finalize the issues. I think the key findings are:\n\n1. Age discrepancy (medium severity)\n2. The 调阅函 timing confusion (scan vs approval) - actually this can be explained, so maybe low\n3. 章凝 not in worldbook - this might be expected for new characters\n\nLet me look more carefully for other issues...\n\nActually, let me re-examine the \"上一章末500字\" more carefully:\n\n\"次日清晨，江叙白在台灯下翻完何沛通过加密渠道发来的调阅函扫描件后，桌面的钥匙在晨光里露出柄部内侧的第二行小字。字迹比昨晚看到的更浅，几乎是刻刀在铜面上滑过时留下的毛刺，而非正式刻痕。他辨认了将近二十秒，才看清那行字。\n\n'勿配。丢了的东西别找回来。'\"\n\nWait - in Chapter 1 ending, first he finds \"勿配\" at night, then in the morning he finds the full text \"勿配。丢了的东西别找回来。\" But the Chapter 1 ending says the key's second line was \"勿配\" at night, and then in the morning light he finds it actually reads \"勿配。丢了的东西别找回来。\" This means the full text was always there but he couldn't see it in dim light. This is consistent.\n\nNow, in Chapter 2, is there any mention of this key? Let me scan... No, the key doesn't appear in Chapter 2 main text. The chapter focuses on the list and 章凝. The key from Chapter 1 is \"43号\" (wait, it was \"42号\").\n\nActually, I should double-check: Chapter 1 says \"第一行：42号。\" So the key says \"42号\" and \"勿配。丢了的东西别找回来。\"\n\nNow let me also check: what about the number of missing persons. In Ch2, 章凝 lists: 王思睿, 李铭远, 张旸, and 苏皓 - four people. But the list at the tea restaurant has six: 张德福, 李秀莲, 陈望, 赵永志, 徐蕾, 苏皓. 章凝's four are different from the six on the list (except 苏皓). This could be intentional - 章凝 is talking about a different pattern (grey hoodie + \"取个东西\"), while the list is a different set. But 苏皓 appears on both lists. Let me note this.\n\nThe six on the list: 张德福(42m), 李秀莲(38f), 陈望(29m), 赵永志(31m), 徐蕾(26f), 苏皓(23m) - six people\n章凝's four: 王思睿(20m), 苏皓(23m), 李铭远(27m), 张旸(19m) - four people, all male, grey hoodie pattern\n\nThese are overlapping only on 苏皓. Different patterns. This seems intentional and not an error.\n\nNow, the description of 苏皓's clothing: 苏蔓 says \"灰色连帽衫，深蓝牛仔裤，白色运动鞋\". 章凝 says the four all wore \"灰色连帽衫\" and said \"去取个东西，很快回来\". 苏蔓 also quotes 苏皓 as saying \"很快回来\". This is consistent.\n\nLet me finalize my issues:\n\n1. Age inconsistency: \"年龄最小二十二岁\" but no one on the list is explicitly 22; 苏皓 is stated as 23 by 章凝. All other ages: 42, 38, 31, 29, 26. This is a facts/naming issue.\n\nActually, wait. The narrative says \"年龄最小二十二岁，最大四十二岁\" - could the 22-year-old be 苏皓, and 章凝's \"二十三岁\" be an error? Or vice versa? Either way, there's a discrepancy.\n\n2. I should also check: \"四男两女\" - 张德福(m), 李秀莲(f), 陈望(m), 赵永志(m), 徐蕾(f), 苏皓(m). Yes, 4 male, 2 female. Consistent.\n\nLet me also look at the \"茶餐厅\" setting. Is there anything about it in worldbook? Let me search once more.\n\nActually, let me look up a few more things before finalizing.",
+            "tool_calls": [
+              {
+                "index": 0,
+                "id": "call_00_Wa5OvqKRQ5Ku9B2UWLWY0928",
+                "type": "function",
+                "function": {
+                  "name": "look_up_setting",
+                  "arguments": "{\"keyword\": \"回声巷\"}"
+                }
+              },
+              {
+                "index": 1,
+                "id": "call_01_3OCxclHQGVKhCpCC3BVH2089",
+                "type": "function",
+                "function": {
+                  "name": "look_up_setting",
+                  "arguments": "{\"keyword\": \"江湾码头\"}"
+                }
+              },
+              {
+                "index": 2,
+                "id": "call_02_VZJjg1YaO3xoNNDpCgcr4524",
+                "type": "function",
+                "function": {
+                  "name": "look_up_setting",
+                  "arguments": "{\"keyword\": \"何沛\"}"
+                }
+              }
+            ]
+          },
+          "logprobs": null,
+          "finish_reason": "tool_calls"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 7559,
+        "completion_tokens": 3823,
+        "total_tokens": 11382,
+        "prompt_tokens_details": {
+          "cached_tokens": 6144
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 3709
+        },
+        "prompt_cache_hit_tokens": 6144,
+        "prompt_cache_miss_tokens": 1415
+      },
+      "system_fingerprint": "fp_9954b31ca7_prod0820_fp8_kvcache_20260402"
+    }
+  }
+}

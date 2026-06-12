@@ -59,8 +59,8 @@ FORBIDDEN_FILENAMES_OUTSIDE_EVAL=(
 )
 
 # 硬闸阈值
-MAX_FILES=500
-MAX_SIZE_KB=16384  # 16MB (eval_set_v0 含 .db 章节占 ~10MB)
+MAX_FILES=600
+MAX_SIZE_KB=24576  # 24MB (eval_set_v0 含多轮 comparison_results)
 
 # ---------- 黑名单 .gitignore 内容 ----------
 GITIGNORE_CONTENT='# === 黑名单 (02_开源镜像规范 §3) ===
