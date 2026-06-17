@@ -146,7 +146,7 @@ class TestEditorCostAccumulation:
                     "content": "calling tool",
                     "tool_calls": [{
                         "id": "call_test",
-                        "function": {"name": "look_up_character", "arguments": '{"char_name": "EXAMPLE_PROTAGONIST"}'},
+                        "function": {"name": "look_up_character", "arguments": '{"char_name": "张今空"}'},
                         "type": "function",
                     }],
                 }

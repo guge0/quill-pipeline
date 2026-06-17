@@ -24,7 +24,7 @@ class TestObserverEncoding:
             "| hook_id | 内容 | 状态 |\n|---|---|---|\n", encoding="utf-8"
         )
         (tmp_path / "characters.yaml").write_text(
-            "characters:\n  - name: EXAMPLE_PROTAGONIST\n    role: protagonist\n",
+            "characters:\n  - name: 张今空\n    role: protagonist\n",
             encoding="utf-8",
         )
         return tmp_path
@@ -55,7 +55,7 @@ class TestObserverEncoding:
         mock_response.cost = 0.0123
         mock_adapter.generate.return_value = mock_response
 
-        chapter_text = "EXAMPLE_PROTAGONIST走进了房间。花费了¥100金币。"
+        chapter_text = "张今空走进了房间。花费了¥100金币。"
 
         import asyncio
         result = asyncio.run(

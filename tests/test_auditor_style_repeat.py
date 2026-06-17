@@ -14,7 +14,7 @@ class TestStyleRepeatAuditor:
             "chapter_num": 1,
             "config": {"checkers": {"style_repeat": {"enabled": True, "max_per_chapter": 1}}},
         }
-        result = auditor.run("EXAMPLE_PROTAGONIST站在秘境入口，深吸一口气。", ctx)
+        result = auditor.run("张今空站在秘境入口，深吸一口气。", ctx)
         assert result.checker == "style_repeat"
         assert "通过" in result.message
 

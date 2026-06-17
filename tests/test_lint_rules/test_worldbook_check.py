@@ -36,8 +36,8 @@ def worldbook():
 @pytest.fixture
 def characters():
     return [
-        {"name": "EXAMPLE_PROTAGONIST", "abilities": "金手指『奖励变异』",
-         "aliases": {"called_by": {"EXAMPLE_SIDEKICK": "今空"}}},
+        {"name": "张今空", "abilities": "金手指『奖励变异』",
+         "aliases": {"called_by": {"周大龙": "今空"}}},
         {"name": "楚老"},
     ]
 
@@ -46,7 +46,7 @@ class TestWorldbookRefRule:
     def test_known_ref_pass(self, tmp_path, worldbook, characters):
         """正例：引用的术语在 worldbook 中存在，不报。"""
         outline = _make_outline(
-            "# 关键事件\n- EXAMPLE_PROTAGONIST使用『奖励变异』能力\n- 镇异局介入\n"
+            "# 关键事件\n- 张今空使用『奖励变异』能力\n- 镇异局介入\n"
         )
         try:
             ctx = LintContext(

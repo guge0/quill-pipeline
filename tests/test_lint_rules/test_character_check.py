@@ -30,9 +30,9 @@ def _make_outline(frontmatter_chars: list[str] | None = None,
 @pytest.fixture
 def characters():
     return [
-        {"name": "EXAMPLE_PROTAGONIST", "tier": "protagonist", "aliases": {"called_by": {"EXAMPLE_SIDEKICK": ["今空", "老张"]}}},
-        {"name": "EXAMPLE_SIDEKICK", "tier": "major_supporting"},
-        {"name": "EXAMPLE_SUPPORTING", "tier": "major_supporting"},
+        {"name": "张今空", "tier": "protagonist", "aliases": {"called_by": {"周大龙": ["今空", "老张"]}}},
+        {"name": "周大龙", "tier": "major_supporting"},
+        {"name": "林溪", "tier": "major_supporting"},
         {"name": "李超妈妈", "tier": "npc"},
     ]
 
@@ -67,8 +67,8 @@ class TestCharacterCheckRule:
     def test_known_characters_pass(self, ctx):
         """正例：所有角色已注册，不报错。"""
         outline = _make_outline(
-            ["EXAMPLE_PROTAGONIST", "EXAMPLE_SIDEKICK", "EXAMPLE_SUPPORTING"],
-            "# 关键事件\n- **事件1**: EXAMPLE_PROTAGONIST做某事\n- **事件2**: EXAMPLE_SIDEKICK做某事\n",
+            ["张今空", "周大龙", "林溪"],
+            "# 关键事件\n- **事件1**: 张今空做某事\n- **事件2**: 周大龙做某事\n",
         )
         try:
             rule = CharacterCheckRule()
@@ -82,7 +82,7 @@ class TestCharacterCheckRule:
     def test_unknown_character_with_dialogue_error(self, ctx):
         """反例：未知角色有台词，报 error 必补卡。"""
         outline = _make_outline(
-            ["EXAMPLE_PROTAGONIST", "神秘人X"],
+            ["张今空", "神秘人X"],
             "# 关键事件\n- 神秘人X：你好啊\n",
         )
         try:
@@ -146,7 +146,7 @@ class TestCharacterCheckRule:
     def test_word_count_too_low(self, ctx):
         """字数密度估算过低时报警告。"""
         outline = _make_outline(
-            ["EXAMPLE_PROTAGONIST"],
+            ["张今空"],
             "# 关键事件\n- **事件1**: 短\n",
         )
         try:
@@ -160,10 +160,10 @@ class TestCharacterCheckRule:
 
     def test_word_count_sufficient(self, ctx):
         """字数密度足够时不报警告。"""
-        events = "\n".join(f"- **事件{i}**: " + "EXAMPLE_PROTAGONIST做了很长的事情" * 5
+        events = "\n".join(f"- **事件{i}**: " + "张今空做了很长的事情" * 5
                            for i in range(6))
         outline = _make_outline(
-            ["EXAMPLE_PROTAGONIST"],
+            ["张今空"],
             f"# 关键事件\n{events}\n",
         )
         try:

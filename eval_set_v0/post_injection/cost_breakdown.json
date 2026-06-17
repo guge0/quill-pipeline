@@ -1,0 +1,47 @@
+{
+  "timestamp": "2026-06-16T23:36:31",
+  "condition": "truth_filter_enabled=True",
+  "total_cost_cny": 0.198267,
+  "budget_limit_cny": 2.0,
+  "within_budget": true,
+  "note": "T1 首次跑成功(¥0.0668); T2/T3 首次因 Observer 表格触发 yaml 崩溃, 修复容错后重跑成功(¥0.1314).",
+  "chapters": {
+    "T1": {
+      "word_count": 6397,
+      "cost_cny": 0.066811,
+      "elapsed_seconds": 340.35713815689087,
+      "stage_latencies": {
+        "architect": 25.955742835998535,
+        "writer": 111.8051528930664,
+        "writer_continuation": 46.223737478256226,
+        "wordguard": 0.0020122528076171875,
+        "editor": 131.13718056678772
+      }
+    },
+    "T2": {
+      "word_count": 9740,
+      "cost_cny": 0.063954,
+      "elapsed_seconds": 449.7962896823883,
+      "stage_latencies": {
+        "architect": 20.288290977478027,
+        "writer": 84.94493246078491,
+        "writer_continuation": 109.68070006370544,
+        "wordguard": 0.001005411148071289,
+        "editor": 177.7028272151947
+      }
+    },
+    "T3": {
+      "word_count": 7779,
+      "cost_cny": 0.067458,
+      "elapsed_seconds": 440.6813244819641,
+      "stage_latencies": {
+        "architect": 30.190747022628784,
+        "writer": 81.57357954978943,
+        "writer_continuation": 87.99241518974304,
+        "wordguard": 0.0009877681732177734,
+        "editor": 157.4519124031067
+      }
+    }
+  },
+  "boundary_events": []
+}

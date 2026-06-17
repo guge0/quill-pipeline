@@ -12,6 +12,8 @@ from typing import Callable, Coroutine
 
 from biyu.auditor import run_audit, save_audit_report
 from biyu.auditor.base import AuditResult, Severity
+from biyu.anchor_check import run_check_text
+from biyu.truth_inject import build_truth_injection_block
 from biyu.config import BookConfig, get_registry, load_characters_yaml
 from biyu.context_retriever import get_retriever
 from biyu.db import init_db, record_chapter, sync_characters_from_yaml
@@ -325,6 +327,7 @@ async def generate_chapter(
     chapter_outline_path: Path | None = None,
     model_overrides: dict[str, str] | None = None,
     prompt_version: str = "v4",
+    truth_filter_enabled: bool = False,
 ) -> ChapterResult:
     """Generate a single chapter through the three-stage pipeline.
 
@@ -336,6 +339,9 @@ async def generate_chapter(
                          e.g. {"writer": "r1", "polisher": "v3"}.
                          Only affects this call, does not modify yaml.
         prompt_version: "v4" for new 3-layer prompt, "v3" for legacy prompt.
+        truth_filter_enabled: P6-A1 实体过滤注入开关。False(默认)= 全量 truth
+                         拼接(改造前基线, D-45 钉死); True = 按 outline 出场实体
+                         只注入相关真值(改造后)。
 
     Returns:
         ChapterResult with all outputs and metadata.
@@ -405,9 +411,16 @@ async def generate_chapter(
     # ---- 读取 truth_files (Architect + Writer 共用) ----
     truth_files_block = ""
     truth_data = read_all_truth_files(book_dir)
-    for name, content in truth_data.items():
-        if content.strip():
-            truth_files_block += f"=== {name} ===\n{content}\n\n"
+    if truth_filter_enabled:
+        # P6-A1: 按 outline 出场实体过滤(改造后); 复用 alias 预注册
+        truth_files_block = build_truth_injection_block(
+            truth_data, characters, outline, filter_enabled=True,
+        )
+    else:
+        # D-45 钉死: 改造前基线 = 全量拼接(逐字不变)
+        for name, content in truth_data.items():
+            if content.strip():
+                truth_files_block += f"=== {name} ===\n{content}\n\n"
 
     # ---- Stage 1: Architect (planner) ----
     planning_text = ""
@@ -430,6 +443,22 @@ async def generate_chapter(
     total_cost += planning_resp.cost
     _log_cost(book, chapter_num, "architect", planning_resp.cost, stage_latencies["architect"])
     print(f"  [1/4] OK - {stage_latencies['architect']:.1f}s, ¥{planning_resp.cost:.4f}")
+
+    # ---- 细纲层 anchor 早闸(非阻塞, P6-A2)----
+    # 零 LLM: 纯子串 value-match。anchors.yaml 不存在则静默跳过。
+    skeleton_anchor_report = None
+    try:
+        anchors_yaml = book_dir / "anchors.yaml"
+        if anchors_yaml.exists():
+            skel_report = run_check_text(str(anchors_yaml), planning_text, f"T{chapter_num}")
+            sk = skel_report["stats"]["atomic"]
+            print(
+                f"  [1/4] 细纲锚点: 在 {sk['hit']} / 值错 {sk['value_mismatch']} "
+                f"/ 缺 {sk['miss']} (共 {sk['total']})"
+            )
+            skeleton_anchor_report = skel_report
+    except Exception as e:
+        print(f"  [1/4] 细纲锚点检查跳过: {e}")
 
     # ---- Stage 2: Writer ----
     skeleton_text = ""

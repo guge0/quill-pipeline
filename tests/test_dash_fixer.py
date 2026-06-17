@@ -3,7 +3,7 @@ from biyu.postproc.dash_fixer import fix_dashes
 
 
 def test_保留_对话内戛然停顿():
-    text = '\u201c这——\u201dEXAMPLE_PROTAGONIST话到嘴边又咽回去了'
+    text = '\u201c这——\u201d张今空话到嘴边又咽回去了'
     result = fix_dashes(text)
     assert result.fixed_count == 1  # 引号内短句末尾,保留
 
@@ -34,7 +34,7 @@ def test_修复_啊():
 
 
 def test_修复_对话内情绪():
-    text = '\u201c卧槽——\u201dEXAMPLE_SIDEKICK打了个激灵'
+    text = '\u201c卧槽——\u201d周大龙打了个激灵'
     result = fix_dashes(text)
     assert '——' not in result.fixed_text
     assert '卧槽!' in result.fixed_text
@@ -42,7 +42,7 @@ def test_修复_对话内情绪():
 
 def test_整段修复_战斗场景():
     """模拟 ch3 一段。"""
-    text = 'EXAMPLE_PROTAGONIST猛地拽住EXAMPLE_SUPPORTING——空气中传来焦糊味——他知道,火来了。'
+    text = '张今空猛地拽住林溪——空气中传来焦糊味——他知道,火来了。'
     result = fix_dashes(text)
     assert result.fixed_count == 0
     assert '。' in result.fixed_text

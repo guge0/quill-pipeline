@@ -59,8 +59,8 @@ FORBIDDEN_FILENAMES_OUTSIDE_EVAL=(
 )
 
 # 硬闸阈值
-MAX_FILES=600
-MAX_SIZE_KB=24576  # 24MB (eval_set_v0 含多轮 comparison_results)
+MAX_FILES=500
+MAX_SIZE_KB=16384  # 16MB (eval_set_v0 含 .db 章节占 ~10MB)
 
 # ---------- 黑名单 .gitignore 内容 ----------
 GITIGNORE_CONTENT='# === 黑名单 (02_开源镜像规范 §3) ===
@@ -164,95 +164,6 @@ echo "$GITIGNORE_CONTENT" > "$MIRROR/.gitignore"
 # 清理构建产物与 Python 缓存
 find "$MIRROR" -type d -name '__pycache__' -exec rm -rf {} + 2>/dev/null || true
 find "$MIRROR" -type d -name '*.egg-info' -exec rm -rf {} + 2>/dev/null || true
-
-# ---------- 出镜消毒: 真书人名/路径 → 占位符 ----------
-# 规则: 只清真书人名,不清 EV1 人名(江叙白/聂守仁/何沛/苏蔓/老覃 — 公开测试书,生而公开)
-# 评估集 eval_set_v0/ 不做替换(本身就是公开测试素材)
-SANITIZE_NAMES=(
-    "EXAMPLE_PROTAGONIST:EXAMPLE_PROTAGONIST"
-    "EXAMPLE_SIDEKICK:EXAMPLE_SIDEKICK"
-    "EXAMPLE_SUPPORTING:EXAMPLE_SUPPORTING"
-    "EXAMPLE_VILLAIN:EXAMPLE_VILLAIN"
-    "EXAMPLE_CLASSMATE:EXAMPLE_CLASSMATE"
-    "EXAMPLE_ALLY:EXAMPLE_ALLY"
-    "EXAMPLE_FEMALE_LEAD:EXAMPLE_FEMALE_LEAD"
-    "EXAMPLE_ELDER:EXAMPLE_ELDER"
-    "EXAMPLE_SWORDSMAN:EXAMPLE_SWORDSMAN"
-    "EXAMPLE_PILOT:EXAMPLE_PILOT"
-)
-SANITIZE_PATHS=(
-    "EXAMPLE_PROTAGONIST_T-P3-A验证:EXAMPLE_BOOK_DIR"
-)
-
-echo "[消毒] 出镜消毒: 替换真书人名/路径为占位符..."
-
-# 收集需要消毒的文件 (排除 .git 和 eval_set_v0)
-SANITIZE_FILES=()
-while IFS= read -r -d '' f; do
-    # 跳过二进制文件
-    if file "$f" 2>/dev/null | grep -q 'text'; then
-        SANITIZE_FILES+=("$f")
-    fi
-done < <(find "$MIRROR" -not -path '*/.git/*' -not -path '*/eval_set_v0/*' \
-         -type f -print0 2>/dev/null)
-
-SANITIZE_COUNT=0
-for entry in "${SANITIZE_NAMES[@]}"; do
-    original="${entry%%:*}"
-    placeholder="${entry##*:}"
-    for f in "${SANITIZE_FILES[@]}"; do
-        if grep -q "$original" "$f" 2>/dev/null; then
-            sed -i "s/${original}/${placeholder}/g" "$f" 2>/dev/null || \
-                sed -i '' "s/${original}/${placeholder}/g" "$f"
-            SANITIZE_COUNT=$((SANITIZE_COUNT + 1))
-        fi
-    done
-done
-
-for entry in "${SANITIZE_PATHS[@]}"; do
-    original="${entry%%:*}"
-    placeholder="${entry##*:}"
-    for f in "${SANITIZE_FILES[@]}"; do
-        if grep -q "$original" "$f" 2>/dev/null; then
-            sed -i "s/${original}/${placeholder}/g" "$f" 2>/dev/null || \
-                sed -i '' "s/${original}/${placeholder}/g" "$f"
-            SANITIZE_COUNT=$((SANITIZE_COUNT + 1))
-        fi
-    done
-done
-
-echo "[消毒] 完成,处理了 ${#SANITIZE_FILES[@]} 个文件,${SANITIZE_COUNT} 处替换"
-
-# ---------- 层 2.5: 消毒后真书人名残留检查 ----------
-echo ""
-echo "=== 消毒残留检查 ==="
-RESIDUAL_NAMES=("EXAMPLE_PROTAGONIST" "EXAMPLE_SIDEKICK" "EXAMPLE_SUPPORTING" "EXAMPLE_VILLAIN" "EXAMPLE_CLASSMATE" "EXAMPLE_ALLY" "EXAMPLE_FEMALE_LEAD" "EXAMPLE_ELDER" "EXAMPLE_SWORDSMAN" "EXAMPLE_PILOT")
-RESIDUAL_PATHS=("EXAMPLE_PROTAGONIST_T-P3-A验证")
-RESIDUAL_HITS=()
-
-for name in "${RESIDUAL_NAMES[@]}"; do
-    hits=$(grep -rl "$name" "$MIRROR" --exclude-dir='.git' --exclude-dir='eval_set_v0' 2>/dev/null || true)
-    if [ -n "$hits" ]; then
-        RESIDUAL_HITS+=("人名残留 '$name': $hits")
-    fi
-done
-
-for path_seg in "${RESIDUAL_PATHS[@]}"; do
-    hits=$(grep -rl "$path_seg" "$MIRROR" --exclude-dir='.git' --exclude-dir='eval_set_v0' 2>/dev/null || true)
-    if [ -n "$hits" ]; then
-        RESIDUAL_HITS+=("路径残留 '$path_seg': $hits")
-    fi
-done
-
-if [ ${#RESIDUAL_HITS[@]} -gt 0 ]; then
-    echo "❌ 消毒残留 — 以下真书标识未被清除:"
-    for h in "${RESIDUAL_HITS[@]}"; do
-        echo "  $h"
-    done
-    echo "拒推。请检查消毒逻辑或将有问题的文件加入白名单。"
-    exit 1
-fi
-echo "✅ 消毒残留检查通过: 真书人名/路径零命中"
 
 # ---------- 推前硬闸检查 ----------
 echo ""

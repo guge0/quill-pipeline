@@ -22,7 +22,7 @@ def book_dir(tmp_path):
         "陈处站在指挥中心。东黎国边境出现异常。\n", encoding="utf-8"
     )
     (ch_dir / "ch17.md").write_text(
-        "EXAMPLE_PROTAGONIST在训练场。极阳呼吸法运转。\n", encoding="utf-8"
+        "张今空在训练场。极阳呼吸法运转。\n", encoding="utf-8"
     )
     (ch_dir / "ch22.md").write_text(
         "白衣青年在乌坦城城墙上。\n", encoding="utf-8"
@@ -42,11 +42,11 @@ class TestWbImpactScan:
     def test_facts_addition(self, book_dir):
         """集成测试 1：facts 新增条目。"""
         old_wb = {
-            "facts": ["主角姓名：EXAMPLE_PROTAGONIST"],
+            "facts": ["主角姓名：张今空"],
         }
         new_wb = {
             "facts": [
-                "主角姓名：EXAMPLE_PROTAGONIST",
+                "主角姓名：张今空",
                 "镇异局南城分部新增负责人：李处",
             ],
         }
@@ -97,7 +97,7 @@ class TestWbImpactScan:
 
     def test_no_changes_clean(self, book_dir):
         """正例：worldbook 无变化。"""
-        wb = {"facts": ["主角姓名：EXAMPLE_PROTAGONIST"]}
+        wb = {"facts": ["主角姓名：张今空"]}
         items = scan_impact(wb, wb, book_dir)
         assert len(items) == 0
 

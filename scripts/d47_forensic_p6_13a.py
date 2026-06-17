@@ -25,7 +25,7 @@ from biyu.editor.multi_agent import load_editor_config, clear_config_cache, revi
 # P6-0-PRE 的 110 字已知 issue 文本
 TEST_TEXT = (
     "陈风今年二十五岁，修炼的是烈火诀。他站在青石镇的街头，望着远处的矿脉。"
-    "手中的长剑泛着火红色的光芒。EXAMPLE_VILLAIN走过来拍了拍他的肩膀："
+    "手中的长剑泛着火红色的光芒。赵天行走过来拍了拍他的肩膀："
     "\"陈兄，你的烈火诀又有突破了。\"陈风微微一笑：\"运气好而已。\""
     "他收起长剑，转身往矿场走去。"
 )

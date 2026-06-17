@@ -6,7 +6,7 @@
 from pathlib import Path
 from biyu.postproc.dash_fixer import fix_dashes
 
-book_dir = Path("data/EXAMPLE_PROTAGONIST_T-P3-A验证")
+book_dir = Path("data/张今空_T-P3-A验证")
 ch1_path = book_dir / "chapters" / "ch1.md"
 backup_path = book_dir / "_archive_T-P3-A.1_round" / "ch1_pre_dashfix.md"
 backup_path.parent.mkdir(parents=True, exist_ok=True)

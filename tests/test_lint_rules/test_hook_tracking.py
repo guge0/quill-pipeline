@@ -31,7 +31,7 @@ class TestHookTrackingRule:
                         "hook_id": "hook_05",
                         "状态": "open",
                         "预期回收": "CH18",
-                        "备注": "张父与EXAMPLE_ELDER的渊源",
+                        "备注": "张父与老樵的渊源",
                     },
                 ],
             )

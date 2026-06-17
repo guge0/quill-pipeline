@@ -1,0 +1,259 @@
+============================================================
+P6-人味 A/B 改版生成(反机械硬约束版)
+runs=2, chapters=T1/T2/T3, prompt=v4+反机械patch
+============================================================
+--- run1 T1 ---
+  worldbook 已加载，注入 prompt
+  在场角色锁: 江叙白, 聂守仁, 何沛, 报刊亭老板
+  角色同步: yaml 6 条 → SQLite 6 条
+  构建上下文 (模式: long_context)...
+  上下文: 682 字符
+  [1/4] Architect (r1 规划)...
+  [1/4] OK - 26.9s, ¥0.0359
+  [2/4] Writer (v4_pro, prompt=v4)...
+  [2/4] OK - 109.5s, ¥0.0213, 4990字
+  [3/4] WordGuard (字数检查: 4990/3000)...
+  [3/4] 达标 - 4990→4990字
+  [dash_fixer] 破折号 4 → 0 (1 条规则触发)
+  [git] dash_fixer 提交失败(warning): CH1: 未找到章节文件
+  [wenyan_fixer] 跳过 (wenyan_enabled=false)
+  [grammar_check] 本地检查...
+  [grammar_check] 通过
+  [Editor] V4-Pro 审稿 (single mode)...
+  [Editor] 0 个问题（0 个可自动修）
+  [4/4] Polish 跳过 (polish_enabled=false)
+  [Observer] 更新真相文件...
+  [Observer] 真相文件已更新(3/3), ¥0.0117
+  [Observer] 角色出场记录已更新: 4 个角色
+  [Auditor] 执行 9 项检查...
+  [Auditor] 报告已保存: E:\webnovel\quill-pipeline\data\EV1_回声巷\audit_reports\ch1.json
+    [WARN] dedup: 去重通过，无历史章节可对比
+    [WARN] worldbook_check: 发现 1 个潜在违规: 主角姓名'江叙白,32 岁,独立调查记者'在正文中未出现，可能有漂移
+    [WARN] character_presence: 非在场角色出现: 苏蔓
+    [WARN] transition: 第一章或缺少上下文，跳过衔接检查
+    [WARN] style_repeat: 句式重复检查通过
+    [WARN] dialogue_ratio: 对话占比 23.0%,正常
+    [WARN] character_naming: 角色称谓检查通过
+    [WARN] anchor_check: anchor_check: 无 anchors.yaml, 跳过
+  [git] 提交失败(warning): git add data\EV1_回声巷\chapters\ch1.md failed: The following paths are ignored by one of your .gitignore files:
+data
+hint: Use -f if you really want to add them.
+hint: Disable this message with "git config advice.addIgnoredFile false"
+  [audit_report] 已生成: E:\webnovel\quill-pipeline\data\EV1_回声巷\audit_reports\ch1.md
+  cost CNY0.0572, 306s, writer_raw=True
+--- run1 T2 ---
+  worldbook 已加载，注入 prompt
+  在场角色锁: 江叙白, 苏蔓
+  角色同步: yaml 6 条 → SQLite 6 条
+  构建上下文 (模式: long_context)...
+  上下文: 2559 字符
+  [1/4] Architect (r1 规划)...
+  [1/4] OK - 29.8s, ¥0.0390
+  [2/4] Writer (v4_pro, prompt=v4)...
+  [2/4] OK - 78.6s, ¥0.0195, 3794字
+  [2/4+] V3 自续 (骨架仅 3794 字,目标再写 1206 字)...
+  [2/4+] 自续完成 - 67.0s, ¥0.0127, 自续后 7260字
+  [3/4] WordGuard (字数检查: 7260/3000)...
+  [3/4] 达标 - 7260→7260字
+  [dash_fixer] 破折号 6 → 0 (2 条规则触发)
+  [git] dash_fixer 提交失败(warning): CH2: 未找到章节文件
+  [wenyan_fixer] 跳过 (wenyan_enabled=false)
+  [grammar_check] 本地检查...
+  [grammar_check] 修复 1 处（占位符0 / 错别字1 / 重复字0）
+  [git] grammar_check 提交失败(warning): CH2: 未找到章节文件
+  [Editor] V4-Pro 审稿 (single mode)...
+  [Editor] 2 个问题（0 个可自动修）
+  [Editor] → 进 _pending/（需老板审查）
+  [Editor] 双层报告已生成: ch2.json + ch2.md
+  [4/4] Polish 跳过 (polish_enabled=false)
+  [Observer] 更新真相文件...
+  [Observer] 真相文件已更新(3/3), ¥0.0202
+  [Observer] 角色出场记录已更新: 4 个角色
+  [Auditor] 执行 9 项检查...
+  [Auditor] 报告已保存: E:\webnovel\quill-pipeline\data\EV1_回声巷\audit_reports\ch2.json
+    [WARN] dedup: 去重通过，无历史章节可对比
+    [WARN] worldbook_check: 发现 1 个潜在违规: 主角姓名'江叙白,32 岁,独立调查记者'在正文中未出现，可能有漂移
+    [WARN] character_presence: 非在场角色出现: 何沛, 报刊亭老板
+    [WARN] transition: 上一章 ch1 不存在，跳过衔接检查
+    [WARN] style_repeat: 句式重复检查通过
+    [WARN] dialogue_ratio: 对话占比 19.5%,正常
+    [WARN] character_naming: 角色称谓检查通过
+    [WARN] anchor_check: anchor_check: 无 anchors.yaml, 跳过
+  → 写入 _pending/ch2.md (质量未达标)
+  [git] 提交失败(warning): git add data\EV1_回声巷\chapters\_pending\ch2.md data\EV1_回声巷\audit_reports\ch2.md failed: The following paths are ignored by one of your .gitignore files:
+data
+hint: Use -f if you really want to add them.
+hint: Disable this message with "git config advice.addIgnoredFile false"
+  [audit_report] 已生成: E:\webnovel\quill-pipeline\data\EV1_回声巷\audit_reports\ch2.md
+  cost CNY0.0712, 315s, writer_raw=True
+--- run1 T3 ---
+  worldbook 已加载，注入 prompt
+  在场角色锁: 江叙白, 何沛, 老覃
+  角色同步: yaml 6 条 → SQLite 6 条
+  构建上下文 (模式: long_context)...
+  上下文: 5057 字符
+  [1/4] Architect (r1 规划)...
+  [1/4] OK - 23.8s, ¥0.0479
+  [2/4] Writer (v4_pro, prompt=v4)...
+  [2/4] OK - 103.4s, ¥0.0282, 5816字
+  [3/4] WordGuard (字数检查: 5816/3000)...
+  [3/4] 达标 - 5816→5816字
+  [dash_fixer] 破折号 20 → 0 (1 条规则触发)
+  [git] dash_fixer 提交失败(warning): CH3: 未找到章节文件
+  [wenyan_fixer] 跳过 (wenyan_enabled=false)
+  [grammar_check] 本地检查...
+  [grammar_check] 通过
+  [Editor] V4-Pro 审稿 (single mode)...
+  [Editor] 2 个问题（0 个可自动修）
+  [Editor] → 进 _pending/（需老板审查）
+  [Editor] 双层报告已生成: ch3.json + ch3.md
+  [4/4] Polish 跳过 (polish_enabled=false)
+  [Observer] 更新真相文件...
+Response truncated (finish_reason=length)
+  [Observer] 真相文件已更新(3/3), ¥0.0274
+  [Observer] 角色出场记录已更新: 5 个角色
+  [Auditor] 执行 9 项检查...
+  [Auditor] 报告已保存: E:\webnovel\quill-pipeline\data\EV1_回声巷\audit_reports\ch3.json
+    [WARN] dedup: 去重通过，无历史章节可对比
+    [WARN] worldbook_check: 发现 1 个潜在违规: 主角姓名'江叙白,32 岁,独立调查记者'在正文中未出现，可能有漂移
+    [WARN] character_presence: 非在场角色出现: 聂守仁, 苏蔓
+    [WARN] transition: 上一章 ch2 不存在，跳过衔接检查
+    [WARN] style_repeat: 句式重复检查通过
+    [WARN] dialogue_ratio: 对话占比 23.5%,正常
+    [WARN] character_naming: 角色称谓检查通过
+    [WARN] anchor_check: anchor_check: 无 anchors.yaml, 跳过
+  → 写入 _pending/ch3.md (质量未达标)
+  [git] 提交失败(warning): git add data\EV1_回声巷\chapters\_pending\ch3.md data\EV1_回声巷\audit_reports\ch3.md failed: The following paths are ignored by one of your .gitignore files:
+data
+hint: Use -f if you really want to add them.
+hint: Disable this message with "git config advice.addIgnoredFile false"
+  [audit_report] 已生成: E:\webnovel\quill-pipeline\data\EV1_回声巷\audit_reports\ch3.md
+  cost CNY0.0761, 328s, writer_raw=True
+--- run2 T1 ---
+  worldbook 已加载，注入 prompt
+  在场角色锁: 江叙白, 聂守仁, 何沛, 报刊亭老板
+  角色同步: yaml 6 条 → SQLite 6 条
+  构建上下文 (模式: long_context)...
+  上下文: 682 字符
+  [1/4] Architect (r1 规划)...
+  [1/4] OK - 24.8s, ¥0.0397
+  [2/4] Writer (v4_pro, prompt=v4)...
+  [2/4] OK - 90.0s, ¥0.0180, 4024字
+  [2/4+] V3 自续 (骨架仅 4024 字,目标再写 976 字)...
+  [2/4+] 自续完成 - 56.1s, ¥0.0102, 自续后 6434字
+  [3/4] WordGuard (字数检查: 6434/3000)...
+  [3/4] 达标 - 6434→6434字
+  [dash_fixer] 破折号 27 → 5 (2 条规则触发)
+  [git] dash_fixer 提交失败(warning): CH1: 未找到章节文件
+  [wenyan_fixer] 跳过 (wenyan_enabled=false)
+  [grammar_check] 本地检查...
+  [grammar_check] 通过
+  [Editor] V4-Pro 审稿 (single mode)...
+  [Editor] 0 个问题（0 个可自动修）
+  [4/4] Polish 跳过 (polish_enabled=false)
+  [Observer] 更新真相文件...
+  [Observer] 真相文件已更新(3/3), ¥0.0211
+  [Observer] 角色出场记录已更新: 4 个角色
+  [Auditor] 执行 9 项检查...
+  [Auditor] 报告已保存: E:\webnovel\quill-pipeline\data\EV1_回声巷\audit_reports\ch1.json
+    [WARN] dedup: 去重通过，无历史章节可对比
+    [WARN] worldbook_check: 发现 1 个潜在违规: 主角姓名'江叙白,32 岁,独立调查记者'在正文中未出现，可能有漂移
+    [WARN] character_presence: 非在场角色出现: 苏蔓
+    [WARN] transition: 第一章或缺少上下文，跳过衔接检查
+    [WARN] style_repeat: 句式重复检查通过
+    [WARN] dialogue_ratio: 对话占比 33.9%,正常
+    [WARN] character_naming: 角色称谓检查通过
+    [WARN] anchor_check: anchor_check: 无 anchors.yaml, 跳过
+  [git] 提交失败(warning): git add data\EV1_回声巷\chapters\ch1.md failed: The following paths are ignored by one of your .gitignore files:
+data
+hint: Use -f if you really want to add them.
+hint: Disable this message with "git config advice.addIgnoredFile false"
+  [audit_report] 已生成: E:\webnovel\quill-pipeline\data\EV1_回声巷\audit_reports\ch1.md
+  cost CNY0.0680, 396s, writer_raw=True
+--- run2 T2 ---
+  worldbook 已加载，注入 prompt
+  在场角色锁: 江叙白, 苏蔓
+  角色同步: yaml 6 条 → SQLite 6 条
+  构建上下文 (模式: long_context)...
+  上下文: 1729 字符
+  [1/4] Architect (r1 规划)...
+  [1/4] OK - 22.1s, ¥0.0370
+  [2/4] Writer (v4_pro, prompt=v4)...
+  [2/4] OK - 76.0s, ¥0.0174, 3769字
+  [2/4+] V3 自续 (骨架仅 3769 字,目标再写 1231 字)...
+  [2/4+] 自续完成 - 48.0s, ¥0.0091, 自续后 5937字
+  [3/4] WordGuard (字数检查: 5937/3000)...
+  [3/4] 达标 - 5937→5937字
+  [dash_fixer] 破折号 20 → 0 (1 条规则触发)
+  [git] dash_fixer 提交失败(warning): CH2: 未找到章节文件
+  [wenyan_fixer] 跳过 (wenyan_enabled=false)
+  [grammar_check] 本地检查...
+  [grammar_check] 修复 1 处（占位符0 / 错别字1 / 重复字0）
+  [git] grammar_check 提交失败(warning): CH2: 未找到章节文件
+  [Editor] V4-Pro 审稿 (single mode)...
+  [Editor] 0 个问题（0 个可自动修）
+  [4/4] Polish 跳过 (polish_enabled=false)
+  [Observer] 更新真相文件...
+  [Observer] 真相文件已更新(3/3), ¥0.0209
+  [Observer] 角色出场记录已更新: 2 个角色
+  [Auditor] 执行 9 项检查...
+  [Auditor] 报告已保存: E:\webnovel\quill-pipeline\data\EV1_回声巷\audit_reports\ch2.json
+    [WARN] dedup: 去重通过，无历史章节可对比
+    [WARN] worldbook_check: 发现 1 个潜在违规: 主角姓名'江叙白,32 岁,独立调查记者'在正文中未出现，可能有漂移
+    [WARN] character_presence: 在场角色一致: 江叙白, 苏蔓
+    [WARN] transition: 上一章 ch1 不存在，跳过衔接检查
+    [WARN] style_repeat: 句式重复检查通过
+    [WARN] dialogue_ratio: 对话占比 18.3%,正常
+    [WARN] character_naming: 角色称谓检查通过
+    [WARN] anchor_check: anchor_check: 无 anchors.yaml, 跳过
+  [git] 提交失败(warning): git add data\EV1_回声巷\chapters\ch2.md failed: The following paths are ignored by one of your .gitignore files:
+data
+hint: Use -f if you really want to add them.
+hint: Disable this message with "git config advice.addIgnoredFile false"
+  [audit_report] 已生成: E:\webnovel\quill-pipeline\data\EV1_回声巷\audit_reports\ch2.md
+  cost CNY0.0634, 372s, writer_raw=True
+--- run2 T3 ---
+  worldbook 已加载，注入 prompt
+  在场角色锁: 江叙白, 何沛, 老覃
+  角色同步: yaml 6 条 → SQLite 6 条
+  构建上下文 (模式: long_context)...
+  上下文: 6646 字符
+  [1/4] Architect (r1 规划)...
+  [1/4] OK - 26.0s, ¥0.0521
+  [2/4] Writer (v4_pro, prompt=v4)...
+  [2/4] OK - 80.8s, ¥0.0237, 3840字
+  [2/4+] V3 自续 (骨架仅 3840 字,目标再写 1160 字)...
+  [2/4+] 自续完成 - 60.0s, ¥0.0104, 自续后 6491字
+  [3/4] WordGuard (字数检查: 6491/3000)...
+  [3/4] 达标 - 6491→6491字
+  [dash_fixer] 破折号 10 → 1 (2 条规则触发)
+  [git] dash_fixer 提交失败(warning): CH3: 未找到章节文件
+  [wenyan_fixer] 跳过 (wenyan_enabled=false)
+  [grammar_check] 本地检查...
+  [grammar_check] 修复 2 处（占位符0 / 错别字2 / 重复字0）
+  [git] grammar_check 提交失败(warning): CH3: 未找到章节文件
+  [Editor] V4-Pro 审稿 (single mode)...
+  [Editor] 0 个问题（0 个可自动修）
+  [4/4] Polish 跳过 (polish_enabled=false)
+  [Observer] 更新真相文件...
+  [Observer] 真相文件已更新(3/3), ¥0.0363
+  [Observer] 角色出场记录已更新: 4 个角色
+  [Auditor] 执行 9 项检查...
+  [Auditor] 报告已保存: E:\webnovel\quill-pipeline\data\EV1_回声巷\audit_reports\ch3.json
+    [WARN] dedup: 去重通过，无历史章节可对比
+    [WARN] worldbook_check: 发现 1 个潜在违规: 主角姓名'江叙白,32 岁,独立调查记者'在正文中未出现，可能有漂移
+    [WARN] character_presence: 非在场角色出现: 聂守仁
+    [WARN] transition: 上一章 ch2 不存在，跳过衔接检查
+    [WARN] style_repeat: 句式重复检查通过
+    [WARN] dialogue_ratio: 对话占比 36.7%,正常
+    [WARN] character_naming: 角色称谓检查通过
+    [WARN] anchor_check: anchor_check: 无 anchors.yaml, 跳过
+  [git] 提交失败(warning): git add data\EV1_回声巷\chapters\ch3.md failed: The following paths are ignored by one of your .gitignore files:
+data
+hint: Use -f if you really want to add them.
+hint: Disable this message with "git config advice.addIgnoredFile false"
+  [audit_report] 已生成: E:\webnovel\quill-pipeline\data\EV1_回声巷\audit_reports\ch3.md
+  cost CNY0.0861, 426s, writer_raw=True
+============================================================
+完成。总成本 CNY0.4220。边界事件 2 个
+→ E:\webnovel\quill-pipeline\eval_set_v0\p6_humanity\variant\variant_runs.json

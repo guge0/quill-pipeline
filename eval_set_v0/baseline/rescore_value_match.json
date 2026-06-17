@@ -1,0 +1,638 @@
+[
+  {
+    "chapter": "T1",
+    "atomic_results": [
+      {
+        "id": "T1-H01",
+        "type": "时间",
+        "canonical": "十一点二十",
+        "hit": false,
+        "hit_by": null,
+        "status": "missing",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H02",
+        "type": "地点",
+        "canonical": "回声巷17号",
+        "hit": false,
+        "hit_by": null,
+        "status": "missing",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H03",
+        "type": "地点",
+        "canonical": "守拙斋",
+        "hit": true,
+        "hit_by": "守拙斋",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H04",
+        "type": "人物",
+        "canonical": "聂守仁",
+        "hit": true,
+        "hit_by": "聂守仁",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H05",
+        "type": "设定",
+        "canonical": "黑色手套",
+        "hit": true,
+        "hit_by": "黑色手套",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H06",
+        "type": "设定",
+        "canonical": "雨夜亮灯",
+        "hit": false,
+        "hit_by": null,
+        "status": "missing",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H07",
+        "type": "数字",
+        "canonical": "六名失踪者",
+        "hit": false,
+        "hit_by": null,
+        "status": "missing",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H08",
+        "type": "数字",
+        "canonical": "三个月",
+        "hit": false,
+        "hit_by": null,
+        "status": "missing",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H09",
+        "type": "数字",
+        "canonical": "07号黄铜钥匙",
+        "hit": false,
+        "hit_by": null,
+        "status": "missing",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H10",
+        "type": "数字",
+        "canonical": "四十一分钟",
+        "hit": true,
+        "hit_by": "四十一分钟",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H11",
+        "type": "人物",
+        "canonical": "刑侦支队副队长",
+        "hit": false,
+        "hit_by": null,
+        "status": "missing",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H12",
+        "type": "人物",
+        "canonical": "何沛",
+        "hit": true,
+        "hit_by": "何沛",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H13",
+        "type": "时间",
+        "canonical": "三天后上午十点",
+        "hit": false,
+        "hit_by": null,
+        "status": "missing",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H14",
+        "type": "地点",
+        "canonical": "市档案馆三楼",
+        "hit": true,
+        "hit_by": "市档案馆三楼",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H15",
+        "type": "约定",
+        "canonical": "调阅函",
+        "hit": true,
+        "hit_by": "调阅函",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H16",
+        "type": "数字",
+        "canonical": "A-113",
+        "hit": true,
+        "hit_by": "A-113",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H17",
+        "type": "约定",
+        "canonical": "不单独进当铺",
+        "hit": false,
+        "hit_by": null,
+        "status": "missing",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H18",
+        "type": "时间",
+        "canonical": "周五下午",
+        "hit": false,
+        "hit_by": null,
+        "status": "missing",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H19",
+        "type": "约定",
+        "canonical": "通话清单",
+        "hit": true,
+        "hit_by": "通话清单",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H20",
+        "type": "设定",
+        "canonical": "第二道门",
+        "hit": false,
+        "hit_by": null,
+        "status": "missing",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H21",
+        "type": "地点",
+        "canonical": "江湾区",
+        "hit": true,
+        "hit_by": "江湾区",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T1-H22",
+        "type": "人物",
+        "canonical": "苏蔓",
+        "hit": true,
+        "hit_by": "苏蔓",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      }
+    ],
+    "composite_results": [
+      {
+        "id": "T1-C01",
+        "name": "约定·档案馆碰头",
+        "all_hit": false,
+        "members": [
+          {
+            "id": "T1-H13",
+            "hit": false
+          },
+          {
+            "id": "T1-H14",
+            "hit": true
+          },
+          {
+            "id": "T1-H12",
+            "hit": true
+          },
+          {
+            "id": "T1-H15",
+            "hit": true
+          }
+        ]
+      },
+      {
+        "id": "T1-C02",
+        "name": "约定·不单独进当铺",
+        "all_hit": false,
+        "members": [
+          {
+            "id": "T1-H17",
+            "hit": false
+          }
+        ]
+      },
+      {
+        "id": "T1-C03",
+        "name": "约定·周五交清单",
+        "all_hit": false,
+        "members": [
+          {
+            "id": "T1-H18",
+            "hit": false
+          },
+          {
+            "id": "T1-H19",
+            "hit": true
+          },
+          {
+            "id": "T1-H22",
+            "hit": true
+          }
+        ]
+      }
+    ],
+    "stats": {
+      "chapter": "T1",
+      "atomic": {
+        "total": 22,
+        "hit": 11,
+        "value_mismatch": 0,
+        "miss": 11,
+        "ratio": 0.5
+      },
+      "by_type": {
+        "时间": {
+          "total": 3,
+          "hit": 0,
+          "value_mismatch": 0,
+          "miss": 3,
+          "ratio": 0.0
+        },
+        "地点": {
+          "total": 4,
+          "hit": 3,
+          "value_mismatch": 0,
+          "miss": 1,
+          "ratio": 0.75
+        },
+        "人物": {
+          "total": 4,
+          "hit": 3,
+          "value_mismatch": 0,
+          "miss": 1,
+          "ratio": 0.75
+        },
+        "设定": {
+          "total": 3,
+          "hit": 1,
+          "value_mismatch": 0,
+          "miss": 2,
+          "ratio": 0.3333333333333333
+        },
+        "数字": {
+          "total": 5,
+          "hit": 2,
+          "value_mismatch": 0,
+          "miss": 3,
+          "ratio": 0.4
+        },
+        "约定": {
+          "total": 3,
+          "hit": 2,
+          "value_mismatch": 0,
+          "miss": 1,
+          "ratio": 0.6666666666666666
+        }
+      },
+      "cross_chapter": {
+        "total": 0,
+        "hit": 0,
+        "ratio": null
+      },
+      "composite": {
+        "total": 3,
+        "hit": 0,
+        "ratio": 0.0
+      }
+    },
+    "source_file": "eval_set_v0/baseline/T1_clean.md"
+  },
+  {
+    "chapter": "T2",
+    "atomic_results": [
+      {
+        "id": "T2-H01",
+        "type": "数字",
+        "canonical": "三十七页",
+        "hit": true,
+        "hit_by": "三十七页",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T2-H02",
+        "type": "数字",
+        "canonical": "两分十四秒",
+        "hit": true,
+        "hit_by": "两分十四秒",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T2-H03",
+        "type": "设定",
+        "canonical": "宏远物流",
+        "hit": true,
+        "hit_by": "宏远物流",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T2-H04",
+        "type": "设定",
+        "canonical": "灰色连帽衫",
+        "hit": true,
+        "hit_by": "灰色连帽衫",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T2-H05",
+        "type": "设定",
+        "canonical": "左肩旧伤",
+        "hit": false,
+        "hit_by": null,
+        "status": "missing",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T2-H06",
+        "type": "约定",
+        "canonical": "通话清单",
+        "hit": true,
+        "hit_by": "通话清单",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": "T1-H19"
+      }
+    ],
+    "composite_results": [],
+    "stats": {
+      "chapter": "T2",
+      "atomic": {
+        "total": 6,
+        "hit": 5,
+        "value_mismatch": 0,
+        "miss": 1,
+        "ratio": 0.8333333333333334
+      },
+      "by_type": {
+        "数字": {
+          "total": 2,
+          "hit": 2,
+          "value_mismatch": 0,
+          "miss": 0,
+          "ratio": 1.0
+        },
+        "设定": {
+          "total": 3,
+          "hit": 2,
+          "value_mismatch": 0,
+          "miss": 1,
+          "ratio": 0.6666666666666666
+        },
+        "约定": {
+          "total": 1,
+          "hit": 1,
+          "value_mismatch": 0,
+          "miss": 0,
+          "ratio": 1.0
+        }
+      },
+      "cross_chapter": {
+        "total": 1,
+        "hit": 1,
+        "ratio": 1.0
+      },
+      "composite": {
+        "total": 0,
+        "hit": 0,
+        "ratio": null
+      }
+    },
+    "source_file": "eval_set_v0/baseline/T2_clean.md"
+  },
+  {
+    "chapter": "T3",
+    "atomic_results": [
+      {
+        "id": "T3-H01",
+        "type": "时间",
+        "canonical": "上午十点",
+        "hit": false,
+        "hit_by": null,
+        "status": "missing",
+        "mismatch_by": null,
+        "cross_chapter_of": "T1-H13"
+      },
+      {
+        "id": "T3-H02",
+        "type": "地点",
+        "canonical": "市档案馆三楼",
+        "hit": false,
+        "hit_by": null,
+        "status": "missing",
+        "mismatch_by": null,
+        "cross_chapter_of": "T1-H14"
+      },
+      {
+        "id": "T3-H03",
+        "type": "人物",
+        "canonical": "刑侦支队副队长",
+        "hit": false,
+        "hit_by": null,
+        "status": "missing",
+        "mismatch_by": null,
+        "cross_chapter_of": "T1-H11"
+      },
+      {
+        "id": "T3-H04",
+        "type": "约定",
+        "canonical": "调阅函",
+        "hit": true,
+        "hit_by": "调阅函",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": "T1-H15"
+      },
+      {
+        "id": "T3-H05",
+        "type": "数字",
+        "canonical": "A-113",
+        "hit": true,
+        "hit_by": "A-113",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": "T1-H16"
+      },
+      {
+        "id": "T3-H06",
+        "type": "约定",
+        "canonical": "单独进当铺",
+        "hit": false,
+        "hit_by": null,
+        "status": "missing",
+        "mismatch_by": null,
+        "cross_chapter_of": "T1-H17"
+      },
+      {
+        "id": "T3-H07",
+        "type": "数字",
+        "canonical": "第三页",
+        "hit": true,
+        "hit_by": "第三页",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T3-H08",
+        "type": "设定",
+        "canonical": "江湾码头沉箱案",
+        "hit": true,
+        "hit_by": "江湾码头沉箱案",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      },
+      {
+        "id": "T3-H09",
+        "type": "时间",
+        "canonical": "一九九八年",
+        "hit": true,
+        "hit_by": "1998年",
+        "status": "present",
+        "mismatch_by": null,
+        "cross_chapter_of": null
+      }
+    ],
+    "composite_results": [
+      {
+        "id": "T3-C01",
+        "name": "约定兑现·档案馆碰头",
+        "all_hit": false,
+        "members": [
+          {
+            "id": "T3-H01",
+            "hit": false
+          },
+          {
+            "id": "T3-H02",
+            "hit": false
+          },
+          {
+            "id": "T3-H04",
+            "hit": true
+          }
+        ]
+      }
+    ],
+    "stats": {
+      "chapter": "T3",
+      "atomic": {
+        "total": 9,
+        "hit": 5,
+        "value_mismatch": 0,
+        "miss": 4,
+        "ratio": 0.5555555555555556
+      },
+      "by_type": {
+        "时间": {
+          "total": 2,
+          "hit": 1,
+          "value_mismatch": 0,
+          "miss": 1,
+          "ratio": 0.5
+        },
+        "地点": {
+          "total": 1,
+          "hit": 0,
+          "value_mismatch": 0,
+          "miss": 1,
+          "ratio": 0.0
+        },
+        "人物": {
+          "total": 1,
+          "hit": 0,
+          "value_mismatch": 0,
+          "miss": 1,
+          "ratio": 0.0
+        },
+        "约定": {
+          "total": 2,
+          "hit": 1,
+          "value_mismatch": 0,
+          "miss": 1,
+          "ratio": 0.5
+        },
+        "数字": {
+          "total": 2,
+          "hit": 2,
+          "value_mismatch": 0,
+          "miss": 0,
+          "ratio": 1.0
+        },
+        "设定": {
+          "total": 1,
+          "hit": 1,
+          "value_mismatch": 0,
+          "miss": 0,
+          "ratio": 1.0
+        }
+      },
+      "cross_chapter": {
+        "total": 6,
+        "hit": 2,
+        "ratio": 0.3333333333333333
+      },
+      "composite": {
+        "total": 1,
+        "hit": 0,
+        "ratio": 0.0
+      }
+    },
+    "source_file": "eval_set_v0/baseline/T3_clean.md"
+  }
+]

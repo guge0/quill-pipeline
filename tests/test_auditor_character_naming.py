@@ -17,12 +17,12 @@ class TestCharacterNamingAuditor:
             {
                 "name": "张父",
                 "tier": "major_supporting",
-                "role": "EXAMPLE_PROTAGONIST父亲(代号,正文不得出现'张父'字样)",
+                "role": "张今空父亲(代号,正文不得出现'张父'字样)",
                 "forbidden_in_narrative": ["张父"],
             }
         ]
         ctx = _make_ctx(characters)
-        text = "EXAMPLE_PROTAGONIST看着张父,心里五味杂陈。父亲拍了拍他的肩膀。"
+        text = "张今空看着张父,心里五味杂陈。父亲拍了拍他的肩膀。"
         result = auditor.run(text, ctx)
         assert result.severity == Severity.BLOCK
         assert "称谓穿帮" in result.message
@@ -35,12 +35,12 @@ class TestCharacterNamingAuditor:
         characters = [
             {
                 "name": "张父",
-                "role": "EXAMPLE_PROTAGONIST父亲(代号,正文不得出现'张父'字样)",
+                "role": "张今空父亲(代号,正文不得出现'张父'字样)",
                 "forbidden_in_narrative": ["张父"],
             }
         ]
         ctx = _make_ctx(characters)
-        text = "EXAMPLE_PROTAGONIST看着父亲,心里五味杂陈。父亲拍了拍他的肩膀。"
+        text = "张今空看着父亲,心里五味杂陈。父亲拍了拍他的肩膀。"
         result = auditor.run(text, ctx)
         assert result.severity == Severity.WARN
         assert "称谓检查通过" in result.message
@@ -49,11 +49,11 @@ class TestCharacterNamingAuditor:
         """角色没 aliases/forbidden_in_narrative 字段 -> 正常运行不报错"""
         auditor = CharacterNamingAuditor()
         characters = [
-            {"name": "EXAMPLE_PROTAGONIST", "role": "主角"},
-            {"name": "EXAMPLE_SIDEKICK", "role": "配角"},
+            {"name": "张今空", "role": "主角"},
+            {"name": "周大龙", "role": "配角"},
         ]
         ctx = _make_ctx(characters)
-        text = "EXAMPLE_PROTAGONIST和EXAMPLE_SIDEKICK走在路上。"
+        text = "张今空和周大龙走在路上。"
         result = auditor.run(text, ctx)
         assert result.severity == Severity.WARN
         assert "称谓检查通过" in result.message

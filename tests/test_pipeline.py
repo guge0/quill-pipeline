@@ -11,15 +11,15 @@ class TestParsePresentCharacters:
         """YAML frontmatter with present_characters should be returned directly."""
         outline = """---
 present_characters:
-  - EXAMPLE_PROTAGONIST
-  - EXAMPLE_SIDEKICK
-  - EXAMPLE_SUPPORTING
+  - 张今空
+  - 周大龙
+  - 林溪
 ---
 
 # 第1章
 """
         result = _parse_present_characters(outline, tmp_path)
-        assert result == ["EXAMPLE_PROTAGONIST", "EXAMPLE_SIDEKICK", "EXAMPLE_SUPPORTING"]
+        assert result == ["张今空", "周大龙", "林溪"]
 
     def test_no_frontmatter_no_truth_file(self, tmp_path: Path):
         """No frontmatter and no truth file → empty list."""
@@ -33,10 +33,10 @@ present_characters:
         truth_dir = tmp_path / "truth_files"
         truth_dir.mkdir()
         (truth_dir / "current_state.md").write_text(
-            "在场：EXAMPLE_VILLAIN（疑似杀母凶手）、EXAMPLE_PROTAGONIST\n", encoding="utf-8"
+            "在场：赵天行（疑似杀母凶手）、张今空\n", encoding="utf-8"
         )
         result = _parse_present_characters(outline, tmp_path)
-        assert result == ["EXAMPLE_VILLAIN", "EXAMPLE_PROTAGONIST"]
+        assert result == ["赵天行", "张今空"]
 
     def test_fallback_strips_dash(self, tmp_path: Path):
         """Fallback should strip content after em-dash."""
@@ -44,10 +44,10 @@ present_characters:
         truth_dir = tmp_path / "truth_files"
         truth_dir.mkdir()
         (truth_dir / "current_state.md").write_text(
-            "在场：EXAMPLE_SUPPORTING——成绩优异、EXAMPLE_SIDEKICK\n", encoding="utf-8"
+            "在场：林溪——成绩优异、周大龙\n", encoding="utf-8"
         )
         result = _parse_present_characters(outline, tmp_path)
-        assert result == ["EXAMPLE_SUPPORTING", "EXAMPLE_SIDEKICK"]
+        assert result == ["林溪", "周大龙"]
 
     def test_fallback_strips_period_annotation(self, tmp_path: Path):
         """Fallback should strip annotation after period within a name entry."""
@@ -55,10 +55,10 @@ present_characters:
         truth_dir = tmp_path / "truth_files"
         truth_dir.mkdir()
         (truth_dir / "current_state.md").write_text(
-            "在场：EXAMPLE_PROTAGONIST。、EXAMPLE_CLASSMATE。\n", encoding="utf-8"
+            "在场：张今空。、赵小磊。\n", encoding="utf-8"
         )
         result = _parse_present_characters(outline, tmp_path)
-        assert result == ["EXAMPLE_PROTAGONIST", "EXAMPLE_CLASSMATE"]
+        assert result == ["张今空", "赵小磊"]
 
     def test_fallback_pure_name(self, tmp_path: Path):
         """Pure name without annotations passes through unchanged."""
@@ -66,10 +66,10 @@ present_characters:
         truth_dir = tmp_path / "truth_files"
         truth_dir.mkdir()
         (truth_dir / "current_state.md").write_text(
-            "在场：EXAMPLE_PROTAGONIST、EXAMPLE_SIDEKICK、EXAMPLE_SUPPORTING\n", encoding="utf-8"
+            "在场：张今空、周大龙、林溪\n", encoding="utf-8"
         )
         result = _parse_present_characters(outline, tmp_path)
-        assert result == ["EXAMPLE_PROTAGONIST", "EXAMPLE_SIDEKICK", "EXAMPLE_SUPPORTING"]
+        assert result == ["张今空", "周大龙", "林溪"]
 
     def test_fallback_mixed_annotations(self, tmp_path: Path):
         """Mixed annotations should all be stripped to just names."""
@@ -77,9 +77,9 @@ present_characters:
         truth_dir = tmp_path / "truth_files"
         truth_dir.mkdir()
         (truth_dir / "current_state.md").write_text(
-            "在场：EXAMPLE_VILLAIN（疑似杀母凶手，左手有暗红色疤痕）,"
-            "EXAMPLE_SUPPORTING——成绩优异，本书女主候选,EXAMPLE_PROTAGONIST\n",
+            "在场：赵天行（疑似杀母凶手，左手有暗红色疤痕）,"
+            "林溪——成绩优异，本书女主候选,张今空\n",
             encoding="utf-8",
         )
         result = _parse_present_characters(outline, tmp_path)
-        assert result == ["EXAMPLE_VILLAIN", "EXAMPLE_SUPPORTING", "EXAMPLE_PROTAGONIST"]
+        assert result == ["赵天行", "林溪", "张今空"]

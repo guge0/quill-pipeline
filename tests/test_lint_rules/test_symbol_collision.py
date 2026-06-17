@@ -20,7 +20,7 @@ def _make_outline(content: str) -> Path:
 class TestSymbolCollisionRule:
     def test_collision_detected(self, tmp_path):
         """反例：outline 出现已分配符号，报 warning。"""
-        outline = _make_outline("---\npresent_characters:\n  - EXAMPLE_PROTAGONIST\n---\n\n"
+        outline = _make_outline("---\npresent_characters:\n  - 张今空\n---\n\n"
                                 "# 关键事件\n- 金色光晕包裹了他的身体\n")
         try:
             ctx = LintContext(

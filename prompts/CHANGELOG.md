@@ -11,7 +11,7 @@
 ### 新增: worldbook prompt 注入
 - **文件**: `src/biyu/worldbook.py` (新建)
 - **注入位置**: Architect prompt 顶部（worldbook 覆盖其他注入）+ Writer prompt 顶部
-- **原因**: 角色名字漂移（秦烈→EXAMPLE_ALLY）、修炼体系/数字设定不一致
+- **原因**: 角色名字漂移（秦烈→韩铮）、修炼体系/数字设定不一致
 
 ### 新增: 衔接锚点（上一章末尾注入）
 - **文件**: `src/biyu/pipeline.py` (`_load_prev_chapter_tail`)

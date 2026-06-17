@@ -17,13 +17,13 @@ def test_layer1_hard_rules_extracts_protagonist_name():
     """Layer 1 包含从 worldbook.facts 提取的主角姓名。"""
     worldbook = {
         "facts": [
-            "主角姓名:EXAMPLE_PROTAGONIST",
+            "主角姓名:张今空",
             "秘境名称:试炼之塔",
             "等级体系:LV1-LV100",
         ]
     }
     result = build_layer1_hard_rules(chapter_num=3, worldbook=worldbook)
-    assert "EXAMPLE_PROTAGONIST" in result
+    assert "张今空" in result
     assert "第 3 章" in result
 
 
@@ -31,7 +31,7 @@ def test_layer1_under_300_chars():
     """Layer 1 字符数不超过 300(包含格式标记)。"""
     worldbook = {
         "facts": [
-            "主角姓名:EXAMPLE_PROTAGONIST",
+            "主角姓名:张今空",
             "秘境名称:试炼之塔",
         ]
     }
@@ -74,7 +74,7 @@ def test_full_prompt_layers_in_order():
     """完整 prompt 顺序为 Layer 1 → Layer 2 → Layer 3。"""
     system_prompt, user_prompt = build_writer_prompt_v4(
         chapter_num=1,
-        worldbook={"facts": ["主角姓名:EXAMPLE_PROTAGONIST"]},
+        worldbook={"facts": ["主角姓名:张今空"]},
         worldbook_prompt="世界观",
         characters=[],
         truth_files_block="",

@@ -22,9 +22,9 @@ def _run_async(coro):
 # ---------------------------------------------------------------------------
 
 SAMPLE_CHAPTER = (
-    "EXAMPLE_ELDER看着EXAMPLE_PROTAGONIST，忽然说了句话。\n"
+    "老樵看着张今空，忽然说了句话。\n"
     "曹操冷笑道：后人编的都是假的。\n"
-    "EXAMPLE_PROTAGONIST在水中用布画了一张图。\n"
+    "张今空在水中用布画了一张图。\n"
     "红糖糍粑红糖糍粑红糖糍粑，他一直在吃红糖糍粑。"
 )
 
@@ -78,9 +78,9 @@ def test_apply_revision():
     revised = "曹操冷笑道：这不过是戏言罢了。"
     result = apply_revision(SAMPLE_CHAPTER, 1, revised)
     paragraphs = result.split("\n")
-    assert paragraphs[0] == "EXAMPLE_ELDER看着EXAMPLE_PROTAGONIST，忽然说了句话。"
+    assert paragraphs[0] == "老樵看着张今空，忽然说了句话。"
     assert paragraphs[1] == revised
-    assert paragraphs[2] == "EXAMPLE_PROTAGONIST在水中用布画了一张图。"
+    assert paragraphs[2] == "张今空在水中用布画了一张图。"
     assert len(paragraphs) == 4
 
 

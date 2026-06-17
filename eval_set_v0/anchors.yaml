@@ -8,18 +8,18 @@ T1:
     - { id: T1-H02, type: 地点, canonical: "回声巷17号", aliases: ["回声巷十七号"], source: 要点1 }
     - { id: T1-H03, type: 地点, canonical: "守拙斋", aliases: [], source: 要点1 }
     - { id: T1-H04, type: 人物, canonical: "聂守仁", aliases: ["聂老板"], source: 要点2 }
-    - { id: T1-H05, type: 设定, canonical: "黑色手套", aliases: ["黑手套"], source: 要点2 }
+    - { id: T1-H05, type: 设定, canonical: "黑色手套", aliases: ["黑手套"], source: 要点2, mismatch_aliases: ["白手套", "灰手套"] }
     - { id: T1-H06, type: 设定, canonical: "雨夜亮灯", aliases: ["下雨的夜里才亮灯", "雨夜才亮灯"], source: 要点1 }
     - { id: T1-H07, type: 数字, canonical: "六名失踪者", aliases: ["六人失踪", "失踪了六个人"], source: 要点5 }
     - { id: T1-H08, type: 数字, canonical: "三个月", aliases: ["三个月里", "近三个月"], source: 要点5 }
-    - { id: T1-H09, type: 数字, canonical: "07号黄铜钥匙", aliases: ["编号07", "零七号"], source: 要点3 }
+    - { id: T1-H09, type: 数字, canonical: "07号黄铜钥匙", aliases: ["编号07", "零七号"], source: 要点3, mismatch_aliases: ["08号黄铜钥匙", "17号黄铜钥匙"] }
     - { id: T1-H10, type: 数字, canonical: "四十一分钟", aliases: ["41分钟"], source: 要点4 }
     - { id: T1-H11, type: 人物, canonical: "刑侦支队副队长", aliases: ["市局刑侦支队副队长"], source: 要点5 }
     - { id: T1-H12, type: 人物, canonical: "何沛", aliases: [], source: 要点5 }
     - { id: T1-H13, type: 时间, canonical: "三天后上午十点", aliases: ["周日上午十点", "三日后上午十点"], source: 要点6 }
-    - { id: T1-H14, type: 地点, canonical: "市档案馆三楼", aliases: ["档案馆三楼"], source: 要点6 }
+    - { id: T1-H14, type: 地点, canonical: "市档案馆三楼", aliases: ["档案馆三楼"], source: 要点6, mismatch_aliases: ["档案馆二楼", "档案馆四楼"] }
     - { id: T1-H15, type: 约定, canonical: "调阅函", aliases: ["调档函"], source: 要点6 }
-    - { id: T1-H16, type: 数字, canonical: "A-113", aliases: ["A113"], source: 要点6 }
+    - { id: T1-H16, type: 数字, canonical: "A-113", aliases: ["A113"], source: 要点6, mismatch_aliases: ["A-131", "A-311"] }
     - { id: T1-H17, type: 约定, canonical: "不单独进当铺", aliases: ["别一个人进当铺", "不要单独进守拙斋"], source: 要点6 }
     - { id: T1-H18, type: 时间, canonical: "周五下午", aliases: ["星期五下午"], source: 要点7 }
     - { id: T1-H19, type: 约定, canonical: "通话清单", aliases: ["通话记录清单"], source: 要点7 }
@@ -43,10 +43,10 @@ T2:
 T3:
   atomic:
     - { id: T3-H01, type: 时间, canonical: "上午十点", aliases: ["早上十点", "10点"], source: 要点1, cross_chapter_of: T1-H13 }
-    - { id: T3-H02, type: 地点, canonical: "市档案馆三楼", aliases: ["档案馆三楼"], source: 要点1, cross_chapter_of: T1-H14 }
+    - { id: T3-H02, type: 地点, canonical: "市档案馆三楼", aliases: ["档案馆三楼"], source: 要点1, cross_chapter_of: T1-H14, mismatch_aliases: ["档案馆二楼", "档案馆四楼"] }
     - { id: T3-H03, type: 人物, canonical: "刑侦支队副队长", aliases: ["市局刑侦支队副队长"], source: 要点4, cross_chapter_of: T1-H11 }
     - { id: T3-H04, type: 约定, canonical: "调阅函", aliases: ["调档函"], source: 要点1, cross_chapter_of: T1-H15 }
-    - { id: T3-H05, type: 数字, canonical: "A-113", aliases: ["A113"], source: 要点2, cross_chapter_of: T1-H16 }
+    - { id: T3-H05, type: 数字, canonical: "A-113", aliases: ["A113"], source: 要点2, cross_chapter_of: T1-H16, mismatch_aliases: ["A-131", "A-311"] }
     - { id: T3-H06, type: 约定, canonical: "单独进当铺", aliases: ["一个人进当铺", "独自进当铺"], source: 要点1, cross_chapter_of: T1-H17 }
     - { id: T3-H07, type: 数字, canonical: "第三页", aliases: ["第3页"], source: 要点3 }
     - { id: T3-H08, type: 设定, canonical: "江湾码头沉箱案", aliases: ["沉箱案"], source: 要点2 }

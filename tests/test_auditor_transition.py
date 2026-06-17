@@ -23,13 +23,13 @@ class TestTransitionAuditor:
         chapters_dir = tmp_path / "chapters"
         chapters_dir.mkdir()
         (chapters_dir / "ch2.md").write_text(
-            "EXAMPLE_PROTAGONIST走进了秘境，眼前是一片火焰。\n他感到一股强大的力量。",
+            "张今空走进了秘境，眼前是一片火焰。\n他感到一股强大的力量。",
             encoding="utf-8",
         )
         auditor = TransitionAuditor()
         ctx = {"book_dir": str(tmp_path), "chapter_num": 3}
         result = auditor.run(
-            "火焰灼烧着EXAMPLE_PROTAGONIST的身体，他咬紧牙关。",
+            "火焰灼烧着张今空的身体，他咬紧牙关。",
             ctx,
         )
         assert result.severity == Severity.WARN  # WARN is always the severity

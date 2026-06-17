@@ -21,10 +21,10 @@ def book_dir(tmp_path):
     # characters.yaml
     chars = {
         "characters": [
-            {"name": "EXAMPLE_PROTAGONIST", "tier": "protagonist",
+            {"name": "张今空", "tier": "protagonist",
              "abilities": "金手指『奖励变异』",
-             "aliases": {"called_by": {"EXAMPLE_SIDEKICK": "今空"}}},
-            {"name": "EXAMPLE_SIDEKICK", "tier": "major_supporting"},
+             "aliases": {"called_by": {"周大龙": "今空"}}},
+            {"name": "周大龙", "tier": "major_supporting"},
             {"name": "路人甲", "tier": "npc"},
         ],
     }
@@ -35,7 +35,7 @@ def book_dir(tmp_path):
     # worldbook.yaml
     wb = {
         "facts": [
-            "主角姓名：EXAMPLE_PROTAGONIST",
+            "主角姓名：张今空",
             "主角金手指：奖励变异",
         ],
         "forbidden": [
@@ -84,10 +84,10 @@ def _write_outline(outlines_dir: Path, name: str, content: str) -> Path:
 class TestLintIntegration:
     def test_clean_outline(self, book_dir):
         """集成测试 1：正常 outline，已知角色，无冲突。"""
-        events = "\n".join(f"- **事件{i}**: EXAMPLE_PROTAGONIST和EXAMPLE_SIDEKICK做某事" for i in range(6))
+        events = "\n".join(f"- **事件{i}**: 张今空和周大龙做某事" for i in range(6))
         outline = _write_outline(
             book_dir / "outlines", "ch25.md",
-            f"---\npresent_characters:\n  - EXAMPLE_PROTAGONIST\n  - EXAMPLE_SIDEKICK\n---\n"
+            f"---\npresent_characters:\n  - 张今空\n  - 周大龙\n---\n"
             f"# 关键事件\n{events}\n",
         )
 
@@ -112,7 +112,7 @@ class TestLintIntegration:
         """集成测试 2：含视觉符号撞色 + 未知角色。"""
         outline = _write_outline(
             book_dir / "outlines", "ch20.md",
-            "---\npresent_characters:\n  - EXAMPLE_PROTAGONIST\n  - 神秘人Y\n---\n"
+            "---\npresent_characters:\n  - 张今空\n  - 神秘人Y\n---\n"
             "# 关键事件\n"
             "- 神秘人Y：你好\n"
             "- 金色光晕包裹了他\n",
@@ -142,7 +142,7 @@ class TestLintIntegration:
         dashes = "——" * 20
         outline = _write_outline(
             book_dir / "outlines", "ch30.md",
-            f"---\npresent_characters:\n  - EXAMPLE_PROTAGONIST\n---\n"
+            f"---\npresent_characters:\n  - 张今空\n---\n"
             f"# 关键事件\n{dashes} 短文本\n",
         )
 

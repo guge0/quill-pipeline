@@ -20,13 +20,13 @@ def mock_book_dir(tmp_path):
     """Create a minimal book dir for tool testing."""
     (tmp_path / "characters.yaml").write_text(
         "characters:\n"
-        "  - name: EXAMPLE_PROTAGONIST\n"
+        "  - name: 张今空\n"
         "    aliases:\n"
         "      narrator_default: '他'\n"
         "    voice_examples:\n"
         "      - '卧槽，这也太猛了'\n"
         "    personality: '热血少年'\n"
-        "  - name: EXAMPLE_SIDEKICK\n"
+        "  - name: 周大龙\n"
         "    voice_examples:\n"
         "      - '我擦'\n",
         encoding="utf-8",
@@ -45,12 +45,12 @@ def mock_book_dir(tmp_path):
     ch_dir = tmp_path / "chapters"
     ch_dir.mkdir()
     (ch_dir / "ch1.md").write_text(
-        "EXAMPLE_PROTAGONIST走进了镇异局。金色的光芒在他手中闪烁。"
-        "EXAMPLE_ELDER看着他说：'来了。'",
+        "张今空走进了镇异局。金色的光芒在他手中闪烁。"
+        "老樵看着他说：'来了。'",
         encoding="utf-8",
     )
     (ch_dir / "ch2.md").write_text(
-        "EXAMPLE_SIDEKICK一拳打在墙上。青铜色的命甲发出嗡鸣。"
+        "周大龙一拳打在墙上。青铜色的命甲发出嗡鸣。"
         "曹操冷笑道：'后人编的。'",
         encoding="utf-8",
     )
@@ -58,10 +58,10 @@ def mock_book_dir(tmp_path):
 
 
 SAMPLE_CHAPTER = (
-    "EXAMPLE_ELDER看着EXAMPLE_PROTAGONIST，忽然说了句：[NAME]你来了。"
+    "老樵看着张今空，忽然说了句：[NAME]你来了。"
     "金色的光芒笼罩了短刀第七字。"
     "曹操冷笑道：后人编的都是假的。"
-    "EXAMPLE_PROTAGONIST在水中用布画了一张图。"
+    "张今空在水中用布画了一张图。"
     "红糖糍粑红糖糍粑红糖糍粑，他一直在吃红糖糍粑。"
 )
 
@@ -129,7 +129,7 @@ def test_logic_hole():
     """水中布上画图模拟 → 应识别。"""
     response = json.dumps({
         "issues": [{
-            "line": 4, "quote": "EXAMPLE_PROTAGONIST在水中用布画了一张图", "type": "逻辑漏洞",
+            "line": 4, "quote": "张今空在水中用布画了一张图", "type": "逻辑漏洞",
             "subtype": None, "explanation": "布在水里会散",
             "fix_suggestion": "manual_review", "auto_fixable": False,
         }],
@@ -204,7 +204,7 @@ def test_issue_limit():
     issues = []
     for i in range(10):
         issues.append({
-            "line": 1, "quote": "EXAMPLE_PROTAGONIST", "type": "字面伪影",
+            "line": 1, "quote": "张今空", "type": "字面伪影",
             "subtype": None, "explanation": f"test {i}",
             "fix_suggestion": "manual_review", "auto_fixable": False,
         })
@@ -217,8 +217,8 @@ def test_issue_limit():
 # Test 9: look_up_character 工具
 # ---------------------------------------------------------------------------
 def test_tool_look_up_character(mock_book_dir):
-    result = look_up_character("EXAMPLE_PROTAGONIST", mock_book_dir)
-    assert "EXAMPLE_PROTAGONIST" in result
+    result = look_up_character("张今空", mock_book_dir)
+    assert "张今空" in result
     assert "aliases" in result
 
 
@@ -252,7 +252,7 @@ def test_tool_look_up_history(mock_book_dir):
 # ---------------------------------------------------------------------------
 def test_auto_fix_literal_artifact():
     """字面伪影 [NAME] 应被自动删除。"""
-    chapter = "EXAMPLE_ELDER看着EXAMPLE_PROTAGONIST，[NAME]忽然说了句话。"
+    chapter = "老樵看着张今空，[NAME]忽然说了句话。"
     issues = [EditorIssue(
         line=1, quote="[NAME]", type="字面伪影", subtype=None,
         explanation="占位符", fix_suggestion="delete", auto_fixable=True,
@@ -260,7 +260,7 @@ def test_auto_fix_literal_artifact():
     fixed, count = auto_fix_issues(chapter, issues)
     assert count == 1
     assert "[NAME]" not in fixed
-    assert "EXAMPLE_ELDER看着EXAMPLE_PROTAGONIST" in fixed
+    assert "老樵看着张今空" in fixed
 
 
 # ---------------------------------------------------------------------------
@@ -286,8 +286,8 @@ def test_tool_definitions_format():
 # Test 16: execute_tool 路由
 # ---------------------------------------------------------------------------
 def test_execute_tool_routing(mock_book_dir):
-    result = execute_tool("look_up_character", {"char_name": "EXAMPLE_PROTAGONIST"}, mock_book_dir)
-    assert "EXAMPLE_PROTAGONIST" in result
+    result = execute_tool("look_up_character", {"char_name": "张今空"}, mock_book_dir)
+    assert "张今空" in result
     result = execute_tool("unknown_tool", {}, mock_book_dir)
     # Returns structured JSON error with UNKNOWN_TOOL code
     assert "UNKNOWN_TOOL" in result
@@ -318,7 +318,7 @@ def test_multi_agent_tool_call_id_in_tool_messages(mock_book_dir):
                 "content": "calling tool",
                 "tool_calls": [{
                     "id": "call_abc123",
-                    "function": {"name": "look_up_character", "arguments": '{"char_name": "EXAMPLE_PROTAGONIST"}'},
+                    "function": {"name": "look_up_character", "arguments": '{"char_name": "张今空"}'},
                     "type": "function",
                 }],
             }
@@ -395,7 +395,7 @@ def test_editor_tool_call_id_in_tool_messages(mock_book_dir):
                 "content": "calling tool",
                 "tool_calls": [{
                     "id": "call_editor_xyz789",
-                    "function": {"name": "look_up_character", "arguments": '{"char_name": "EXAMPLE_PROTAGONIST"}'},
+                    "function": {"name": "look_up_character", "arguments": '{"char_name": "张今空"}'},
                     "type": "function",
                 }],
             }
@@ -477,7 +477,7 @@ def test_suggestion_field_quality():
     # Short suggestion should also be flagged
     response2 = json.dumps({
         "issues": [{
-            "line": 4, "quote": "EXAMPLE_PROTAGONIST在水中用布画了一张图", "type": "逻辑漏洞",
+            "line": 4, "quote": "张今空在水中用布画了一张图", "type": "逻辑漏洞",
             "subtype": None, "explanation": "布会散",
             "fix_suggestion": "请检查", "auto_fixable": False,
             "severity": "medium",
@@ -526,7 +526,7 @@ def test_severity_field():
             "fix_suggestion": "改为符合时代的措辞，如'都是后人杜撰'",
             "auto_fixable": False, "severity": "high",
         }, {
-            "line": 4, "quote": "EXAMPLE_PROTAGONIST在水中用布画了一张图", "type": "逻辑漏洞",
+            "line": 4, "quote": "张今空在水中用布画了一张图", "type": "逻辑漏洞",
             "subtype": None, "explanation": "布会散",
             "fix_suggestion": "将场景改为在岸边用石头在地上画图",
             "auto_fixable": False, "severity": "medium",

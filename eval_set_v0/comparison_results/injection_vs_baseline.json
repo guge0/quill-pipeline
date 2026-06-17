@@ -1,0 +1,268 @@
+{
+  "condition_baseline": {
+    "truth_filter_enabled": false
+  },
+  "condition_post_injection": {
+    "truth_filter_enabled": true
+  },
+  "chapters": {
+    "T1": {
+      "body": {
+        "baseline": {
+          "stats": {
+            "total": 22,
+            "hit": 11,
+            "value_mismatch": 0,
+            "miss": 11,
+            "ratio": 0.5
+          },
+          "mismatches": [],
+          "misses": [
+            {
+              "id": "T1-H01",
+              "canonical": "十一点二十",
+              "type": "时间"
+            },
+            {
+              "id": "T1-H02",
+              "canonical": "回声巷17号",
+              "type": "地点"
+            },
+            {
+              "id": "T1-H06",
+              "canonical": "雨夜亮灯",
+              "type": "设定"
+            },
+            {
+              "id": "T1-H07",
+              "canonical": "六名失踪者",
+              "type": "数字"
+            },
+            {
+              "id": "T1-H08",
+              "canonical": "三个月",
+              "type": "数字"
+            },
+            {
+              "id": "T1-H09",
+              "canonical": "07号黄铜钥匙",
+              "type": "数字"
+            },
+            {
+              "id": "T1-H11",
+              "canonical": "刑侦支队副队长",
+              "type": "人物"
+            },
+            {
+              "id": "T1-H13",
+              "canonical": "三天后上午十点",
+              "type": "时间"
+            },
+            {
+              "id": "T1-H17",
+              "canonical": "不单独进当铺",
+              "type": "约定"
+            },
+            {
+              "id": "T1-H18",
+              "canonical": "周五下午",
+              "type": "时间"
+            },
+            {
+              "id": "T1-H20",
+              "canonical": "第二道门",
+              "type": "设定"
+            }
+          ]
+        },
+        "post_injection": {
+          "stats": {
+            "total": 22,
+            "hit": 16,
+            "value_mismatch": 0,
+            "miss": 6,
+            "ratio": 0.7272727272727273
+          },
+          "mismatches": [],
+          "misses": [
+            {
+              "id": "T1-H06",
+              "canonical": "雨夜亮灯",
+              "type": "设定"
+            },
+            {
+              "id": "T1-H09",
+              "canonical": "07号黄铜钥匙",
+              "type": "数字"
+            },
+            {
+              "id": "T1-H11",
+              "canonical": "刑侦支队副队长",
+              "type": "人物"
+            },
+            {
+              "id": "T1-H13",
+              "canonical": "三天后上午十点",
+              "type": "时间"
+            },
+            {
+              "id": "T1-H17",
+              "canonical": "不单独进当铺",
+              "type": "约定"
+            },
+            {
+              "id": "T1-H20",
+              "canonical": "第二道门",
+              "type": "设定"
+            }
+          ]
+        }
+      },
+      "skeleton_post_injection": {
+        "stats": {
+          "total": 22,
+          "hit": 19,
+          "value_mismatch": 0,
+          "miss": 3,
+          "ratio": 0.8636363636363636
+        },
+        "mismatches": [],
+        "misses": [
+          {
+            "id": "T1-H08",
+            "canonical": "三个月",
+            "type": "数字"
+          },
+          {
+            "id": "T1-H11",
+            "canonical": "刑侦支队副队长",
+            "type": "人物"
+          },
+          {
+            "id": "T1-H20",
+            "canonical": "第二道门",
+            "type": "设定"
+          }
+        ]
+      }
+    },
+    "T2": {
+      "body": {
+        "baseline": {
+          "stats": {
+            "total": 6,
+            "hit": 5,
+            "value_mismatch": 0,
+            "miss": 1,
+            "ratio": 0.8333333333333334
+          },
+          "mismatches": [],
+          "misses": [
+            {
+              "id": "T2-H05",
+              "canonical": "左肩旧伤",
+              "type": "设定"
+            }
+          ]
+        },
+        "post_injection": {
+          "stats": {
+            "total": 6,
+            "hit": 6,
+            "value_mismatch": 0,
+            "miss": 0,
+            "ratio": 1.0
+          },
+          "mismatches": [],
+          "misses": []
+        }
+      },
+      "skeleton_post_injection": {
+        "stats": {
+          "total": 6,
+          "hit": 6,
+          "value_mismatch": 0,
+          "miss": 0,
+          "ratio": 1.0
+        },
+        "mismatches": [],
+        "misses": []
+      }
+    },
+    "T3": {
+      "body": {
+        "baseline": {
+          "stats": {
+            "total": 9,
+            "hit": 5,
+            "value_mismatch": 0,
+            "miss": 4,
+            "ratio": 0.5555555555555556
+          },
+          "mismatches": [],
+          "misses": [
+            {
+              "id": "T3-H01",
+              "canonical": "上午十点",
+              "type": "时间"
+            },
+            {
+              "id": "T3-H02",
+              "canonical": "市档案馆三楼",
+              "type": "地点"
+            },
+            {
+              "id": "T3-H03",
+              "canonical": "刑侦支队副队长",
+              "type": "人物"
+            },
+            {
+              "id": "T3-H06",
+              "canonical": "单独进当铺",
+              "type": "约定"
+            }
+          ]
+        },
+        "post_injection": {
+          "stats": {
+            "total": 9,
+            "hit": 7,
+            "value_mismatch": 0,
+            "miss": 2,
+            "ratio": 0.7777777777777778
+          },
+          "mismatches": [],
+          "misses": [
+            {
+              "id": "T3-H03",
+              "canonical": "刑侦支队副队长",
+              "type": "人物"
+            },
+            {
+              "id": "T3-H06",
+              "canonical": "单独进当铺",
+              "type": "约定"
+            }
+          ]
+        }
+      },
+      "skeleton_post_injection": {
+        "stats": {
+          "total": 9,
+          "hit": 8,
+          "value_mismatch": 0,
+          "miss": 1,
+          "ratio": 0.8888888888888888
+        },
+        "mismatches": [],
+        "misses": [
+          {
+            "id": "T3-H03",
+            "canonical": "刑侦支队副队长",
+            "type": "人物"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -15,13 +15,13 @@ class TestWorldbookCheckAuditor:
 
     def test_protagonist_name_present(self):
         auditor = WorldbookCheckAuditor()
-        ctx = {"worldbook": {"facts": ["主角姓名:EXAMPLE_PROTAGONIST"]}}
-        result = auditor.run("EXAMPLE_PROTAGONIST站在那里，望着远方。", ctx)
+        ctx = {"worldbook": {"facts": ["主角姓名:张今空"]}}
+        result = auditor.run("张今空站在那里，望着远方。", ctx)
         assert "未出现" not in result.message
 
     def test_protagonist_name_missing(self):
         auditor = WorldbookCheckAuditor()
-        ctx = {"worldbook": {"facts": ["主角姓名:EXAMPLE_PROTAGONIST"]}}
+        ctx = {"worldbook": {"facts": ["主角姓名:张今空"]}}
         result = auditor.run("李明站在那里，望着远方。", ctx)
         assert "未出现" in result.message or "漂移" in result.message
 

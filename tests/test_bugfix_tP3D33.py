@@ -20,9 +20,9 @@ from biyu.editor.parser import parse_editor_response, EditorIssue
 # ---------------------------------------------------------------------------
 
 SAMPLE_PARAGRAPHS = [
-    "EXAMPLE_ELDER看着EXAMPLE_PROTAGONIST，忽然说了句话。",
+    "老樵看着张今空，忽然说了句话。",
     "曹操冷笑道：后人编的都是假的。",
-    "EXAMPLE_PROTAGONIST在水中用布画了一张图。",
+    "张今空在水中用布画了一张图。",
     "红糖糍粑红糖糍粑红糖糍粑，他一直在吃红糖糍粑。",
 ]
 
@@ -92,7 +92,7 @@ def test_reviser_handles_boundary_paragraph():
     )
     assert "上一段落" not in prompt
     assert "下一段落" in prompt
-    assert "EXAMPLE_ELDER看着EXAMPLE_PROTAGONIST" in prompt
+    assert "老樵看着张今空" in prompt
 
 
 def test_reviser_handles_last_paragraph():

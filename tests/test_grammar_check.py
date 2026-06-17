@@ -15,12 +15,12 @@ def mock_book_dir(tmp_path):
     """Create a minimal book dir with characters.yaml and worldbook.yaml."""
     (tmp_path / "characters.yaml").write_text(
         "characters:\n"
-        "  - name: EXAMPLE_PROTAGONIST\n"
+        "  - name: 张今空\n"
         "    aliases:\n"
         "      narrator_default: '他'\n"
         "    voice_examples:\n"
         "      - '卧槽，这也太猛了'\n"
-        "  - name: EXAMPLE_SIDEKICK\n"
+        "  - name: 周大龙\n"
         "    voice_examples:\n"
         "      - '我擦，牛逼'\n",
         encoding="utf-8",
@@ -41,7 +41,7 @@ def mock_book_dir(tmp_path):
 # ---------------------------------------------------------------------------
 def test_clean_text_no_false_positives(mock_book_dir):
     """正常文本不应产生误报。"""
-    text = "EXAMPLE_PROTAGONIST走进镇异局，看着EXAMPLE_SIDEKICK说：'卧槽，这也太猛了。'"
+    text = "张今空走进镇异局，看着周大龙说：'卧槽，这也太猛了。'"
     result = check_chapter(text, mock_book_dir)
     assert len(result.placeholders) == 0
     assert len(result.typos) == 0
@@ -67,8 +67,8 @@ def test_whitelist_protection(mock_book_dir):
     whitelist = load_whitelist(mock_book_dir)
     assert "镇异局" in whitelist
     assert "命甲" in whitelist
-    assert "EXAMPLE_PROTAGONIST" in whitelist
-    assert "EXAMPLE_SIDEKICK" in whitelist
+    assert "张今空" in whitelist
+    assert "周大龙" in whitelist
 
 
 # ---------------------------------------------------------------------------
@@ -86,12 +86,12 @@ def test_oral_words_not_flagged(mock_book_dir):
 # ---------------------------------------------------------------------------
 def test_auto_fix_removes_placeholders(mock_book_dir):
     """占位符应被自动删除。"""
-    text = "EXAMPLE_ELDER看着EXAMPLE_PROTAGONIST，[NAME]忽然说了句话。"
+    text = "老樵看着张今空，[NAME]忽然说了句话。"
     result = check_chapter(text, mock_book_dir)
     fixed, count = auto_fix(text, result)
     assert count >= 1
     assert "[NAME]" not in fixed
-    assert "EXAMPLE_ELDER看着EXAMPLE_PROTAGONIST" in fixed
+    assert "老樵看着张今空" in fixed
 
 
 # ---------------------------------------------------------------------------

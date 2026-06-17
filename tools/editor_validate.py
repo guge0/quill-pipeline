@@ -25,7 +25,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from biyu.llm import ModelRegistry
 
-BOOK_DIR = Path("data/EXAMPLE_PROTAGONIST_T-P3-A验证")
+BOOK_DIR = Path("data/张今空_T-P3-A验证")
 
 EDITOR_SYSTEM_PROMPT = """你是这本书的责任编辑。你的任务是读完本章并标出"明显问题"。
 
@@ -74,7 +74,7 @@ EDITOR_SYSTEM_PROMPT = """你是这本书的责任编辑。你的任务是读完
   "issues": [
     {
       "line": 257,
-      "quote": "章末句只停在EXAMPLE_PROTAGONIST的最后一个字",
+      "quote": "章末句只停在张今空的最后一个字",
       "type": "字面伪影",
       "explanation": "这是创作工具的内部描述词，模型把 prompt 元词写进了正文",
       "fix_suggestion": "删除该行"
@@ -98,7 +98,7 @@ def build_user_prompt(chapter_text: str, prior_context: str) -> str:
 - 金色 = 外部观察者标志(CH10 末出现的"凭什么是你?"金字、"那只青铜色的手"前身)
 - 未来 CH27 末本命短刀第七字也将是金色——这构成跨章符号撞色
 - 张父身份:建筑工地电焊工(语气接地气，不会文绉绉)
-- EXAMPLE_PROTAGONIST、EXAMPLE_SUPPORTING、EXAMPLE_SIDEKICK、EXAMPLE_CLASSMATE是核心四人组
+- 张今空、林溪、周大龙、赵小磊是核心四人组
 
 【前文摘要】
 {prior_context}
@@ -116,7 +116,7 @@ async def main():
 
     # 2. 构建简化前文摘要(ch1-9 关键设定)
     prior_context = """
-- EXAMPLE_PROTAGONIST高考路上校车被吞入秘境，与同学共 47 人进入赤壁之战
+- 张今空高考路上校车被吞入秘境，与同学共 47 人进入赤壁之战
 - CH1-3 赤壁秘境，获得命甲(借的甲，有负担)
 - CH4-5 镇异局成立，陈处招募
 - CH6 第二次秘境铠甲勇士开篇，主角与同学进入

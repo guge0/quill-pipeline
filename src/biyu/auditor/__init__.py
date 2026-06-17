@@ -29,6 +29,7 @@ _CHECKER_REGISTRY: dict[str, str] = {
     "chapter_ending": "biyu.auditor.chapter_ending.ChapterEndingAuditor",
     "dialogue_ratio": "biyu.auditor.dialogue_ratio.DialogueRatioAuditor",
     "character_naming": "biyu.auditor.character_naming.CharacterNamingAuditor",
+    "anchor_check": "biyu.auditor.anchor_check.AnchorCheckAuditor",
 }
 
 

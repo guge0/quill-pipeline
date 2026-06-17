@@ -23,3 +23,8 @@ rag = ["chromadb>=0.5.0"]
 
 [project.scripts]
 biyu = "biyu.cli.main:app"
+
+[tool.pytest.ini_options]
+# 编辑态装包位(quill-pipeline)与开发源(biyu/src)分离:
+# 测试优先吃本地 src/, 保证 TDD 看见刚写的代码, 不吃旧装包。
+pythonpath = ["src"]

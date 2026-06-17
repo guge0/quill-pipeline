@@ -1,0 +1,125 @@
+[
+  {
+    "chapter": "T1",
+    "source_file": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\baseline\\T1_clean.md",
+    "metrics": {
+      "char_count_cjk": 5004,
+      "char_count_total": 6171,
+      "paragraph_lengths": {
+        "count": 161,
+        "mean": 31.080745341614907,
+        "median": 19,
+        "max": 138,
+        "long_para_ratio": 0.0
+      },
+      "exclaim_density_per_1k": 0.0,
+      "dash_density_per_1k": 0.5995203836930455,
+      "long_unpunct_sentence_ratio": 0.0,
+      "modifier_proxy": {
+        "count": 7,
+        "density_per_1k": 1.398880895283773,
+        "proxy": true
+      },
+      "parallelism_proxy": {
+        "uniform_run_ratio": 0.15699658703071673,
+        "same_start_count": 50,
+        "proxy": true
+      },
+      "four_char_proxy": {
+        "idiom_hits": 0,
+        "raw_four_cjk_count": 1033,
+        "idiom_density_per_1k": 0.0,
+        "raw_density_per_1k": 206.43485211830537,
+        "proxy": true
+      },
+      "number_rhythm": {
+        "implemented": false,
+        "note": "v1 占位接口,未实现;待 TL 定节律口径后补"
+      },
+      "degenerate": false,
+      "notes": "AI痕迹机械度量: 全部为代理指标, 不代表人类/AI判定, 仅供参考。"
+    }
+  },
+  {
+    "chapter": "T2",
+    "source_file": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\baseline\\T2_clean.md",
+    "metrics": {
+      "char_count_cjk": 6325,
+      "char_count_total": 7564,
+      "paragraph_lengths": {
+        "count": 153,
+        "mean": 41.33986928104575,
+        "median": 33,
+        "max": 125,
+        "long_para_ratio": 0.0
+      },
+      "exclaim_density_per_1k": 0.0,
+      "dash_density_per_1k": 0.0,
+      "long_unpunct_sentence_ratio": 0.0,
+      "modifier_proxy": {
+        "count": 4,
+        "density_per_1k": 0.6324110671936759,
+        "proxy": true
+      },
+      "parallelism_proxy": {
+        "uniform_run_ratio": 0.09289617486338798,
+        "same_start_count": 30,
+        "proxy": true
+      },
+      "four_char_proxy": {
+        "idiom_hits": 0,
+        "raw_four_cjk_count": 1275,
+        "idiom_density_per_1k": 0.0,
+        "raw_density_per_1k": 201.5810276679842,
+        "proxy": true
+      },
+      "number_rhythm": {
+        "implemented": false,
+        "note": "v1 占位接口,未实现;待 TL 定节律口径后补"
+      },
+      "degenerate": false,
+      "notes": "AI痕迹机械度量: 全部为代理指标, 不代表人类/AI判定, 仅供参考。"
+    }
+  },
+  {
+    "chapter": "T3",
+    "source_file": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\baseline\\T3_clean.md",
+    "metrics": {
+      "char_count_cjk": 7960,
+      "char_count_total": 9759,
+      "paragraph_lengths": {
+        "count": 222,
+        "mean": 35.85585585585586,
+        "median": 30.0,
+        "max": 127,
+        "long_para_ratio": 0.0
+      },
+      "exclaim_density_per_1k": 0.0,
+      "dash_density_per_1k": 0.37688442211055273,
+      "long_unpunct_sentence_ratio": 0.0,
+      "modifier_proxy": {
+        "count": 6,
+        "density_per_1k": 0.7537688442211055,
+        "proxy": true
+      },
+      "parallelism_proxy": {
+        "uniform_run_ratio": 0.10375275938189846,
+        "same_start_count": 48,
+        "proxy": true
+      },
+      "four_char_proxy": {
+        "idiom_hits": 1,
+        "raw_four_cjk_count": 1630,
+        "idiom_density_per_1k": 0.1256281407035176,
+        "raw_density_per_1k": 204.77386934673368,
+        "proxy": true
+      },
+      "number_rhythm": {
+        "implemented": false,
+        "note": "v1 占位接口,未实现;待 TL 定节律口径后补"
+      },
+      "degenerate": false,
+      "notes": "AI痕迹机械度量: 全部为代理指标, 不代表人类/AI判定, 仅供参考。"
+    }
+  }
+]

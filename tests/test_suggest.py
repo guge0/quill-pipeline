@@ -26,7 +26,7 @@ def mock_book_dir(tmp_path):
     """创建最小化的书目录用于测试。"""
     (tmp_path / "characters.yaml").write_text(
         "characters:\n"
-        "  - name: EXAMPLE_PROTAGONIST\n"
+        "  - name: 张今空\n"
         "    personality: '热血少年'\n",
         encoding="utf-8",
     )
@@ -48,7 +48,7 @@ def outline_with_tbd(mock_book_dir):
     content = """\
 ---
 present_characters:
-  - EXAMPLE_PROTAGONIST
+  - 张今空
 首都:
 名字:
 ---

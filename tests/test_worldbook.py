@@ -35,9 +35,9 @@ class TestBuildWorldbookPrompt:
         assert build_worldbook_prompt({}) == ""
 
     def test_facts_injected(self):
-        wb = {"facts": ["主角姓名:EXAMPLE_PROTAGONIST", "主角城市:南城"]}
+        wb = {"facts": ["主角姓名:张今空", "主角城市:南城"]}
         prompt = build_worldbook_prompt(wb)
-        assert "EXAMPLE_PROTAGONIST" in prompt
+        assert "张今空" in prompt
         assert "不可变硬设定" in prompt
 
     def test_forbidden_injected(self):
@@ -79,7 +79,7 @@ class TestBuildWorldbookPrompt:
         wb = {
             "narrative_anchors": {"tone": "爽文"},
             "power_system": {"rules": ["九境"]},
-            "facts": ["主角姓名:EXAMPLE_PROTAGONIST"],
+            "facts": ["主角姓名:张今空"],
             "forbidden": ["不得穿越"],
             "geography": ["南城:华国大城市"],
             "factions": ["镇异局"],
@@ -88,6 +88,6 @@ class TestBuildWorldbookPrompt:
         prompt = build_worldbook_prompt(wb)
         assert "世界观锁" in prompt
         assert "世界观锁结束" in prompt
-        assert "EXAMPLE_PROTAGONIST" in prompt
+        assert "张今空" in prompt
         assert "不得穿越" in prompt
         assert "南城" in prompt

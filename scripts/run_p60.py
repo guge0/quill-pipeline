@@ -22,7 +22,7 @@ import httpx
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
-BOOK_DIR = REPO_ROOT / "data" / "EXAMPLE_PROTAGONIST_T-P3-A验证"
+BOOK_DIR = REPO_ROOT / "data" / "张今空_T-P3-A验证"
 OUTPUT_DIR = REPO_ROOT / "outputs" / "P6-0"
 
 # Budget thresholds (CNY, cumulative across 3 chapters)

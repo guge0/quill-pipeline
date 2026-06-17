@@ -9,7 +9,7 @@
 """
 from pathlib import Path
 
-book_dir = Path("data/EXAMPLE_PROTAGONIST_T-P3-A验证")
+book_dir = Path("data/张今空_T-P3-A验证")
 backup_dir = book_dir / "_archive_T-P3-B.1_round"
 backup_dir.mkdir(parents=True, exist_ok=True)
 

@@ -7,41 +7,41 @@ from biyu.auditor.base import Severity
 
 class TestExtractNamedCharacters:
     def test_basic(self):
-        text = "EXAMPLE_PROTAGONIST和EXAMPLE_FEMALE_LEAD一起走进了秘境。"
-        names = ["EXAMPLE_PROTAGONIST", "EXAMPLE_FEMALE_LEAD", "EXAMPLE_ALLY"]
+        text = "张今空和林晚一起走进了秘境。"
+        names = ["张今空", "林晚", "韩铮"]
         found = _extract_named_characters(text, names)
-        assert "EXAMPLE_PROTAGONIST" in found
-        assert "EXAMPLE_FEMALE_LEAD" in found
-        assert "EXAMPLE_ALLY" not in found
+        assert "张今空" in found
+        assert "林晚" in found
+        assert "韩铮" not in found
 
 
 class TestCharacterPresenceAuditor:
     def test_no_present_list(self):
         auditor = CharacterPresenceAuditor()
         ctx = {
-            "characters": [{"name": "EXAMPLE_PROTAGONIST"}, {"name": "EXAMPLE_FEMALE_LEAD"}],
+            "characters": [{"name": "张今空"}, {"name": "林晚"}],
         }
-        result = auditor.run("EXAMPLE_PROTAGONIST站在那里。", ctx)
+        result = auditor.run("张今空站在那里。", ctx)
         assert result.checker == "character_presence"
-        assert "EXAMPLE_PROTAGONIST" in result.message
+        assert "张今空" in result.message
 
     def test_unexpected_character(self):
         auditor = CharacterPresenceAuditor()
         ctx = {
-            "characters": [{"name": "EXAMPLE_PROTAGONIST"}, {"name": "EXAMPLE_FEMALE_LEAD"}, {"name": "EXAMPLE_ALLY"}],
-            "present_characters": ["EXAMPLE_PROTAGONIST"],
+            "characters": [{"name": "张今空"}, {"name": "林晚"}, {"name": "韩铮"}],
+            "present_characters": ["张今空"],
         }
-        result = auditor.run("EXAMPLE_PROTAGONIST和EXAMPLE_FEMALE_LEAD一起走进了秘境。", ctx)
+        result = auditor.run("张今空和林晚一起走进了秘境。", ctx)
         assert "非在场角色出现" in result.message
-        assert "EXAMPLE_FEMALE_LEAD" in result.message
+        assert "林晚" in result.message
 
     def test_all_present(self):
         auditor = CharacterPresenceAuditor()
         ctx = {
-            "characters": [{"name": "EXAMPLE_PROTAGONIST"}, {"name": "EXAMPLE_FEMALE_LEAD"}],
-            "present_characters": ["EXAMPLE_PROTAGONIST", "EXAMPLE_FEMALE_LEAD"],
+            "characters": [{"name": "张今空"}, {"name": "林晚"}],
+            "present_characters": ["张今空", "林晚"],
         }
-        result = auditor.run("EXAMPLE_PROTAGONIST和EXAMPLE_FEMALE_LEAD一起走进了秘境。", ctx)
+        result = auditor.run("张今空和林晚一起走进了秘境。", ctx)
         assert "一致" in result.message
 
     def test_name_property(self):

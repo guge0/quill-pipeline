@@ -1,0 +1,103 @@
+{
+  "task": "P6-A1/V1a",
+  "purpose": "D-56 缺口修补: V0 证明 presence 维有效, value_mismatch 维因夹具 0/37 锚含 distractor 一次未触发; V1a 补缺口并端到端验证。",
+  "budget_cny": 0.0,
+  "llm_calls": 0,
+  "distractor_inventory": [
+    {
+      "anchor_id": "T1-H16",
+      "chapter": "T1",
+      "type": "档案号",
+      "canonical": "A-113",
+      "distractors_added": ["A-131", "A-311"],
+      "distractor_rationale": "数字换位(A-113→A-131 是经典抄写错位; A-311 是全换位)"
+    },
+    {
+      "anchor_id": "T3-H05",
+      "chapter": "T3",
+      "type": "档案号(跨章)",
+      "canonical": "A-113",
+      "distractors_added": ["A-131", "A-311"]
+    },
+    {
+      "anchor_id": "T1-H09",
+      "chapter": "T1",
+      "type": "钥匙编号",
+      "canonical": "07号黄铜钥匙",
+      "distractors_added": ["08号黄铜钥匙", "17号黄铜钥匙"],
+      "distractor_rationale": "08号=相邻数字误读; 17号=十位与个位互换"
+    },
+    {
+      "anchor_id": "T1-H14",
+      "chapter": "T1",
+      "type": "地点楼层",
+      "canonical": "市档案馆三楼",
+      "distractors_added": ["档案馆二楼", "档案馆四楼"],
+      "distractor_rationale": "相邻楼层误写"
+    },
+    {
+      "anchor_id": "T3-H02",
+      "chapter": "T3",
+      "type": "地点楼层(跨章)",
+      "canonical": "市档案馆三楼",
+      "distractors_added": ["档案馆二楼", "档案馆四楼"]
+    },
+    {
+      "anchor_id": "T1-H05",
+      "chapter": "T1",
+      "type": "物品颜色",
+      "canonical": "黑色手套",
+      "distractors_added": ["白手套", "灰手套"],
+      "distractor_rationale": "颜色误记(对照色)"
+    }
+  ],
+  "summary": {
+    "anchors_modified": 6,
+    "distractors_added_total": 12,
+    "hard_info_types_covered": ["档案号", "钥匙编号", "地点楼层", "物品颜色"],
+    "hard_info_types_not_covered": [
+      {"type": "纯时间类", "reason": "用户 stop-and-ask 项, 不自造归一化规则"},
+      {"type": "刻字", "reason": "无现存锚"},
+      {"type": "电话", "reason": "无现存锚"}
+    ]
+  },
+  "synthesis_test": {
+    "description": "合成一段含全部 distractor 的正文, 跑 run_check_text('T1'), 验证每个锚的 value_mismatch 命中。",
+    "text_used": "他翻到案卷编号A-131的那一页。档案袋上又印着A-311。抽屉里有一把08号黄铜钥匙。他摸到17号黄铜钥匙。他上了市档案馆二楼。电梯停在档案馆四楼。聂守仁戴着白手套。他注意到那双灰手套。",
+    "expected_unique_anchors_caught": 4,
+    "actual_caught": [
+      {"id": "T1-H05", "canonical": "黑色手套", "mismatch_by": "白手套"},
+      {"id": "T1-H09", "canonical": "07号黄铜钥匙", "mismatch_by": "08号黄铜钥匙"},
+      {"id": "T1-H14", "canonical": "市档案馆三楼", "mismatch_by": "档案馆二楼"},
+      {"id": "T1-H16", "canonical": "A-113", "mismatch_by": "A-131"}
+    ],
+    "caught_count": 4,
+    "leakage_count": 0,
+    "false_positive_count": 0,
+    "note": "T1-H16 含 A-131 + A-311 两 distractor; canonical 优先级最高, 第一个匹配的 distractor 报 mismatch_by(子串优先序)。每个 anchor 至少 1 个 distractor 命中即满足端到端验证。"
+  },
+  "baseline_regression_check": {
+    "description": "新补 distractor 不得让既有 baseline/post_injection 章节冒出假 value_mismatch。",
+    "results": {
+      "baseline":     {"T1": {"hit": 11, "value_mismatch": 0, "miss": 11, "total": 22},
+                       "T2": {"hit": 5,  "value_mismatch": 0, "miss": 1,  "total": 6},
+                       "T3": {"hit": 5,  "value_mismatch": 0, "miss": 4,  "total": 9}},
+      "post_injection": {"T1": {"hit": 16, "value_mismatch": 0, "miss": 6,  "total": 22},
+                         "T2": {"hit": 6,  "value_mismatch": 0, "miss": 0,  "total": 6},
+                         "T3": {"hit": 7,  "value_mismatch": 0, "miss": 2,  "total": 9}}
+    },
+    "false_positive_introduced": false,
+    "v0_counts_preserved": true,
+    "explanation": "正文里本就不含 A-131/档案馆二楼/白手套 等字符串 → distractor 补充不引入假阳性。"
+  },
+  "tests": {
+    "new_test_file": "tests/test_v1a_distractor_fixtures.py",
+    "test_count": 27,
+    "test_classes": {
+      "TestFixtureHasDistractors": "6 parametrized — 夹具存在性",
+      "TestDistractorCaught": "10 parametrized — 端到端抓中",
+      "TestNoFalsePositives": "5 — 既不漏判(canonical 在场绝不报 mismatch)也不误判(无 canonical 无 distractor → missing)",
+      "TestBaselineRegressiveSafe": "6 parametrized — baseline/post_injection 6 章重打分 0 假阳性"
+    }
+  }
+}
