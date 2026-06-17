@@ -1,0 +1,71 @@
+# P6-2 题材结构骨架 —— 喂 Architect 导演方案的 Layer 2 信息上下文
+#
+# 源: 网文Craft蒸馏_v0.md §一 1/2/4 (节奏曲线 + 目标体系 + 开篇结构)
+# 方法论: 沿用声纹 why-based —— 给参考、讲为什么、不写 NEVER/ALWAYS
+# 字数为典型值,非硬达标线;真高潮密集、为冲击的破格都算合理例外
+#
+# 边界(不在本文件):
+#   - 文字好坏/人味/张力 → 归声纹 + 人味检测器
+#   - 爽点分类(§一.3)/ 创新模式(§一.5) → 留第二批
+#   - 机械锚点(§二) → 走人味线
+
+meta:
+  source_doc: 网文Craft蒸馏_v0.md
+  source_sections: [一.1, 一.2, 一.4]
+  scope: 题材通用骨架
+  word_counts_are: 典型值,非硬达标线
+  injection_layer: Layer 2 信息上下文 (参考性,非 NEVER/ALWAYS)
+  not_in_scope:
+    - 文字好坏/人味/张力
+    - 爽点分类§一.3
+    - 创新模式§一.5
+    - 机械锚点§二
+
+pacing:
+  # 节奏曲线 (§一.1)
+  high_points:
+    - { tier: 小高潮, typical_at_words: 10000, why: 给读者短期反馈,让"追下去"有即时回报 }
+    - { tier: 中高潮, typical_at_words: 30000, why: 一个完整"局"收尾的爆发点,兑现几个短期目标 }
+    - { tier: 大高潮, typical_at_words: 60000, why: 立起长期目标、确立全书格局的支点 }
+  ju:  # "局"颗粒度
+    chapters_per_ju: 3-4
+    structure: [开局, 布局, 解局]
+    climax_position: 局尾
+    why: |
+      三四章构成一个完整"局",在局尾掐高潮。
+      不要每章都掐 —— 过密会让读者烦躁、高潮廉价化。
+  chapter_end_hook:
+    chapter_length_words: 3000
+    hook_starts_at_words: 2500
+    why: 约 2500 字处开始铺章尾钩子,留 500 字落实。钩子是"翻下一章"的直接引擎。
+
+goals:
+  # 目标体系 (§一.2) —— 节奏的引擎
+  layers:
+    - { tier: 短期, typical_set_by_words: 10000, why: 给读者"下一步会发生什么"的即时抓手 }
+    - { tier: 中期, typical_set_by_words: 30000, why: 几个短期目标串成中期,形成"局"的方向 }
+    - { tier: 长期, typical_set_by_words: 60000, why: 几个中期汇成长期,撑起全书格局 }
+  ladder_principle:
+    why: |
+      升级体系(修真/官场/网游)最抓人,因为可预知、阶梯上升,每次升级自带下一目标。
+      升级体系天然缺中期 → 用副本/任务补。
+  principles:
+    - { id: point_direction, rule: 刻意提醒读者下一步目标在哪, why: 读者要知道"追什么";不指方向 = 流失 }
+    - { id: no_spoil_end,      rule: 结局不剧透,                  why: 作者提前掀盖子是大忌;指方向 ≠ 透底牌 }
+
+opening:
+  # 开篇结构 (§一.4) —— 前 3 万字定生死
+  window_words: 30000
+  feng_tou:
+    setup_defer_to_chapter: 5
+    why: 开头精要,场景/外貌/背景/等级体系推到第 5 章后。凤头 = 用最少的字钩住,不是交代设定。
+  protagonist_focus:
+    first_3000_words_name_limit: 2-3
+    why: 开头三千字出场名字压到 2-3,别让龙套抢主角存在感
+  double_foreshadow:
+    long_line:  { reveal_after_words: 60000+, why: 长线伏笔对应长期目标 }
+    short_line: { reveal_within_words: 30000, why: 短线 3 万内揭,促使读者回头(回头翻找 = 成功信号) }
+  slim_down:
+    after_words: 30000
+    outline_length_words: 300
+    why: 前 3 万字完成后反写 300 字细纲,删冗余。瘦身只对前 3 万字做。

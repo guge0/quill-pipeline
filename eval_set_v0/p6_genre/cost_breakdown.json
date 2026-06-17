@@ -1,0 +1,193 @@
+{
+  "timestamp": "2026-06-18T01:06:36",
+  "chapters": [
+    1,
+    2,
+    3
+  ],
+  "n_per_side": 1,
+  "baseline_cost_cny": 0.1987055,
+  "template_cost_cny": 0.204285,
+  "total_cost_cny": 0.40299050000000003,
+  "budget_limit_cny": 2.0,
+  "baseline_results": [
+    {
+      "chapter_key": "T1",
+      "side": "baseline",
+      "word_count": 5369,
+      "cost_cny": 0.058254,
+      "elapsed_seconds": 228.03828740119934,
+      "boundary_events": [],
+      "planning_path": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\p6_genre\\baseline\\ch1\\planning.md"
+    },
+    {
+      "chapter_key": "T2",
+      "side": "baseline",
+      "word_count": 5380,
+      "cost_cny": 0.061352000000000004,
+      "elapsed_seconds": 243.54266142845154,
+      "boundary_events": [
+        {
+          "type": "WARNING",
+          "detail": "Editor 标记需审查: 视角穿帮, 跨章一致性",
+          "side": "baseline",
+          "chapter": "T2"
+        }
+      ],
+      "planning_path": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\p6_genre\\baseline\\ch2\\planning.md"
+    },
+    {
+      "chapter_key": "T3",
+      "side": "baseline",
+      "word_count": 6835,
+      "cost_cny": 0.0790995,
+      "elapsed_seconds": 209.64530396461487,
+      "boundary_events": [],
+      "planning_path": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\p6_genre\\baseline\\ch3\\planning.md"
+    }
+  ],
+  "template_results": [
+    {
+      "chapter_key": "T1",
+      "side": "template",
+      "word_count": 5593,
+      "cost_cny": 0.062878,
+      "elapsed_seconds": 232.59628200531006,
+      "boundary_events": [],
+      "planning_path": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\p6_genre\\template\\ch1\\planning.md"
+    },
+    {
+      "chapter_key": "T2",
+      "side": "template",
+      "word_count": 7342,
+      "cost_cny": 0.0682735,
+      "elapsed_seconds": 234.7075674533844,
+      "boundary_events": [
+        {
+          "type": "WARNING",
+          "detail": "Editor 标记需审查: 跨章一致性, 逻辑漏洞, 逻辑漏洞",
+          "side": "template",
+          "chapter": "T2"
+        }
+      ],
+      "planning_path": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\p6_genre\\template\\ch2\\planning.md"
+    },
+    {
+      "chapter_key": "T3",
+      "side": "template",
+      "word_count": 6607,
+      "cost_cny": 0.07313349999999999,
+      "elapsed_seconds": 288.22181820869446,
+      "boundary_events": [
+        {
+          "type": "WARNING",
+          "detail": "Editor 标记需审查: 逻辑漏洞",
+          "side": "template",
+          "chapter": "T3"
+        }
+      ],
+      "planning_path": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\p6_genre\\template\\ch3\\planning.md"
+    }
+  ],
+  "comparison_report": {
+    "markers_file": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\genre_markers.yaml",
+    "total_markers": 14,
+    "results": [
+      {
+        "label": "baseline_ch1",
+        "file": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\p6_genre\\baseline\\ch1\\planning.md",
+        "hits": [
+          "P5"
+        ],
+        "total_hits": 1,
+        "per_category": {
+          "pacing": [
+            "P5"
+          ],
+          "goals": [],
+          "opening": []
+        }
+      },
+      {
+        "label": "baseline_ch2",
+        "file": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\p6_genre\\baseline\\ch2\\planning.md",
+        "hits": [
+          "P5"
+        ],
+        "total_hits": 1,
+        "per_category": {
+          "pacing": [
+            "P5"
+          ],
+          "goals": [],
+          "opening": []
+        }
+      },
+      {
+        "label": "baseline_ch3",
+        "file": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\p6_genre\\baseline\\ch3\\planning.md",
+        "hits": [
+          "P5"
+        ],
+        "total_hits": 1,
+        "per_category": {
+          "pacing": [
+            "P5"
+          ],
+          "goals": [],
+          "opening": []
+        }
+      },
+      {
+        "label": "template_ch1",
+        "file": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\p6_genre\\template\\ch1\\planning.md",
+        "hits": [
+          "P4",
+          "P5"
+        ],
+        "total_hits": 2,
+        "per_category": {
+          "pacing": [
+            "P4",
+            "P5"
+          ],
+          "goals": [],
+          "opening": []
+        }
+      },
+      {
+        "label": "template_ch2",
+        "file": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\p6_genre\\template\\ch2\\planning.md",
+        "hits": [
+          "G1",
+          "P5"
+        ],
+        "total_hits": 2,
+        "per_category": {
+          "pacing": [
+            "P5"
+          ],
+          "goals": [
+            "G1"
+          ],
+          "opening": []
+        }
+      },
+      {
+        "label": "template_ch3",
+        "file": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\p6_genre\\template\\ch3\\planning.md",
+        "hits": [
+          "P5"
+        ],
+        "total_hits": 1,
+        "per_category": {
+          "pacing": [
+            "P5"
+          ],
+          "goals": [],
+          "opening": []
+        }
+      }
+    ]
+  }
+}

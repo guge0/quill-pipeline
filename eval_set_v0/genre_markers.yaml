@@ -1,0 +1,26 @@
+# P6-2 genre structure markers
+# 扫描 planning.md,看 genre 骨架的标注是否被体现
+# 命中规则: planning.md 含 canonical 或任一 alias 的子串(归一化后)
+#
+# 用途: A/B 对比 baseline vs template 各 marker 命中数
+# 注: aliases 是粗筛,人工核验仍必要
+
+pacing:
+  - { id: P1, canonical: 小高潮, aliases: [万字高潮] }
+  - { id: P2, canonical: 中高潮, aliases: [三万字] }
+  - { id: P3, canonical: 大高潮, aliases: [六万字] }
+  - { id: P4, canonical: 局, aliases: [开局, 布局, 解局, 局尾, 一个局] }
+  - { id: P5, canonical: 章尾钩子, aliases: [章末钩, 章末, 翻下一章, 钩子] }
+
+goals:
+  - { id: G1, canonical: 短期目标, aliases: [短期] }
+  - { id: G2, canonical: 中期目标, aliases: [中期] }
+  - { id: G3, canonical: 长期目标, aliases: [长期] }
+  - { id: G4, canonical: 指方向, aliases: [提醒读者, 追什么, 指方向] }
+  - { id: G5, canonical: 剧透, aliases: [掀盖子, 透底牌, 剧透] }
+
+opening:
+  - { id: O1, canonical: 凤头, aliases: [开头精要, 设定后置, 设定推到] }
+  - { id: O2, canonical: 主角聚光, aliases: [出场人物, 龙套, 聚光] }
+  - { id: O3, canonical: 双伏笔, aliases: [长线伏笔, 短线伏笔, 长线, 短线, 伏笔] }
+  - { id: O4, canonical: 瘦身, aliases: [300字细纲, 反写细纲, 删冗余] }

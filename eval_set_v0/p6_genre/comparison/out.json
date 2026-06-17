@@ -1,0 +1,101 @@
+{
+  "markers_file": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\genre_markers.yaml",
+  "total_markers": 14,
+  "results": [
+    {
+      "label": "baseline_ch1",
+      "file": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\p6_genre\\baseline\\ch1\\planning.md",
+      "hits": [
+        "P5"
+      ],
+      "total_hits": 1,
+      "per_category": {
+        "pacing": [
+          "P5"
+        ],
+        "goals": [],
+        "opening": []
+      }
+    },
+    {
+      "label": "baseline_ch2",
+      "file": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\p6_genre\\baseline\\ch2\\planning.md",
+      "hits": [
+        "P5"
+      ],
+      "total_hits": 1,
+      "per_category": {
+        "pacing": [
+          "P5"
+        ],
+        "goals": [],
+        "opening": []
+      }
+    },
+    {
+      "label": "baseline_ch3",
+      "file": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\p6_genre\\baseline\\ch3\\planning.md",
+      "hits": [
+        "P5"
+      ],
+      "total_hits": 1,
+      "per_category": {
+        "pacing": [
+          "P5"
+        ],
+        "goals": [],
+        "opening": []
+      }
+    },
+    {
+      "label": "template_ch1",
+      "file": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\p6_genre\\template\\ch1\\planning.md",
+      "hits": [
+        "P4",
+        "P5"
+      ],
+      "total_hits": 2,
+      "per_category": {
+        "pacing": [
+          "P4",
+          "P5"
+        ],
+        "goals": [],
+        "opening": []
+      }
+    },
+    {
+      "label": "template_ch2",
+      "file": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\p6_genre\\template\\ch2\\planning.md",
+      "hits": [
+        "G1",
+        "P5"
+      ],
+      "total_hits": 2,
+      "per_category": {
+        "pacing": [
+          "P5"
+        ],
+        "goals": [
+          "G1"
+        ],
+        "opening": []
+      }
+    },
+    {
+      "label": "template_ch3",
+      "file": "E:\\webnovel\\quill-pipeline\\eval_set_v0\\p6_genre\\template\\ch3\\planning.md",
+      "hits": [
+        "P5"
+      ],
+      "total_hits": 1,
+      "per_category": {
+        "pacing": [
+          "P5"
+        ],
+        "goals": [],
+        "opening": []
+      }
+    }
+  ]
+}
